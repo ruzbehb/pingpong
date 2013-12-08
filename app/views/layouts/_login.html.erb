@@ -1,6 +1,12 @@
 <% if player_signed_in? %>
   <li>
-    Welcome <%= current_player.email %>
+    <% if current_player.provider = "Facebook" %>
+      <%= current_player.first_name %> 
+      <%= current_player.last_name %>
+      <%= image_tag current_player.image_url %>
+    <% else %>
+      <%= current_player.email %>
+    <% end %>
   </li>
   <li>
     <%= link_to('Logout', destroy_player_session_path, :method => :delete) %> 
@@ -9,6 +15,9 @@
 <% else %>
   <li>
     <%= link_to('Login', new_player_session_path)  %>  
+  </li>
+  <li>
+    <%= link_to "Sign in with Facebook", player_omniauth_authorize_path(:facebook) %>
   </li>
 <% end %>
 
