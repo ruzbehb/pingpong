@@ -1,11 +1,11 @@
 <% if player_signed_in? %>
   <li>
-    <% if current_player.provider = "Facebook" %>
+    <% if current_player.provider == "facebook" %>
       <%= current_player.first_name %> 
       <%= current_player.last_name %>
       <%= image_tag current_player.image_url %>
     <% else %>
-      <%= current_player.email %>
+      Welcome <%= current_player.email %>
     <% end %>
   </li>
   <li>
