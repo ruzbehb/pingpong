@@ -1,0 +1,24 @@
+<% if player_signed_in? %>
+  <li>
+    Welcome <%= current_player.email %>
+  </li>
+  <li>
+    <%= link_to('Logout', destroy_player_session_path, :method => :delete) %> 
+  </li>
+
+<% else %>
+  <li>
+    <%= link_to('Login', new_player_session_path)  %>  
+  </li>
+<% end %>
+
+<% if player_signed_in? %>
+  <li>
+    <%= link_to('Edit registration', edit_player_registration_path) %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to('Register', new_player_registration_path) %>
+  </li>
+  <% end %>
+  <%= yield %>
