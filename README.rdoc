@@ -1,27 +1,17 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is our final project at Makers Academy, and we are looking to revolutionalise the world of Ping Pong / Table Tennis.
 
-Things you may want to cover:
+The Team:
+Alexandria Lawrence - https://github.com/peawit
+Natalie - https://github.com/natalieesk
+Will Bell - https://github.com/billbell73
+Ruzbeh Bacha - https://github.com/ruzbehb
 
-* Ruby version
+More info to come...
 
-* System dependencies
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 
 Please feel free to use a different markup language if you do not plan to run
