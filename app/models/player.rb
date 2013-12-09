@@ -5,6 +5,7 @@ class Player < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+
   	player = Player.where(:provider => auth.provider, :uid => auth.uid).first
 	  unless player
 	    player = Player.create(name:auth.extra.raw_info.name,
@@ -14,10 +15,10 @@ class Player < ActiveRecord::Base
                            image_url:auth.info.image,
                            first_name:auth.info.first_name,
                            last_name:auth.info.last_name,
-                           fb_url:auth.info.Facebook,
+                           fb_url:auth.info.urls.Facebook,
                            current_location:auth.info.location,
-                           # hometown:auth.hometown.name,
-                           # sex:auth. .sex,
+                           hometown:auth.extra.raw_info.hometown.name,
+                           sex:auth.extra.raw_info.gender,
 	                         password:Devise.friendly_token[0,20]
 	                         )
 	  end
