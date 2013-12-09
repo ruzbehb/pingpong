@@ -2,19 +2,19 @@ require 'spec_helper'
 
 describe Score do
 
-	before do
-		player1 = create(:player, id: 1, email: "nat@esk.com")
-		player2 = create(:player, id: 2, email: "will@bell.com")
+	# before do
+	# 	player1 = create(:player, id: 1, email: "nat@esk.com")
+	# 	player2 = create(:player, id: 2, email: "will@bell.com")
 		
-	end
+	# end
   
 	it {should belong_to :match}
 	it {should belong_to :player}
 
 	it "knows to add a point" do
-		expect(player.)
+		# expect(player.)
 		player.wins_point
-		expect()
+		# expect()
 	end
 
 	it "knows to add a game at 11 points" do

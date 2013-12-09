@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe Match do
 
-	before do
-		player1 = create(:player, id: 1, email: "nat@esk.com")
-		player2 = create(:player, id: 2, email: "will@bell.com")
+	# before do
+	# 	player1 = create(:player, id: 1, email: "nat@esk.com")
+	# 	player2 = create(:player, id: 2, email: "will@bell.com")
 		
-	end
+	# end
 
 	it {should have_many :scores}
 	it {should have_and_belong_to_many :players}
@@ -37,6 +37,7 @@ describe Match do
 	end
 
 	it "knows which score belongs to which player" do
+		
 	end
 
 
