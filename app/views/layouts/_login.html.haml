@@ -1,6 +1,6 @@
 - if player_signed_in?
   %li
-    - if current_player.provider == "facebook"
+    - if current_player.provider != nil
       = current_player.first_name
       = current_player.last_name
       = image_tag current_player.image_url
@@ -13,6 +13,8 @@
     = link_to('Login', new_player_session_path)
   %li
     = link_to "Sign in with Facebook", player_omniauth_authorize_path(:facebook)
+  %li
+    = link_to "Sign in with Google", player_omniauth_authorize_path(:google_oauth2)
 - if player_signed_in?
   %li
     = link_to('Edit registration', edit_player_registration_path)

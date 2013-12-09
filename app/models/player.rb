@@ -33,4 +33,28 @@ class Player < ActiveRecord::Base
     end
   end
 
+  def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
+    data = access_token.info
+    player = Player.where(:provider => access_token.provider, :uid => access_token.uid ).first
+    if player
+      return player
+    else
+      registered_player = Player.where(:email => access_token.info.email).first
+      if registered_player
+        return registered_player
+      else
+        player = Player.create(name: data["name"],
+          provider:access_token.provider,
+          email: data["email"],
+          uid: access_token.uid,
+          first_name: access_token.info.first_name,
+          last_name: access_token.info.last_name,
+          image_url: access_token.info.image,
+          google_url: access_token.info.urls.Google,
+          password: Devise.friendly_token[0,20],
+        )
+      end
+   end
+end
+
 end
