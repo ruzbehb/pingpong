@@ -1,2 +1,6 @@
-player_omniauth_authorize_path(:facebook)
-= render 'devise/registrations/new'
+%nav.socialLogin
+  = link_to player_omniauth_authorize_path(:facebook) do
+    = image_tag 'facebook_login.jpg'
+  = link_to player_omniauth_authorize_path(:google_oauth2) do
+    = image_tag 'google_login.jpg'
+
