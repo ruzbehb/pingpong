@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131209172556) do
+ActiveRecord::Schema.define(version: 20131209193522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "games", force: true do |t|
     t.integer  "score_id"
-    t.integer  "points"
+    t.integer  "points",     default: 0
     t.integer  "number"
     t.datetime "created_at"
     t.datetime "updated_at"
