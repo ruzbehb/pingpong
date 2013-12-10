@@ -1,0 +1,23 @@
+%nav.formSignin
+= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+
+  %h2 Sign in
+  %i.socialSignin 
+    = link_to player_omniauth_authorize_path(:facebook) do
+      = image_tag 'facebook_login.svg'
+    = link_to player_omniauth_authorize_path(:google_oauth2) do
+      = image_tag 'google_login.svg'
+  %section.siteSignin
+    %div
+      = f.label :email
+      %br/
+      = f.email_field :email, :autofocus => true
+    %div
+      = f.label :password
+      %br/
+      = f.password_field :password
+    - if devise_mapping.rememberable?
+      %div
+        = f.check_box :remember_me
+        = f.label :remember_me
+    %div= f.submit "Sign in"

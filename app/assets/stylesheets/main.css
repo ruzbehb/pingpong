@@ -33,24 +33,6 @@ body > header {
   background: #FFF;
 }
 
-nav.social {
-  display: -webkit-flex;
-  display: flex;
-}
-
-.socialItem {
-  padding: 12px;
-}
-
-nav.registerSignin {
-  display: -webkit-flex;
-  display: flex;
-}
-
-.regItem {
-  padding-right: 15px;
-}
-
 body > main {
   min-height: calc(100% - 50px);
   background: #CCC;
@@ -63,15 +45,6 @@ body > main {
 body > footer {
   background: #000;
   color: #FFF;
-}
-
-nav.footNav {
-  display: -webkit-flex;
-  display: flex;
-}
-
-.footLinks {
-  padding-left: 20px;
 }
 
 .copyright {

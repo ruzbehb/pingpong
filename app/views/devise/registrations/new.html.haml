@@ -1,0 +1,24 @@
+%nav.formSignin
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  
+  %h2 Sign up
+  %i.socialSignin 
+    = link_to player_omniauth_authorize_path(:facebook) do
+      = image_tag 'facebook_login.svg'
+    = link_to player_omniauth_authorize_path(:google_oauth2) do
+      = image_tag 'google_login.svg'
+  %section.siteSignin
+    %div
+      = f.label :email
+      %br/
+      = f.email_field :email, :autofocus => true
+    %div
+      = f.label :password
+      %br/
+      = f.password_field :password
+    %div
+      = f.label :password_confirmation
+      %br/
+      = f.password_field :password_confirmation
+    %div= f.submit "Sign up"
