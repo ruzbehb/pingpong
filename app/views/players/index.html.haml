@@ -1,34 +1,20 @@
-- if current_player
-	.player_row
-		= link_to player_path(current_player) do
-			= image_tag current_player.image_url
-			%ul
-				= current_player.name 
-			%ul
-				Sex: 
-				= current_player.sex
-			%ul
-				Current location:
-				= current_player.current_location
-			%ul
-				Hometown:
-				= current_player.hometown
-		= yield
+.player_row
+	= render @players
 
 / - @players.delete(current_player)
 
-- @players.each do |player|
-	.player_row
-		= link_to player_path(player) do
-			= image_tag player.image_url
-			%ul
-				= player.name 
-			%ul
-				Sex: 
-				= player.sex
-			%ul
-				Current location:
-				= player.current_location
-			%ul
-				Hometown:
-				= player.hometown
+/ - @players.each do |player|
+/ 	.player_row
+/ 		= link_to player_path(player) do
+/ 			= image_tag player.image_url
+/ 			%ul
+/ 				= player.name 
+/ 			%ul
+/ 				Sex: 
+/ 				= player.sex
+/ 			%ul
+/ 				Current location:
+/ 				= player.current_location
+/ 			%ul
+/ 				Hometown:
+/ 				= player.hometown

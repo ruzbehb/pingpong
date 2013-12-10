@@ -1,7 +1,11 @@
 class PlayersController < ApplicationController
 
 	def index
-		@players = Player.all
+		@players = Player.all 
+		if current_player
+			@players -= [current_player]
+			@players = @players.unshift current_player
+		end
 	end
 
 	def show
