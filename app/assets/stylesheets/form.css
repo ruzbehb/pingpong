@@ -60,6 +60,14 @@ button {
   color: transparent;
 }
 
+button a:hover {
+  width: 80px;
+  height: 34px;
+  background-image: url('sign_up_hover.svg');
+  background-repeat: no-repeat;
+  color: transparent;
+}
+
 .field_with_errors input {
   border: solid 1px #fda63c;
 }
