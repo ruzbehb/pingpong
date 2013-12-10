@@ -19,7 +19,7 @@ describe 'player authentication' do
 	context 'player signs in' do
 
 		before do
-			FactoryGirl.create(:player)
+			FactoryGirl.create(:player1)
 		end
 
 		it 'starts a player session after the player signs in' do
@@ -36,7 +36,7 @@ describe 'player authentication' do
 	context 'player logs out' do
 
 		before do
-			login_as FactoryGirl.create(:player)
+			login_as FactoryGirl.create(:player1)
 		end
 
 		it 'kills the player session after player signs out' do

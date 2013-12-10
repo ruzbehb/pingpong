@@ -3,6 +3,7 @@ Pingpong::Application.routes.draw do
   get "home/index"
   devise_for :players, :controllers => { :omniauth_callbacks => "players/omniauth_callbacks" }
   root :to => "home#index"
+  resources :players
 
 
   # The priority is based upon order of creation: first created -> highest priority.
