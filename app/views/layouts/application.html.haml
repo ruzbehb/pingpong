@@ -20,12 +20,11 @@
           %i.socialItem= image_tag'google+.svg', data: { name: 'google+' }
       %nav.registerSignin
 
-        %a{href: "#"}
+        = link_to(new_player_registration_path) do
           %i.regItem= image_tag'register.svg', data: { name: 'register' }
-        %a{href: "#"}
+        = link_to(new_player_session_path) do
           %i.regItem= image_tag'sign_in.svg', data: { name: 'sign_in' }
     %main
-      = render 'layouts/login'
       = yield
     %footer
       %nav.footNav
