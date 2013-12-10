@@ -6,7 +6,7 @@ describe 'Matches API' do
 
     before(:all) do
       create_list(:match, 5)
-      get '/matches', {}, 'HTTP_HOST' => 'api.example.com'
+      get '/api/matches', {}, 'HTTP_HOST' => 'api.example.com'
 
       @response, @json = response, JSON.parse(response.body)
     end
