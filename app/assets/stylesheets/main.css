@@ -34,7 +34,8 @@ body > header {
 }
 
 body > main {
-  min-height: calc(100% - 50px);
+  min-height: calc(100% - 100px);
+  padding-top: 50px;
   background: #CCC;
   -webkit-justify-content: center;
   justify-content: center;

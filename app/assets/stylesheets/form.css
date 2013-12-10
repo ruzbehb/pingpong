@@ -1,12 +1,65 @@
-nav.formSignin {
+section.formContainer {
+  /*min-height: 370px;*/
+  padding: 20px 0;
+  width: 250px;
+  background: #FFF;
+  border-radius: 7px;
+  display: -webkit-flex;
+  display: flex;
+   -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+
+h2.shadowCaps {
+  text-shadow: -1px -1px 2px #CCC;
+  font-variant: small-caps;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+}
+
+i.facebookSignin {
+  display: -webkit-flex;
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
+i.googleSignin {
   display: -webkit-flex;
   display: flex;
 }
 
-i.socialSignin {
-
+p.or {
+  padding: 14px 0 14px 0;
+  text-shadow: -1px -1px 2px #CCC;
+  font-variant: small-caps;
+  font-size: 1.3em;
+  letter-spacing: 0.1em;
 }
 
-section.siteSignin {
-  
+article.siteSignin {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+h3.field {
+  padding-bottom: 8px;
+}
+
+button {
+  width: 80px;
+  height: 34px;
+  background-image: url('sign_up.svg');
+  background-repeat: no-repeat;
+  color: transparent;
+}
+
+.field_with_errors input {
+  border: solid 1px #fda63c;
 }
