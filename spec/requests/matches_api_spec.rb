@@ -20,6 +20,12 @@ describe 'Matches API' do
       expect(@response).to be_success
     end
 
+    it 'returns a json file' do
+      update_score
+      p @json
+      expect(@json['p1points']).to eq 4
+    end
+
     it 'can increment score' do
       expect { update_score }.to change { @player1.points }.by(1)
     end
