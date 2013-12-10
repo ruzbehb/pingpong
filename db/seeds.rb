@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+clubs = Club.create([{name: 'Finsbury Table Tennis Club', address: 'Finsbury Leisure Centre, Norman Street', post_code: 'EC1V 3PU'},
+										{name: 'Highbury Table Tennis Club', address: 'Highbury Grove School,
+											8 Highbury Grove, London', post_code: 'N5 2EQ'}
+										{}
+											])
