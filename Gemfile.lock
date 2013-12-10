@@ -35,6 +35,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    cliver (0.3.1)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -51,7 +52,6 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     erubis (2.7.0)
-    eventmachine (1.0.3)
     execjs (2.0.2)
     factory_girl (4.3.0)
       activesupport (>= 3.0.0)
@@ -60,14 +60,12 @@ GEM
       railties (>= 3.0.0)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
-    faye-websocket (0.7.0)
-      eventmachine (>= 0.12.0)
-      websocket-driver (>= 0.3.0)
+    geocoder (1.1.8)
+    gmaps4rails (2.1.1)
     haml (4.0.4)
       tilt
     hashie (2.0.5)
     hike (1.2.3)
-    http_parser.rb (0.5.3)
     httpauth (0.2.0)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -108,10 +106,11 @@ GEM
       omniauth (~> 1.0)
     orm_adapter (0.5.0)
     pg (0.17.0)
-    poltergeist (1.1.0)
-      capybara (~> 2.0, >= 2.0.1)
-      faye-websocket (~> 0.4, >= 0.4.4)
-      http_parser.rb (~> 0.5.3)
+    poltergeist (1.5.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      multi_json (~> 1.0)
+      websocket-driver (>= 0.2.0)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -175,9 +174,10 @@ GEM
     uglifier (2.3.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    underscore-rails (1.5.2)
     warden (1.2.3)
       rack (>= 1.0)
-    websocket-driver (0.3.0)
+    websocket-driver (0.3.1)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -190,6 +190,8 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_girl_rails
+  geocoder
+  gmaps4rails
   haml
   jbuilder (~> 1.2)
   jquery-rails
@@ -205,3 +207,4 @@ DEPENDENCIES
   shoulda-matchers
   turbolinks
   uglifier (>= 1.3.0)
+  underscore-rails
