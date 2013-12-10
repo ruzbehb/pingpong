@@ -51,6 +51,8 @@ RSpec.configure do |config|
 
   include Warden::Test::Helpers
 
+  config.include FactoryGirl::Syntax::Methods
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
