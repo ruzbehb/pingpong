@@ -15,7 +15,9 @@ describe 'listing all players in the database' do
 
 		it 'will show users own profile on top of the page' do
 			visit players_path
-			expect(page).to have_content "Ruzbeh Bacha-ta"
+			first_player = first('.player_row')
+			
+			expect(first_player).to have_content "Ruzbeh Bacha-ta"
 		end
 
 		it 'will list all the players in the database' do
