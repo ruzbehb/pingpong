@@ -1,0 +1,26 @@
+nav.social {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.socialItem {
+  padding: 12px;
+}
+
+nav.registerSignin {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.regItem {
+  padding-right: 15px;
+}
+
+nav.footNav {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.footLinks {
+  padding-left: 20px;
+}

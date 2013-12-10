@@ -254,4 +254,6 @@ Devise.setup do |config|
 
   config.omniauth :facebook, ENV["FB_PINGPONG_APP_ID"], ENV["FB_PINGPONG_APP_SECRET"]
 
+  config.omniauth :google_oauth2, ENV["GOOGLE_PINGPONG_CLIENT_ID"], ENV["GOOGLE_PINGPONG_CLIENT_SECRET"], { access_type: "offline", approval_prompt: "" }
+
 end

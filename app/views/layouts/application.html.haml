@@ -1,0 +1,47 @@
+!!!
+%html
+  %head
+    %title Ping Pong Pros
+    = stylesheet_link_tag 'reset'
+    = stylesheet_link_tag 'main'
+    = stylesheet_link_tag 'nav'
+    = stylesheet_link_tag 'form'
+    = csrf_meta_tag
+    %link{href: "http://fonts.googleapis.com/css?family=Muli", rel: "stylesheet", type: "text/css"}/
+  %body
+    %header
+      %nav.home
+        %a{href: "#"}
+          %i.logo= image_tag 'logo.svg', data: { name: 'logo' }
+      %nav.social
+        %a{href: "#"}
+          %i.socialItem= image_tag'twitter.svg', data: { name: 'twitter' }
+        %a{href: "#"}
+          %i.socialItem= image_tag'facebook.svg', data: { name: 'facebook' }
+        %a{href: "#"}
+          %i.socialItem= image_tag'google+.svg', data: { name: 'google+' }
+      %nav.registerSignin
+
+        = link_to(new_player_registration_path) do
+          %i.regItem= image_tag'register.svg', data: { name: 'register' }
+        = link_to(new_player_session_path) do
+          %i.regItem= image_tag'sign_in.svg', data: { name: 'sign_in' }
+    %main
+      = yield
+    %footer
+      %nav.footNav
+        %a{href: "#"}
+          %i.footLinks= image_tag 'home.svg', data: { name: 'home' }
+        %a{href: "#"}
+          %i.footLinks= image_tag 'about.svg', data: { name: 'about' }
+        %a{href: "#"}
+          %i.footLinks= image_tag 'contact.svg', data: { name: 'contact' }
+        %a{href: "#"}
+          %i.footLinks= image_tag 'cookies.svg', data: { name: 'cookies' }
+      %aside.copyright
+        %p
+          \©
+          %span.orangeText
+            %a{href: "#"} Ping Pong Pros
+          2013. All rights reserved.
+    = javascript_include_tag 'application'
