@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131209154842) do
+ActiveRecord::Schema.define(version: 20131209193522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: true do |t|
+    t.integer  "score_id"
+    t.integer  "points",     default: 0
+    t.integer  "number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "games", ["score_id"], name: "index_games_on_score_id", using: :btree
+
+  create_table "matches", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "matches_players", id: false, force: true do |t|
+    t.integer "match_id",  null: false
+    t.integer "player_id", null: false
+  end
 
   create_table "players", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -44,5 +64,15 @@ ActiveRecord::Schema.define(version: 20131209154842) do
 
   add_index "players", ["email"], name: "index_players_on_email", unique: true, using: :btree
   add_index "players", ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true, using: :btree
+
+  create_table "scores", force: true do |t|
+    t.integer  "match_id"
+    t.integer  "player_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "scores", ["match_id"], name: "index_scores_on_match_id", using: :btree
+  add_index "scores", ["player_id"], name: "index_scores_on_player_id", using: :btree
 
 end

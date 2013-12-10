@@ -4,6 +4,9 @@ class Player < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
+  has_and_belongs_to_many :matches
+  has_many :scores
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
 
   	player = Player.where(:provider => auth.provider, :uid => auth.uid).first
