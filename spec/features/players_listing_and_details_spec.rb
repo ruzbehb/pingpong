@@ -35,4 +35,14 @@ describe 'listing all players in the database' do
 
 	end
 
+	context 'player profile' do
+
+		it 'lists the correct player profile' do
+			visit players_path
+			click_on "Ruzbeh"
+			expect(page).to have_content "Ruzbeh Bacha-ta"
+		end
+
+	end
+
 end
