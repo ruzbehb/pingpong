@@ -2,18 +2,25 @@ require 'spec_helper'
 
 describe 'listing all players in the database' do
 
+	before do
+			@player1 = FactoryGirl.create(:player1)
+			@player2 = FactoryGirl.create(:player2)
+	end
+
 	context 'user logged in' do
 
 		before do
-			login_as FactoryGirl.create(:player1)
+			login_as @player1
 		end
 
 		it 'will show users own profile on top of the page' do
-
-
+			visit players_path
+			expect(page).to have_content "Ruzbeh Bacha-ta"
 		end
 
 		it 'will list all the players in the database' do
+			visit players_path
+			expect(page).to have_content "Will Bill"
 
 		end
 
@@ -22,7 +29,8 @@ describe 'listing all players in the database' do
 	context 'no user signed in' do
 
 		it 'will list all the players in the database' do
-
+			visit players_path
+			expect(page).to have_content "Will Bill"
 		end
 
 	end
