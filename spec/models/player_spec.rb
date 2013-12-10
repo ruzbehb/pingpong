@@ -5,28 +5,28 @@ describe Player do
 	it {should have_many :scores}
 	it {should have_and_belong_to_many :matches}
 
-	it "knows it's won" do
+	xit "knows it's won" do
 	end
 
-	it "knows it's lost" do
+	xit "knows it's lost" do
 	end
 
-	it "has a name" do
+	xit "has a name" do
 	end
 
-	it "can be linked to a profile" do
+	xit "can be linked to a profile" do
 	end
 
-	it "knows its score for a particular game" do
+	xit "knows its score for a particular game" do
 	end
 
-	it "knows it's serving" do
+	xit "knows it's serving" do
 	end
 
-	it "knows which end it's playing" do
+	xit "knows which end it's playing" do
 	end
 
-	it "should have an opponent" do
+	xit "should have an opponent" do
 	end
 
 
