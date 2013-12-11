@@ -64,4 +64,3 @@ gem 'haml'
 
 gem 'gmaps4rails'
 gem 'geocoder'
-gem 'underscore-rails'

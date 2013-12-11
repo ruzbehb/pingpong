@@ -1,9 +1,10 @@
 - @clubs.each do |club|
+	%section.club_rows
 	= link_to club_path(club) do
-		.club_row
+		.club_name
 			= club.name
-			= club.address
-			= club.post_code
+		= club.address
+		= club.post_code
 
 
 %div{style: "width: 800px;"}
