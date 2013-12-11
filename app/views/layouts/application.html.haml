@@ -14,13 +14,14 @@
         %a{href: "/"}
           %i.logo= image_tag 'logo.svg', data: { name: 'logo' }
       %nav.social
+        %i.fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/pingpongpros", "data-layout" => "button_count", "data-share" => "false", "data-show-faces" => "false"}
+        %a{href: "#"}
+          %i.socialItem= image_tag'facebook.svg', data: { name: 'facebook' }
         %a{href: "#"}
           %i.socialItem= image_tag'twitter.svg', data: { name: 'twitter' }
         %a{href: "#"}
-          %i.socialItem= image_tag'facebook.svg', data: { name: 'facebook' }
-        .fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/pingpongpros", "data-layout" => "standard", "data-share" => "false", "data-show-faces" => "false"}
-        %a{href: "#"}
           %i.socialItem= image_tag'google+.svg', data: { name: 'google+' }
+
         %nav.registerSignin
           - if !player_signed_in?
             = render 'users/signin', resource_name: :player, resource: Player.new
