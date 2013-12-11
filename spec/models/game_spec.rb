@@ -14,14 +14,8 @@ describe Game do
 			game.award_point
 			expect(game.points).to eq 1
 		end
+		
 	end
-
-	# it "knows when it's ended" do
-	# 	allow(score).to receive(:game_won)
-
-	# 	11.times { game.award_point }
-	# 	expect(game.completed?).to be_true
-	# end
 
 	it "must have a number assigned to it" do
 		game.number = nil
@@ -29,12 +23,6 @@ describe Game do
     game.number = 1
     expect(game).to have(:no).errors_on(:number)
 	end
-
-	# it 'notifies the Score when the game finishes' do
-	# 	expect(score).to receive(:game_won)
-
-	# 	11.times { game.award_point }
-	# end
 
 	it "can delete a point" do
 		game.points = 9
@@ -58,9 +46,6 @@ describe Game do
 	it "let's match know a point has been deleted" do
 		game.delete_point
 		expect(:match_.to receive(:point_change))
-
 	end
-
-
 
 end

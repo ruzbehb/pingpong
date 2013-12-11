@@ -7,12 +7,6 @@ describe Match do
 	let (:player1) { match.players.first }
 	let (:player2) { match.players.last }
 
-	let (:score1) { match.scores.first }
-	let (:score2) { match.scores.last }
-
-	# let (:player1) { match.players.first }
-	# let (:player1) { match.players.first }
-
 	it {should have_many :scores}
 	it {should have_and_belong_to_many :players}
 	it {should have_many(:games).through(:scores)}
@@ -47,7 +41,7 @@ describe Match do
 
 	it "lets the score know to start a new game" do
 		expect(example_game(1,2)).to be_nil
-		
+
 		example_game(1,1).points = 9
 		example_game(1,1).award_point
 		example_game(2,1).points = 11

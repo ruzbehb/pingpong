@@ -15,7 +15,6 @@ class Score < ActiveRecord::Base
 	def new_game
 		prev_game = games.last
 		self.games << Game.create(number: prev_game.number + 1)
-		# match.update_game_number
 	end
 
 	def game_won
