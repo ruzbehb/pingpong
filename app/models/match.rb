@@ -50,7 +50,7 @@ class Match < ActiveRecord::Base
 
 	def point_change
 		# raise 'made it!'
-		raise([current_points_for(1), current_points_for(2)].inspect)
+		# raise([current_points_for(1), current_points_for(2)].inspect)
 		if current_points_for(1) > 9 && current_points_for(2) > 9 && current_points_for(1) > current_points_for(2) + 1
 			score(1).game_won
 		elsif current_points_for(1) > 9 && current_points_for(2) > 9 && current_points_for(2) > current_points_for(1) + 1

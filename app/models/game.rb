@@ -4,6 +4,7 @@ class Game < ActiveRecord::Base
 
 	def award_point
 		self.points += 1
+		save
 		score.match.point_change
 		# raise'hello'
 		# match.update_game_number

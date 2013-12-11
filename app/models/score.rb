@@ -9,7 +9,7 @@ class Score < ActiveRecord::Base
 
 	def add_first_game
 		self.games << Game.create(number: 1)
-		self.won_games = 0
+		# self.won_games = 0
 	end
 
 	def new_game
@@ -19,7 +19,8 @@ class Score < ActiveRecord::Base
 	end
 
 	def game_won
-		self.won_games +=1
+		self.won_games = (won_games || 0) + 1
+
 		if match_finished?
 			match.find_winner
 		else

@@ -47,13 +47,14 @@ describe Match do
 
 	it "lets the score know to start a new game" do
 		expect(example_game(1,2)).to be_nil
-		example_game(1,1).points = 10
-		# puts example_game(1,1).points 
+		
+		example_game(1,1).points = 9
+		example_game(1,1).award_point
 		example_game(2,1).points = 11
-		# puts example_game(2,1).points 
-		example_game(2,1).award_point	
-		# puts example_game(2,1).points 
-		# raise(example_game(2,1).points.inspect)
+		example_game(2,1).award_point
+
+		match.scores.each(&:reload)
+
 		expect(example_game(2,2)).not_to be_nil
 		expect(example_game(1,2)).not_to be_nil
 	end
