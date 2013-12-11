@@ -2,7 +2,11 @@ class Player < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+         :recoverable, :rememberable, :trackable, :omniauthable #, :validatable
+
+  validates :email, presence: { message: '*please complete' }
+  validates :password, presence: { message: '*please complete' }
+  validates :password_confirmation, presence: { message: '*please complete' }
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
 

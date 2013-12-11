@@ -7,7 +7,12 @@
     = stylesheet_link_tag 'nav'
     = stylesheet_link_tag 'form'
     = csrf_meta_tag
-    %link{href: "http://fonts.googleapis.com/css?family=Muli", rel: "stylesheet", type: "text/css"}/
+    %link{href: "http://fonts.googleapis.com/css?family=Muli:400,400italic'", rel: "stylesheet", type: "text/css"}/
+    / %link{href: "/fancybox/source/jquery.fancybox.css?v=2.1.5", media: "screen", rel: "stylesheet", type: "text/css"}/
+    / %link{href: "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5", media: "screen", rel: "stylesheet", type: "text/css"}/
+    / %script{src: "/fancybox/lib/jquery.mousewheel-3.0.6.pack.js", type: "text/javascript"}
+    / %script{src: "/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", type: "text/javascript"}
+
   %body
     %header
       %nav.home
@@ -24,7 +29,7 @@
 
         = link_to(new_player_registration_path) do
           %i.regItem= image_tag'register.svg', data: { name: 'register' }
-        = link_to(new_player_session_path) do
+        = link_to(new_player_session_path, class: 'signIn') do
           %i.regItem= image_tag'sign_in.svg', data: { name: 'sign_in' }
     %main
       = yield

@@ -1,6 +1,12 @@
+section.formWrapper {
+  width: 100%;
+  height: 100%;
+/*  position: fixed;*/
+}
+
 section.formContainer {
   /*min-height: 370px;*/
-  padding: 20px 0;
+  padding: 30px 0;
   width: 250px;
   background: #FFF;
   border-radius: 7px;
@@ -10,14 +16,16 @@ section.formContainer {
   justify-content: center;
   -webkit-align-content: center;
   align-content: center;
+  -webkit-align-items: center;
   align-items: center;
 }
 
 
 h2.shadowCaps {
   text-shadow: -1px -1px 2px #CCC;
-  font-variant: small-caps;
-  font-size: 1.5em;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.3em;
   letter-spacing: 0.1em;
 }
 
@@ -36,7 +44,8 @@ i.googleSignin {
 p.or {
   padding: 14px 0 14px 0;
   text-shadow: -1px -1px 2px #CCC;
-  font-variant: small-caps;
+  text-transform: uppercase;
+  text-align: center;
   font-size: 1.3em;
   letter-spacing: 0.1em;
 }
@@ -46,28 +55,70 @@ article.siteSignin {
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
+  align-items: center;
 }
 
 h3.field {
   padding-bottom: 8px;
 }
 
-button {
+button.signUp {
   width: 80px;
   height: 34px;
   background-image: url('sign_up.svg');
   background-repeat: no-repeat;
   color: transparent;
+  margin: 0 auto;
+  display: block;
 }
 
-button a:hover {
+button.signUp:hover {
+  background-image: url('sign_up_hover.svg');
+}
+
+button.signIn {
   width: 80px;
   height: 34px;
-  background-image: url('sign_up_hover.svg');
+  background-image: url('login.svg');
   background-repeat: no-repeat;
   color: transparent;
+  margin: 0 auto;
+  display: block;
+}
+
+button.signIn:hover {
+  background-image: url('login_hover.svg');
+}
+
+.fieldContainer label {
+  display: block;
+  width: 100%;
+}
+
+.field input:not([type=checkbox]) {
+  width: 100%;
+}
+
+.field.tooBig input {
+  width: auto
 }
 
 .field_with_errors input {
   border: solid 1px #fda63c;
+}
+
+.error {
+  color: red;
+  display: block;
+}
+
+.rememberMe {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.formContainer.loginModal {
+  /*display: none;*/
 }
