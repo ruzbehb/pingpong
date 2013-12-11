@@ -3,7 +3,8 @@
 %section.formContainer.loginModal
 
   = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-
+    %i.close
+      = image_tag 'close.svg', data: { name: 'close' }
     %h2.shadowCaps Sign in
     %i.facebookSignin
       = link_to player_omniauth_authorize_path(:facebook) do
@@ -29,4 +30,4 @@
           %aside.rememberMe
             = f.check_box :remember_me
             = f.label :remember_me
-        = f.button class: 'signIn'
+        = f.button class: 'submitSignIn'

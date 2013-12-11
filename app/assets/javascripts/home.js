@@ -11,7 +11,7 @@ $(function() {
     $(this).attr('src', imgSrc)
   });
 
-  $modal = $('.loginModal');
+  $modal = $('.loginModal, .registerModal');
 
   $modal.css({'margin-left': -($modal.width() / 2) + 'px'})
   $modal.css({'margin-top': -($modal.height() / 2) + 'px'})
@@ -20,5 +20,17 @@ $(function() {
     event.preventDefault();
     $('.loginOverlay, .loginModal').addClass('active');
   })
+
+  $('.signUp').on('click', function(event) {
+    event.preventDefault();
+    $('.loginOverlay, .registerModal').addClass('active');
+  })
+
+  $('.close').on('click', function(event) {
+    event.preventDefault();
+    $('.loginOverlay').removeClass('active');
+    $(this).closest('.formContainer').removeClass('active');
+  })
+
 
 });

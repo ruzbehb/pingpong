@@ -1,9 +1,3 @@
-section.loginModal {
-  position: fixed;
-  left: 50%;
-  top: 40%;
-}
-
 .loginOverlay {
   display: none;
   opacity: 0;
@@ -22,7 +16,28 @@ section.loginModal {
   opacity: 1;
 }
 
-section.formContainer {
+.formContainer.loginModal, .formContainer.registerModal  {
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.signInPage .loginModal, .signUpPage .registerModal {
+  display: flex;
+  opacity: 1;
+}
+
+.formContainer.loginModal.active, .formContainer.registerModal.active {
+  opacity: 1;
+  display: flex;
+  visibility: visible;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.formContainer {
   /*min-height: 370px;*/
   padding: 30px 0;
   width: 250px;
@@ -38,6 +53,13 @@ section.formContainer {
   align-items: center;
 }
 
+.close {
+  display: block;
+  position: relative;
+  text-align: right;
+  margin-top: -43px;
+  margin-right: -43px;
+}
 
 h2.shadowCaps {
   text-shadow: -1px -1px 2px #CCC;
@@ -73,6 +95,7 @@ article.siteSignin {
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
+  -webkit-align-items: center;
   align-items: center;
 }
 
@@ -80,7 +103,7 @@ h3.field {
   padding-bottom: 8px;
 }
 
-button.signUp {
+button.submitSignUp {
   width: 80px;
   height: 34px;
   background-image: url('sign_up.svg');
@@ -90,11 +113,11 @@ button.signUp {
   display: block;
 }
 
-button.signUp:hover {
+button.submitSignUp:hover {
   background-image: url('sign_up_hover.svg');
 }
 
-button.signIn {
+button.submitSignIn {
   width: 80px;
   height: 34px;
   background-image: url('login.svg');
@@ -104,7 +127,7 @@ button.signIn {
   display: block;
 }
 
-button.signIn:hover {
+button.submitSignIn:hover {
   background-image: url('login_hover.svg');
 }
 
@@ -132,16 +155,4 @@ button.signIn:hover {
   display: flex;
   -webkit-align-items: center;
   align-items: center;
-}
-
-.loginModal {
-  display: none;
-  opacity: 0;
-}
-
-.loginModal.active {
-  opacity: 1;
-  display: flex;
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease;
 }
