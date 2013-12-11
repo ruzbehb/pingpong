@@ -1,8 +1,10 @@
 - if current_player.provider != nil
-  = current_player.first_name
-  = current_player.last_name
+  .playerName
+    = current_player.first_name
+    = current_player.last_name
   .profile_image
     = image_tag current_player.image_url 
 - else
   Welcome #{current_player.email}
-= link_to('Logout', destroy_player_session_path, :method => :delete)
+%nav.signOut
+  = link_to('Logout', destroy_player_session_path, :method => :delete)

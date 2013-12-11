@@ -19,6 +19,15 @@ nav.registerSignin {
   display: flex;
 }
 
+nav.signOut {
+  padding-left: 20px;
+  padding-right: 15px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
 .regItem {
   padding-right: 15px;
 }

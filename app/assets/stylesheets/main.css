@@ -60,3 +60,11 @@ body > footer {
   height: 50px;
   width: 50px;
 }
+
+.playerName {
+  padding-right: 30px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
