@@ -1,8 +1,8 @@
-%section.formContainer
+%section.formContainer.registerModal
 
   = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-    / devise_error_messages!
-    
+    %i.close
+      = image_tag 'close.svg', data: { name: 'close' }
     %h2.shadowCaps Sign up
     %i.facebookSignin
       = link_to player_omniauth_authorize_path(:facebook) do
@@ -13,25 +13,20 @@
     %p.or
       or
     %article.siteSignin
-      %h3.field
-        = f.label :email
-        %br/
-        = f.email_field :email, :autofocus => true
-        - if @player.errors[:password].any?
-          %br
-          = @player.errors[:password].join(', ')
-      %h3.field
-        = f.label :password
-        %br/
-        = f.password_field :password
-        - if @player.errors[:password].any?
-          %br
-          = @player.errors[:password].join(', ')
-      %h3.field
-        = f.label :password_confirmation
-        %br/
-        = f.password_field :password_confirmation
-        - if @player.errors[:password].any?
-          %br
-          = @player.errors[:password].join(', ')
-      %h3.field= f.button 
+      %section.fieldContainer
+        %h3.field
+          = f.label :email
+          = f.email_field :email, :autofocus => true
+          - if resource.errors[:email].any?
+            %span.error= resource.errors[:email].join(', ')
+        %h3.field
+          = f.label :password
+          = f.password_field :password
+          - if resource.errors[:password].any?
+            %span.error= resource.errors[:password].join(', ')
+        %h3.field
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation
+          - if resource.errors[:password].any?
+            %span.error= resource.errors[:password].join(', ')
+        = f.button class: 'submitSignUp'

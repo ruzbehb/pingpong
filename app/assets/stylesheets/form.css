@@ -1,6 +1,45 @@
-section.formContainer {
+.loginOverlay {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.loginOverlay.active {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  display: block;
+  opacity: 1;
+}
+
+.formContainer.loginModal, .formContainer.registerModal  {
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.signInPage .loginModal, .signUpPage .registerModal {
+  display: flex;
+  opacity: 1;
+}
+
+.formContainer.loginModal.active, .formContainer.registerModal.active {
+  opacity: 1;
+  display: flex;
+  visibility: visible;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.formContainer {
   /*min-height: 370px;*/
-  padding: 20px 0;
+  padding: 30px 0;
   width: 250px;
   background: #FFF;
   border-radius: 7px;
@@ -10,14 +49,23 @@ section.formContainer {
   justify-content: center;
   -webkit-align-content: center;
   align-content: center;
+  -webkit-align-items: center;
   align-items: center;
 }
 
+.close {
+  display: block;
+  position: relative;
+  text-align: right;
+  margin-top: -43px;
+  margin-right: -43px;
+}
 
 h2.shadowCaps {
   text-shadow: -1px -1px 2px #CCC;
-  font-variant: small-caps;
-  font-size: 1.5em;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.3em;
   letter-spacing: 0.1em;
 }
 
@@ -36,7 +84,8 @@ i.googleSignin {
 p.or {
   padding: 14px 0 14px 0;
   text-shadow: -1px -1px 2px #CCC;
-  font-variant: small-caps;
+  text-transform: uppercase;
+  text-align: center;
   font-size: 1.3em;
   letter-spacing: 0.1em;
 }
@@ -46,28 +95,64 @@ article.siteSignin {
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
 h3.field {
   padding-bottom: 8px;
 }
 
-button {
+button.submitSignUp {
   width: 80px;
   height: 34px;
   background-image: url('sign_up.svg');
   background-repeat: no-repeat;
   color: transparent;
+  margin: 0 auto;
+  display: block;
 }
 
-button a:hover {
+button.submitSignUp:hover {
+  background-image: url('sign_up_hover.svg');
+}
+
+button.submitSignIn {
   width: 80px;
   height: 34px;
-  background-image: url('sign_up_hover.svg');
+  background-image: url('login.svg');
   background-repeat: no-repeat;
   color: transparent;
+  margin: 0 auto;
+  display: block;
+}
+
+button.submitSignIn:hover {
+  background-image: url('login_hover.svg');
+}
+
+.fieldContainer label {
+  display: block;
+  width: 100%;
+}
+
+.field input:not([type=checkbox]) {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .field_with_errors input {
   border: solid 1px #fda63c;
+}
+
+.error {
+  color: red;
+  display: block;
+}
+
+.rememberMe {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
 }

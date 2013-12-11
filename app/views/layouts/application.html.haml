@@ -7,7 +7,7 @@
     = stylesheet_link_tag 'nav'
     = stylesheet_link_tag 'form'
     = csrf_meta_tag
-    %link{href: "http://fonts.googleapis.com/css?family=Muli", rel: "stylesheet", type: "text/css"}/
+    %link{href: "http://fonts.googleapis.com/css?family=Muli:400,400italic'", rel: "stylesheet", type: "text/css"}/
   %body
     %header
       %nav.home
@@ -23,9 +23,9 @@
           %i.socialItem= image_tag'google+.svg', data: { name: 'google+' }
       %nav.registerSignin
 
-        = link_to(new_player_registration_path) do
+        = link_to(new_player_registration_path, class: 'signUp') do
           %i.regItem= image_tag'register.svg', data: { name: 'register' }
-        = link_to(new_player_session_path) do
+        = link_to(new_player_session_path, class: 'signIn') do
           %i.regItem= image_tag'sign_in.svg', data: { name: 'sign_in' }
     %main
       = yield
