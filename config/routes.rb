@@ -6,6 +6,8 @@ Pingpong::Application.routes.draw do
   resources :players
   resources :clubs
 
+  resources :matches
+
 
   namespace :api, defaults: { format: :json } do
     resources :matches
