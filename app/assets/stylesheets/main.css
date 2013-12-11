@@ -55,3 +55,8 @@ body > footer {
 .orangeText a {
   color: #FDA63C;
 }
+
+.profile_image img {
+  height: 40px;
+  width: 40px;
+}

@@ -11,7 +11,7 @@
   %body
     %header
       %nav.home
-        %a{href: "#"}
+        %a{href: "/"}
           %i.logo= image_tag 'logo.svg', data: { name: 'logo' }
       %nav.social
         %a{href: "#"}
@@ -21,12 +21,16 @@
         .fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/pingpongpros", "data-layout" => "standard", "data-share" => "false", "data-show-faces" => "false"}
         %a{href: "#"}
           %i.socialItem= image_tag'google+.svg', data: { name: 'google+' }
-      %nav.registerSignin
-
-        = link_to(new_player_registration_path, class: 'signUp') do
-          %i.regItem= image_tag'register.svg', data: { name: 'register' }
-        = link_to(new_player_session_path, class: 'signIn') do
-          %i.regItem= image_tag'sign_in.svg', data: { name: 'sign_in' }
+        %nav.registerSignin
+          - if !player_signed_in?
+            = render 'users/signin', resource_name: :player, resource: Player.new
+            = render 'users/register', resource_name: :player, resource: Player.new
+            = link_to(new_player_registration_path, class: 'signUp') do
+              %i.regItem= image_tag'register.svg', data: { name: 'register' }
+            = link_to(new_player_session_path, class: 'signIn') do
+              %i.regItem= image_tag'sign_in.svg', data: { name: 'sign_in' }
+          - else
+            = render 'layouts/signedin'
     %main
       = yield
     %footer
