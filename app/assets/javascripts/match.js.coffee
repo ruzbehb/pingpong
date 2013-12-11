@@ -2,21 +2,13 @@ $ ->
 
 	id = $('.match').data('id')
 
-	# $("#p1-back").click ->
- #    $.patch "/api/matches/#{id}",
- #    {
- #      player_id: 12,
- #      decrement: true
- #    },
- #    (data,status) ->
- #      alert("P1points: " + data.p1points + "\nStatus: " + status)
-
-
-	$("#p1-back").click ->
-    $.post "/api/matches",
-    {
+	$("#p1-back").on 'click', (e) ->
+    e.preventDefault()
+    $.ajax "/api/matches/#{id}",
+    data: {
       player_id: 12,
       decrement: true
     },
-    (data,status) ->
-      alert("P1points: " + data.p1points + "\nStatus: " + status)
+    success: (data,status) ->
+    	$("#p1-points").text(data.p1points)
+    type: 'PATCH'
