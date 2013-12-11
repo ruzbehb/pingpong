@@ -3,9 +3,7 @@ require 'spec_helper'
 describe Score do
 
 	let(:match) {mock_model('Match')}
-	let(:player) {mock_model('Player')}
-	let(:score) {Score.create(match: match, player: player)}
-	let(:game) {mock_model('Game', :score => score, :points => 0, :number => 1)}
+	let(:score) {Score.create(match: match)}
 
 	it {should belong_to :match}
 	it {should belong_to :player}
@@ -29,59 +27,22 @@ describe Score do
 		expect(score.games.count).to eq 2
 	end
 
-	xit "knows to add a game at 11 points" do
-	end
-
-	xit "knows to add a game when one player's points is greater than 10 and 2 more than the other player" do
-	end
-
-	it "knows to finish match at 2-1" do
-		@lost_games = 1
-		@won_games = 2
+	it "knows to finish match after 2 wins" do
+		score.game_won
+		allow(match).to receive(:find_winner)
+		score.game_won
 		expect(score.match_finished?).to be_true
 	end
 
-	it "knows to finish match at 1-2" do
-		@lost_games = 2
-		@won_games = 1
-		expect(score.match_finished?).to be_true
-	end
-
-	it "knows to finish match at 2-0" do
-		@won_games = 2
-		expect(score.match_finished?).to be_true
-	end
-
-	it "knows to finish match at 0-2" do
-		@lost_games = 2
-		expect(score.match_finished?).to be_true
+	it "knows not to finish match at 1-1" do
+		expect(score.match_finished?).to be_false
+		score.game_won
 	end
 
 	it "lets the match know it's over" do
-		
 		score.game_won
-		expect(match).to receive(:match_over)
-		allow(player).to receive(:match_won)
+		expect(match).to receive(:find_winner)
 		score.game_won
-	end
-
-	it "lets the player know it's won" do
-		
-		score.game_won
-		allow(match).to receive(:match_over)
-		expect(player).to receive(:match_won)
-		score.game_won
-	end
-
-	it "lets the player know it's lost" do
-		score.game_lost
-		allow(match).to receive(:match_over)
-		expect(player).to receive(:match_lost)
-		score.game_lost
-		
-	end
-
-	xit "knows it has an opponent" do
 	end
 
 	it "counts won games" do

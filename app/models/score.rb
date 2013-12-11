@@ -5,43 +5,36 @@ class Score < ActiveRecord::Base
 	belongs_to :match
 	after_create :add_first_game
 
-	attr_accessor :won_games, :lost_games
-
-
-	def new_game
-		prev_game = games.last
-
-		self.games << Game.create(number: prev_game.number + 1)
-	end
+	attr_accessor :won_games
 
 	def add_first_game
 		self.games << Game.create(number: 1)
-		@lost_games = 0
-		@won_games = 0
+		# self.won_games = 0
+	end
+
+	def new_game
+		prev_game = games.last
+		self.games << Game.create(number: prev_game.number + 1)
+		# match.update_game_number
 	end
 
 	def game_won
-		@won_games +=1
-		if @won_games == 2
-			match.match_over
-			player.match_won
+		self.won_games = (won_games || 0) + 1
+
+		if match_finished?
+			match.find_winner
 		else
 			new_game
-		end
-	end
-
-	def game_lost
-		@lost_games +=1
-		if @lost_games == 2
-			match.match_over
-			player.match_lost
-		else
-			new_game	
+			match.update_game_number
 		end
 	end
 
 	def match_finished?
-		@lost_games || @won_games == 2
+		won_games == 2
+	end
+
+	def current_game
+		self.games.last
 	end
 
 end
