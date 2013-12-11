@@ -1,31 +1,32 @@
-%section.formWrapper
-  %section.formContainer.loginModal
+%section.loginOverlay
 
-    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+%section.formContainer.loginModal
 
-      %h2.shadowCaps Sign in
-      %i.facebookSignin
-        = link_to player_omniauth_authorize_path(:facebook) do
-          = image_tag 'facebook_login.svg', data: { name: 'facebook_login' }
-      %i.googleSignin
-        = link_to player_omniauth_authorize_path(:google_oauth2) do
-          = image_tag 'google_login.svg', data: { name: 'google_login' }
-      %p.or
-        or
-      %article.siteSignin
-        %section.fieldContainer
-          %h3.field.tooBig
-            = f.label :email
-            = f.email_field :email, :autofocus => true
-            - if resource.errors[:email].any?
-              %span.error= resource.errors[:email].join(', ')
-          %h3.field.tooBig
-            = f.label :password
-            = f.password_field :password
-            - if alert
-              %span.error= alert
-          %h3.field
-            %aside.rememberMe
-              = f.check_box :remember_me
-              = f.label :remember_me
-          = f.button class: 'signIn'
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+
+    %h2.shadowCaps Sign in
+    %i.facebookSignin
+      = link_to player_omniauth_authorize_path(:facebook) do
+        = image_tag 'facebook_login.svg', data: { name: 'facebook_login' }
+    %i.googleSignin
+      = link_to player_omniauth_authorize_path(:google_oauth2) do
+        = image_tag 'google_login.svg', data: { name: 'google_login' }
+    %p.or
+      or
+    %article.siteSignin
+      %section.fieldContainer
+        %h3.field
+          = f.label :email
+          = f.email_field :email, :autofocus => true
+          - if resource.errors[:email].any?
+            %span.error= resource.errors[:email].join(', ')
+        %h3.field
+          = f.label :password
+          = f.password_field :password
+          - if alert
+            %span.error= alert
+        %h3.field
+          %aside.rememberMe
+            = f.check_box :remember_me
+            = f.label :remember_me
+        = f.button class: 'signIn'

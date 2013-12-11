@@ -1,7 +1,25 @@
-section.formWrapper {
+section.loginModal {
+  position: fixed;
+  left: 50%;
+  top: 40%;
+}
+
+.loginOverlay {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-/*  position: fixed;*/
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.loginOverlay.active {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  display: block;
+  opacity: 1;
 }
 
 section.formContainer {
@@ -97,10 +115,7 @@ button.signIn:hover {
 
 .field input:not([type=checkbox]) {
   width: 100%;
-}
-
-.field.tooBig input {
-  width: auto
+  box-sizing: border-box;
 }
 
 .field_with_errors input {
@@ -119,6 +134,14 @@ button.signIn:hover {
   align-items: center;
 }
 
-.formContainer.loginModal {
-  /*display: none;*/
+.loginModal {
+  display: none;
+  opacity: 0;
+}
+
+.loginModal.active {
+  opacity: 1;
+  display: flex;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
 }

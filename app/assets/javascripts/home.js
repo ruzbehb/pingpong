@@ -11,37 +11,14 @@ $(function() {
     $(this).attr('src', imgSrc)
   });
 
-  // $('.signIn').on('click', function(event) {
-  //   event.preventDefault();
-  //   $('.loginModal').show();
-  // })
+  $modal = $('.loginModal');
+
+  $modal.css({'margin-left': -($modal.width() / 2) + 'px'})
+  $modal.css({'margin-top': -($modal.height() / 2) + 'px'})
+
+  $('.signIn').on('click', function(event) {
+    event.preventDefault();
+    $('.loginOverlay, .loginModal').addClass('active');
+  })
 
 });
-
-
-
-// $(function() {
-
-//   $(".fancybox").fancybox();
-
-//   $("a.register").fancybox({
-//     // 'width' : 404,
-//     // 'height': 400,
-//     'autoScale' : false,
-//     'transitionIn' : 'none',
-//     'transitionOut' : 'none',
-//     'type' : 'iframe',
-//     'scrolling' : 'no'
-//   });
-
-//   $("a.signIn").fancybox({
-//     // 'width' : 404,
-//     // 'height': 400,
-//     'autoScale' : false,
-//     'transitionIn' : 'none',
-//     'transitionOut' : 'none',
-//     'type' : 'iframe',
-//     'scrolling' : 'no'
-//   });
-
-// });
