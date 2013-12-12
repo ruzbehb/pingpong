@@ -5,7 +5,7 @@ class Score < ActiveRecord::Base
 	belongs_to :match
 	after_create :add_first_game
 
-	attr_accessor :won_games
+	# attr_accessor :won_games
 
 	def add_first_game
 		self.games << Game.create(number: 1)
@@ -15,7 +15,6 @@ class Score < ActiveRecord::Base
 	def new_game
 		prev_game = games.last
 		self.games << Game.create(number: prev_game.number + 1)
-		# match.update_game_number
 	end
 
 	def game_won
