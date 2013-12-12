@@ -1,6 +1,11 @@
-- @clubs.each do |club|
-	= link_to club_path(club) do
-		.club_row
-			= club.name
-			= club.address
-			= club.post_code
+%h1
+	Clubs in London
+
+= render 'clubs/closest'
+
+= render 'clubs/clubajs'
+
+= render 'clubs/gmaps'
+
+= render 'clubs/bylocation'
+
