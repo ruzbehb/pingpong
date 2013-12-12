@@ -15,6 +15,4 @@ class Api::MatchesController < ApplicationController
 	    # render :update
  	  end
 
-
-
 end

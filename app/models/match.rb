@@ -17,35 +17,12 @@ class Match < ActiveRecord::Base
 		self.scores << [@score1, @score2]
 	end
 
-	def current_points_for(score)
-		scores[score-1].current_game.points
-	end
-
-	def same_game?
-		@score1.current_game.number && @score2.current_game.number
-	end
-
-	def update_game_number
-		if score(1).current_game.number > score(2).current_game.number
-			score(2).new_game
-		elsif score(1).current_game.number < score(2).current_game.number
-			score(1).new_game
-		else
-		end
+	def current_points_for(player)
+		scores[player-1].current_game.points
 	end
 
 	def score(n)
 		scores[n-1]
-	end
-
-	def find_winner
-		if score(1).match_finished?
-			score(1).player
-		elsif score(2).match_finished?
-			score(2).player
-		else
-			'game still in progress'
-		end
 	end
 
 	def point_change
@@ -63,11 +40,34 @@ class Match < ActiveRecord::Base
 		end
 	end
 
+	def update_game_number
+		if score(1).current_game.number > score(2).current_game.number
+			score(2).new_game
+		elsif score(1).current_game.number < score(2).current_game.number
+			score(1).new_game
+		else
+		end
+	end
+
+	def find_winner
+		if score(1).match_finished?
+			score(1).player
+		elsif score(2).match_finished?
+			score(2).player
+		else
+			'game still in progress'
+		end
+	end
+
 	def list_points_for current_score
 		score_array = []
 		scores[current_score-1].games.each{|game| score_array << game.points}
 		score_array
 	end
+
+	# def same_game?
+	# 	@score1.current_game.number && @score2.current_game.number
+	# end
 
 	def serving
 
@@ -75,7 +75,7 @@ class Match < ActiveRecord::Base
 
 	def points_played
 		# array = []
-		
+
 	end
 
 end
