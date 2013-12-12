@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %title Ping Pong Pros
+    = stylesheet_link_tag 'reset'
+    = stylesheet_link_tag 'main'
+    = stylesheet_link_tag 'nav'
+    = stylesheet_link_tag 'form'
+    = csrf_meta_tag
+    %link{href: "http://fonts.googleapis.com/css?family=Muli", rel: "stylesheet", type: "text/css"}/
+  %body
+    %main
+      = yield
+    = javascript_include_tag 'application'
