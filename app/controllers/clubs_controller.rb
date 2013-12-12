@@ -14,6 +14,7 @@ class ClubsController < ApplicationController
                   :height  => 32
                  })
   		marker.json({ title: club.name})
+  		# render layout: false
 		end
 
 

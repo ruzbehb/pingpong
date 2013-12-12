@@ -1,8 +1,32 @@
-article.mainMap {
+
+.map_left_container {
+	display: inline-block;
 	height: 100%;
-	width: 300px;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-align-items: left;
+	width: 40%;
+	min-width: 400px;
+	margin-right: 50px;
 }
 
+.map_right_container {
+	display: inline-block;
+	height: 100%;
+}
+
+.mainMap {
+	display: left;
+	display: block;
+	height: 100%;
+	width: 40%;
+}
+
+.buttons {
+	margin-left: 50px;
+	display: block;
+	height: 100px;
+	padding-left: 50px;
+}
+
+.fullList {
+	display: block;
+	padding-left: 50px;
+}
