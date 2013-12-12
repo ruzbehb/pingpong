@@ -9,7 +9,13 @@ body {
 }
 
 a {
+  color: #000;
+  text-shadow: -1px -1px 1px #FFF;
   text-decoration: none;
+}
+
+a:hover {
+  color: #3B5998;
 }
 
 header, footer {
