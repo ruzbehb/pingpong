@@ -18,10 +18,13 @@ describe Match do
 	def complete_game
 		example_game(1,1).points = 10
 		example_game(2,1).points = 12
+
 		match.point_change
 		match.update_game_number
+
 		example_game(1,2).points = 5
 		example_game(2,2).points = 11
+
 		match.point_change
 	end
 
@@ -53,11 +56,6 @@ describe Match do
 		expect(example_game(1,2)).not_to be_nil
 	end
 
-	it "knows who the winner is" do
-		complete_game
-		expect(match.find_winner).to eq player2
-	end
-
 	it "knows which score belongs to which player" do
 		expect(match.scores.first.player).to eq player1
 		expect(match.scores.last.player).to eq player2
@@ -74,22 +72,25 @@ describe Match do
 		expect(match.list_points_for(2)).to eq [12,11]
 	end
 
-	xit "knows who's serving" do
-		expect(match.serving).to eq player1
-	end
-
 	context "updating progress" do
 
-		xit "knows who's serving" do
+		it "knows who's serving" do
+			expect(match.serving).to eq player1
+			example_game(1,1).award_point
+			example_game(1,1).award_point
+			expect(match.serving).to eq player2
+			example_game(2,1).award_point
+			example_game(1,1).award_point
+			expect(match.serving).to eq player1
 		end
 
-		xit "knows how many games each palyer has won" do
+		it "knows who the winner is" do
+			complete_game
+			expect(match.find_winner).to eq player2
 		end
-
-		xit "knows the current points for each player" do
-		end
-
 	end
+
+	
 
 	xit "can connect guest to player profile" do
 
