@@ -62,5 +62,9 @@ gem 'omniauth-google-oauth2'
 
 gem 'haml'
 
+
 gem 'websocket-rails'
 gem 'thin'
+gem 'gmaps4rails'
+gem 'geocoder'
+

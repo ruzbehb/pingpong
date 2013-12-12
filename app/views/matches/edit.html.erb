@@ -1,24 +1,31 @@
 <div id="container" class='match' data-id="<%= @match.id %>" > 
 
+	
 	<section>
 
-		<article id='p1-points'>
+		<h2 id="p1-name" data-id="<%= @match.players.first.id %>" >
 
-			<!-- <p> should be id='left-points' </p> -->
-			<%= link_to "0", '', id: 'p1-increment' %>
+			<%= @match.players.first.name %>
+
+		</h2>
+
+		<article id="p1-points" >
+
+			<%= @match.scores.first.current_game.points %> 
 
 		</article>
 
-		<aside>
+		<aside id="p1-games" >
+
+			<%= @match.scores.first.won_games %>
 
 		</aside>
 
-		<h3>
-
-		</h3>
+		<!-- <h4>
+			server-marker
+		</h4> -->
 
 		<nav>
-
 
 			<%= link_to "Back", '', id: 'p1-back' %>
 
@@ -29,19 +36,31 @@
 
 	<section>
 
-		<aside>
+		<h2 id="p2-name" data-id="<%=@match.players.last.id%>" >
 
-		</aside>
+			<%= @match.players.last.name %>
 
-		<h3>
+		</h2>
 
-		</h3>
+		<article id='p2-points'>
 
-		<article>
+			<%= @match.scores.last.current_game.points %>
 
 		</article>
 
+		<aside id="p2-games">
+
+			<%= @match.scores.first.won_games %>
+
+		</aside>
+
+		<!-- <h4>
+			server-marker
+		</h4> -->
+
 		<nav>
+
+			<%= link_to "Back", '', id: 'p2-back' %>
 
 		</nav>
 

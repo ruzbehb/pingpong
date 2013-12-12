@@ -1,15 +1,31 @@
 nav.social {
   display: -webkit-flex;
   display: flex;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
 .socialItem {
   padding: 12px;
 }
 
+.fb-like {
+  padding-right: 10px;
+}
+
 nav.registerSignin {
+  padding-left: 100px;
   display: -webkit-flex;
   display: flex;
+}
+
+nav.signOut {
+  padding-left: 40px;
+  padding-right: 15px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
 .regItem {

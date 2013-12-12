@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require websocket_rails/main
+//= require underscore
+//= require gmaps/google
 //= require_tree .

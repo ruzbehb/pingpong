@@ -1,0 +1,8 @@
+article.mainMap {
+	height: 100%;
+	width: 300px;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: left;
+}
+

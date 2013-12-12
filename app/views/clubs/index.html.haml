@@ -1,6 +1,9 @@
-- @clubs.each do |club|
-	= link_to club_path(club) do
-		.club_row
-			= club.name
-			= club.address
-			= club.post_code
+%section.mapsContent
+	%article.mainMap
+		= render 'clubs/gmaps'
+	%article.buttons
+		= render 'clubs/buttons'
+	%article.fullList
+		= render 'clubs/full_list'
+		= render 'clubs/bylocation'
+

@@ -2,7 +2,11 @@ class Player < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+         :recoverable, :rememberable, :trackable, :omniauthable #, :validatable
+
+  validates :email, presence: { message: '*please complete' }
+  validates :password, presence: { message: '*please complete' }
+  validates :password_confirmation, presence: { message: '*please complete' }
 
   has_and_belongs_to_many :matches
   has_many :scores
