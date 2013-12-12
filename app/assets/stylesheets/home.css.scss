@@ -23,11 +23,22 @@ section.homeContent {
     justify-content: space-between;
 
     aside {
-      width: 320px;
       height: 300px;
       background: #eee;
       text-align: center;
       line-height: 30px;
+    }
+
+    .playWhere {
+      width: 320px;
+    }
+
+    .scoringApp {
+      width: 320px;
+    }
+
+    .scores {
+      width: 320px;
     }
 
   }
