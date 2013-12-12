@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211151442) do
+ActiveRecord::Schema.define(version: 20131211191342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20131211151442) do
     t.text     "name"
     t.text     "address"
     t.string   "post_code"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "games", force: true do |t|
@@ -68,6 +70,12 @@ ActiveRecord::Schema.define(version: 20131211151442) do
     t.text     "fb_url"
     t.string   "sex"
     t.text     "google_url"
+    t.text     "address_line1"
+    t.text     "address_line2"
+    t.text     "city_town"
+    t.text     "state"
+    t.string   "post_code"
+    t.string   "country"
     t.boolean  "guest",                  default: false
   end
 
