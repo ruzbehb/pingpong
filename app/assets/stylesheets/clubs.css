@@ -1,14 +1,8 @@
-.club_rows {
-	font-family: 'Muli', sans-serif;
-  color: #000;
-  font-size: 0.8em;
+article.mainMap {
+	height: 100%;
+	width: 300px;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: left;
 }
 
-.club_name {
-	font-style: bold;
-}
-
-.yellow { 
-	border:  
-	margin-top: 8px; background: white; padding: 5px; 
-}

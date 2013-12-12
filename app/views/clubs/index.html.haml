@@ -1,11 +1,9 @@
-%h1
-	Clubs in London
-
-= render 'clubs/closest'
-
-= render 'clubs/clubajs'
-
-= render 'clubs/gmaps'
-
-= render 'clubs/bylocation'
+%section.mapsContent
+	%article.mainMap
+		= render 'clubs/gmaps'
+	%article.buttons
+		= render 'clubs/buttons'
+	%article.fullList
+		= render 'clubs/full_list'
+		= render 'clubs/bylocation'
 
