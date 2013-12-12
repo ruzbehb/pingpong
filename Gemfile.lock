@@ -60,7 +60,7 @@ GEM
       railties (>= 3.0.0)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
-    geocoder (1.1.8)
+    geocoder (1.1.9)
     gmaps4rails (2.1.1)
     haml (4.0.4)
       tilt
