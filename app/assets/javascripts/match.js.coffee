@@ -13,7 +13,7 @@ $ ->
     	$("#p1-points").text(data.p1points)
     type: 'PATCH'
 
-  $("#p1-increment").on 'click', (e) ->
+  $("#p1-points").on 'click', (e) ->
     e.preventDefault()
     $.ajax "/api/matches/#{id}",
     data: {
