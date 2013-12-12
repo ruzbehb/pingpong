@@ -2,12 +2,12 @@ class Match < ActiveRecord::Base
 	has_and_belongs_to_many :players
 	has_many :scores
 	has_many :games, :through => :scores
-	after_create :add_players
+	# after_create :add_players
 	after_create :add_scores
 
-	def add_players
-		@player1 = Player.create(guest: true, email: "#{rand(200)}@guest.com", password: "password", password_confirmation: "password")
-		@player2 = Player.create(guest: true, email: "#{rand(200)}@guest.com", password: "password", password_confirmation: "password")
+	def add_players(p1name, p2name)
+		@player1 = Player.create(guest: true, email: "#{rand(200)}@guest.com", password: "password", password_confirmation: "password", name: p1name)
+		@player2 = Player.create(guest: true, email: "#{rand(200)}@guest.com", password: "password", password_confirmation: "password",  name: p2name)
 		self.players << [@player1, @player2]
 	end
 
@@ -15,6 +15,14 @@ class Match < ActiveRecord::Base
 		@score1 = Score.create(player: @player1)
 		@score2 = Score.create(player: @player2)
 		self.scores << [@score1, @score2]
+	end
+
+	def player1_name
+		players.first.name
+	end
+
+	def player2_name
+		players.last.name
 	end
 
 	def current_points_for(player)
