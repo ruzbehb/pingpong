@@ -1,0 +1,16 @@
+.playerProfile {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+
+  span {
+    padding-right: 25px;
+  }
+
+  img {
+    height: 33px;
+    width: 33px;
+    border-radius: 50%;
+  }
+}

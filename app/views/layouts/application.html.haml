@@ -5,7 +5,9 @@
     = stylesheet_link_tag 'reset'
     = stylesheet_link_tag 'main'
     = stylesheet_link_tag 'nav'
+    = stylesheet_link_tag 'home'
     = stylesheet_link_tag 'form'
+    = stylesheet_link_tag 'player'
     = csrf_meta_tag
     %link{href: "http://fonts.googleapis.com/css?family=Muli:400,400italic'", rel: "stylesheet", type: "text/css"}/
   %body
@@ -32,8 +34,9 @@
               %i.regItem= image_tag'sign_in.svg', data: { name: 'sign_in' }
           - else
             = render 'layouts/signedin'
-    %main
-      = yield
+    %section.mainWrapper
+      %main
+        = yield
     %footer
       %nav.footNav
         %a{href: "#"}

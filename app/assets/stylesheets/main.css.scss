@@ -17,7 +17,7 @@ header, footer {
   height: 50px;
 }
 
-header, main, footer {
+header, section.mainWrapper, footer {
   display: -webkit-flex;
   display: flex;
   -webkit-justify-content: space-between;
@@ -33,7 +33,7 @@ body > header {
   background: #FFF;
 }
 
-body > main {
+body > section.mainWrapper {
   min-height: calc(100% - 100px);
   padding-top: 50px;
   background: #CCC;
@@ -41,6 +41,12 @@ body > main {
   justify-content: center;
   -webkit-align-content: center;
   align-content: center;
+
+  main {
+    width: 84%;
+    display: -webkit-flex;
+    display: flex;  
+  }
 }
 
 body > footer {
