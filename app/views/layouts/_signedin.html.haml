@@ -1,8 +1,8 @@
 - if current_player.provider != nil
-  .playerName
-    = current_player.first_name
-    = current_player.last_name
-  .profile_image
+  %nav.playerProfile
+    %span
+      = current_player.first_name
+      = current_player.last_name
     = image_tag current_player.image_url 
 - else
   Welcome #{current_player.email}

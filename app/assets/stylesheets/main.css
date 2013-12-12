@@ -55,16 +55,3 @@ body > footer {
 .orangeText a {
   color: #FDA63C;
 }
-
-.playerName {
-  padding-right: 25px;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-}
-
-.profile_image img {
-  height: 50px;
-  width: 50px;
-}
