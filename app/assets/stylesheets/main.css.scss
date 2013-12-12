@@ -9,7 +9,13 @@ body {
 }
 
 a {
+  color: #000;
+  text-shadow: -1px -1px 1px #FFF;
   text-decoration: none;
+}
+
+a:hover {
+  color: #3B5998;
 }
 
 header, footer {
@@ -17,7 +23,7 @@ header, footer {
   height: 50px;
 }
 
-header, main, footer {
+header, section.mainWrapper, footer {
   display: -webkit-flex;
   display: flex;
   -webkit-justify-content: space-between;
@@ -33,13 +39,20 @@ body > header {
   background: #FFF;
 }
 
-body > main {
-  min-height: calc(100% - 50px);
+body > section.mainWrapper {
+  min-height: calc(100% - 100px);
+  padding-top: 50px;
   background: #CCC;
   -webkit-justify-content: center;
   justify-content: center;
   -webkit-align-content: center;
   align-content: center;
+
+  main {
+    width: 84%;
+    display: -webkit-flex;
+    display: flex;  
+  }
 }
 
 body > footer {

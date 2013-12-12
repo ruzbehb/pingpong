@@ -1,0 +1,11 @@
+- if current_player.provider != nil
+  %nav.playerProfile
+    %span
+      = current_player.first_name
+      = current_player.last_name
+    = image_tag current_player.image_url 
+- else
+  Welcome #{current_player.email}
+%nav.signOut
+  = link_to(destroy_player_session_path, :method => :delete) do
+    %i.signOut= image_tag'sign_out.svg', data: { name: 'sign_out' }
