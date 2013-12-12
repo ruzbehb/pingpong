@@ -1,0 +1,22 @@
+%table
+	%tr
+		%td Game
+		%td #{@match.player1_name}
+		%td #{@match.player2_name}
+		%td Winner
+	%tr
+		%td 1
+		%td.p1g1 #{@match.scores.first.games[0].points}
+		%td.p2g1 #{@match.scores.last.games[0].points}
+		%td Winner
+	%tr
+		%td 2
+		%td.p1g2 #{0 || @match.scores.first.games[1].points}
+		%td.p2g2 #{0 || @match.scores.last.games[1].points}
+		%td Winner
+	%tr
+		%td 3
+		%td.p1g3 #{0 || @match.scores.first.games[2].points}
+		%td.p2g3 #{0 || @match.scores.last.games[2].points}
+		%td Winner
+

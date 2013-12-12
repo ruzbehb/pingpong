@@ -6,8 +6,8 @@ class Match < ActiveRecord::Base
 	after_create :add_scores
 
 	def add_players(p1name, p2name)
-		@player1 = Player.create(guest: true, email: "#{rand(200)}@guest.com", password: "password", password_confirmation: "password", name: p1name)
-		@player2 = Player.create(guest: true, email: "#{rand(200)}@guest.com", password: "password", password_confirmation: "password",  name: p2name)
+		@player1 = Player.create(guest: true, email: "#{rand(2000000)}@guest.com", password: "password", password_confirmation: "password", name: p1name)
+		@player2 = Player.create(guest: true, email: "#{rand(2000000)}@guest.com", password: "password", password_confirmation: "password",  name: p2name)
 		self.players << [@player1, @player2]
 	end
 
