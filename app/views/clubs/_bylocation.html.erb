@@ -1,10 +1,12 @@
-<%= form_for clubs_path do |f| %>
+<%= form_tag near_clubs_path, method: :get, remote: true, id: 'club_location_finder' do %>
 
-<%= f.label "Enter your address" %>
-<%= f.text_field :user_location %>
+<%= label_tag "Enter your address" %>
+<%= text_field_tag :location %>
 
-<%= f.submit :"Search" %>
+<%= submit_tag :"Find" %>
 	
 <% end %>
+
+<div class="clubs_near"> </div>
 
 <%= yield %>

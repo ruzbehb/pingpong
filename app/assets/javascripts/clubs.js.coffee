@@ -27,7 +27,7 @@ class window.RichMarkerBuilder extends Gmaps.Google.Builders.Marker #inherit fro
     @serviceObject = new RichMarker options #assign marker to @serviceObject
 
   rich_marker_options: ->
-    marker = document.createElement("div")
+    window.marker = document.createElement("div")
     marker.setAttribute 'class', 'marker_container'
-    marker.innerHTML = @args.title
+    marker.innerHTML = "<img src='/images/tabletennis_gmap.png'>"
     _.extend(@marker_options(), { content: marker })
