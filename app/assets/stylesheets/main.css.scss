@@ -10,7 +10,7 @@ body {
 
 a {
   color: #000;
-  text-shadow: -1px -1px 1px #FFF;
+  text-shadow: -1px -1px 1px #CCC;
   text-decoration: none;
 }
 
@@ -37,6 +37,7 @@ header, section.mainWrapper, footer {
 body > header {
   position: fixed;
   background: #FFF;
+  z-index: 999;
 }
 
 body > section.mainWrapper {
@@ -67,4 +68,5 @@ body > footer {
 
 .orangeText a {
   color: #FDA63C;
+  text-shadow: none;
 }

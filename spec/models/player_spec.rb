@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Player do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+	it {should have_many :scores}
+	it {should have_and_belong_to_many :matches}
+
 end
