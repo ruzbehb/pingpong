@@ -1,0 +1,10 @@
+<%= form_for clubs_path do |f| %>
+
+<%= f.label "Enter your address" %>
+<%= f.text_field :user_location %>
+
+<%= f.submit :"Search" %>
+	
+<% end %>
+
+<%= yield %>
