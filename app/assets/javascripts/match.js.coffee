@@ -1,12 +1,15 @@
 $ ->
 
-	id = $('.match').data('id')
+  id = $('.match').data('id')
 
-	$("#p1-back").on 'click', (e) ->
+  p1_id = $('#p1-name').data('id')
+  p2_id = $('#p2-name').data('id')
+
+  $("#p1-back").on 'click', (e) ->
     e.preventDefault()
     $.ajax "/api/matches/#{id}",
     data: {
-      player_id: 31,
+      player_id: p1_id,
       decrement: true
     },
     success: (data,status) ->
@@ -17,7 +20,7 @@ $ ->
     e.preventDefault()
     $.ajax "/api/matches/#{id}",
     data: {
-      player_id: 31
+      player_id: p1_id
     },
     success: (data,status) ->
       $("#p1-points").text(data.p1points)
@@ -27,7 +30,7 @@ $ ->
     e.preventDefault()
     $.ajax "/api/matches/#{id}",
     data: {
-      player_id: 32,
+      player_id: p2_id,
       decrement: true
     },
     success: (data,status) ->
@@ -38,7 +41,7 @@ $ ->
     e.preventDefault()
     $.ajax "/api/matches/#{id}",
     data: {
-      player_id: 32
+      player_id: p2_id
     },
     success: (data,status) ->
       $("#p2-points").text(data.p2points)
