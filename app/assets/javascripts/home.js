@@ -18,12 +18,16 @@ $(function() {
 
   $('.signIn').on('click', function(event) {
     event.preventDefault();
-    $('.loginOverlay, .loginModal').addClass('active');
+    if(!$('.signInPage').length) {
+      $('.loginOverlay, .loginModal').addClass('active');
+    }
   })
 
   $('.signUp').on('click', function(event) {
     event.preventDefault();
-    $('.loginOverlay, .registerModal').addClass('active');
+    if(!$('.signUpPage').length) {
+      $('.loginOverlay, .registerModal').addClass('active');
+    }
   })
 
   $('.close').on('click', function(event) {

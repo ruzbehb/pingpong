@@ -56,15 +56,15 @@ body > footer {
   color: #FDA63C;
 }
 
-.profile_image img {
-  height: 50px;
-  width: 50px;
-}
-
 .playerName {
-  padding-right: 30px;
+  padding-right: 25px;
   display: -webkit-flex;
   display: flex;
   -webkit-align-items: center;
   align-items: center;
+}
+
+.profile_image img {
+  height: 50px;
+  width: 50px;
 }

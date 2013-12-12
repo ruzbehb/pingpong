@@ -20,7 +20,7 @@ nav.registerSignin {
 }
 
 nav.signOut {
-  padding-left: 20px;
+  padding-left: 40px;
   padding-right: 15px;
   display: -webkit-flex;
   display: flex;
