@@ -13,7 +13,8 @@ $ ->
       decrement: true
     },
     success: (data,status) ->
-    	$("#p1-points").text(data.p1points)
+      $("#p1-points").text(data.p1points)
+      $("#p1-games").text(data.p1games)
     type: 'PATCH'
 
   $("#p1-points").on 'click', (e) ->
@@ -24,6 +25,7 @@ $ ->
     },
     success: (data,status) ->
       $("#p1-points").text(data.p1points)
+      $("#p1-games").text(data.p1games)
     type: 'PATCH'
 
   $("#p2-back").on 'click', (e) ->
@@ -35,6 +37,7 @@ $ ->
     },
     success: (data,status) ->
       $("#p2-points").text(data.p2points)
+      $("#p2-games").text(data.p2games)
     type: 'PATCH'
 
   $("#p2-points").on 'click', (e) ->
@@ -45,4 +48,5 @@ $ ->
     },
     success: (data,status) ->
       $("#p2-points").text(data.p2points)
+      $("#p2-games").text(data.p2games)
     type: 'PATCH'
