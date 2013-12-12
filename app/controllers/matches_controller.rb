@@ -20,4 +20,15 @@ class MatchesController < ApplicationController
 
 	end
 
+	def show
+		@match = Match.find(params[:id])
+		# if @match.save
+			WebsocketRails[:table].trigger 'edit', {
+				
+
+			}
+		# end
+		# redirect_to match_path(match)
+	end
+
 end
