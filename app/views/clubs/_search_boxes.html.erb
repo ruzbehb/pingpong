@@ -1,14 +1,9 @@
+
 <section class='clubs-container' ng-controller="ClubCtrl">
-  <div class="userLocation">Your current location is detected as </div>
-  <br>
   <hr id="mainLine">
-  <br>
   <div class="searchBoxContainer">
-    <input ng-model="query" id="searchInput" placeholder="Search for clubs" autofocus />
-    <i> OR </i> 
+    <input ng-model="query" id="searchInput" placeholder="Search for clubs" autofocus /> 
   </div>
-  <%= render 'clubs/bylocation' %> 
-  <br><br><br>
     <section class="clubs">
     <section class='club' ng-repeat="club in clubs | filter:query">
       <a id="clubName" ng-bind="club.name" href="{{club.path}}"></a>

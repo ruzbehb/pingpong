@@ -26,24 +26,56 @@ body > section.mainWrapper {
 .mainMap {
 	display: left;
 	display: inline-block;
-	height: 100%;
 	width: 500px;
 }
 
-.buttons {
-	display: inline-block;
-	float: top;
-	height: 100px;
+.LocationContainer {
+
+}
+
+.locationDetection {
+	display: block;
+	margin-bottom: 20px;
 	width: 100%;
 }
 
-.fullList {
+.userLocation, .userAddress {
+	display: inline-block;
+}
+
+#club_location_finder {
 	display: block;
+}
+
+#find_clubs_nearby {
+	margin-right: 20px;
+	line-height: 2;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.searchByLocation {
+	display: block;
+	float: left;
+}
+
+.byLocation {
+	display: inline-block;
+	margin-bottom: 20px;
 }
 
 .searchBoxContainer {
 		display: inline-block;
 		float: left;
+		margin-bottom: 20px;
+		margin-top: 10px;
+		width: 100%;
+}
+
+.userAddress {
+	font-style: bold;
 }
 
 #searchInput, #locationInput {
@@ -54,15 +86,16 @@ body > section.mainWrapper {
 }
 
 #locationInput{
-	margin-left: 30px;
+	margin-left: 20px;
 }
 
-#searchInput {
-	margin-right: 30px
+
+.fullList {
+	display: block;
 }
 
 #clubName {
-	margin-bottom: -6px;
+	
 	display: block;
 }
 

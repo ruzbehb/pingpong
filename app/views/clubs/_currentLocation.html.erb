@@ -1,0 +1,15 @@
+<div class="locationDetection">
+	<div class="userLocation">Your location is detected as&nbsp;</div>
+
+	<div class="userAddress"> </div>
+</div>
+
+<div class="searchByLocation"> 
+	<%= form_tag near_clubs_path, method: :get, remote: true, class: 'club_location_finder' do %>
+
+  	<%= hidden_field_tag :location, nil, id: 'location_hidden' %>
+		<%= button_tag :"Find clubs nearby", id: 'find_clubs_nearby' %>
+		<i> OR </i> 
+	<% end %>
+</div>
+

@@ -19,7 +19,24 @@
 					handler.getMap().setCenter(initialLocation);
 					});
 
-				$('.userLocation').append(initialLocation.mb);
+				var latlng = new google.maps.LatLng(initialLocation.mb, initialLocation.nb);
+				var geocoder = new google.maps.Geocoder();
+				geocoder.geocode({'latLng': latlng}, function(results, status) {
+			    if (status == google.maps.GeocoderStatus.OK) {
+			      $('.userAddress').append(results[1].address_components[3].long_name + ', ' + results[1].address_components[4].long_name + ', ' + results[1].address_components[2].long_name);
+			      $('#location_hidden').val($('.userAddress').text());
+			    }
+			  });
+
+				// $.get('/clubs/location')
+				// $.ajax({
+				// type: "POST",
+				// dataType: "json",
+				// url: '/clubs',
+				// data: initialLocation
+				// });
+
+				// console.log(initialLocation);
 
 			}, function() {
 				console.log('Error')

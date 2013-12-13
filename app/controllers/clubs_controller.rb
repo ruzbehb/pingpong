@@ -21,7 +21,7 @@ class ClubsController < ApplicationController
 	end
 
 	def near
-		location = params[:location]
+		location = params[:location] 
 		render json: Club.all_near(location).as_json
 	end
 
