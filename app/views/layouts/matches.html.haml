@@ -6,9 +6,12 @@
     = stylesheet_link_tag 'main'
     = stylesheet_link_tag 'nav'
     = stylesheet_link_tag 'form'
+    = stylesheet_link_tag 'scoring_app'
     = csrf_meta_tag
     %link{href: "http://fonts.googleapis.com/css?family=Muli", rel: "stylesheet", type: "text/css"}/
   %body
     %main
+      %a{href: home_index_path}
+        %i.logo= image_tag 'logo.svg', data: { name: 'logo' }
       = yield
     = javascript_include_tag 'application'
