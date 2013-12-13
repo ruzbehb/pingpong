@@ -26,13 +26,33 @@ ActiveRecord::Schema.define(version: 20131211191342) do
     t.float    "longitude"
   end
 
+  create_table "games", force: true do |t|
+    t.integer  "score_id"
+    t.integer  "points",     default: 0
+    t.integer  "number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "games", ["score_id"], name: "index_games_on_score_id", using: :btree
+
+  create_table "matches", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "matches_players", id: false, force: true do |t|
+    t.integer "match_id",  null: false
+    t.integer "player_id", null: false
+  end
+
   create_table "players", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -56,9 +76,21 @@ ActiveRecord::Schema.define(version: 20131211191342) do
     t.text     "state"
     t.string   "post_code"
     t.string   "country"
+    t.boolean  "guest",                  default: false
   end
 
   add_index "players", ["email"], name: "index_players_on_email", unique: true, using: :btree
   add_index "players", ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true, using: :btree
+
+  create_table "scores", force: true do |t|
+    t.integer  "match_id"
+    t.integer  "player_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "won_games",  default: 0
+  end
+
+  add_index "scores", ["match_id"], name: "index_scores_on_match_id", using: :btree
+  add_index "scores", ["player_id"], name: "index_scores_on_player_id", using: :btree
 
 end

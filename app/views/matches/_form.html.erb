@@ -1,0 +1,13 @@
+<%= form_tag matches_path do %>
+
+  <%= label_tag :p1_name, 'Player 1 name:' %>
+  <%= text_field_tag :p1_name, params[:p1_name] %>
+
+  <%= label_tag :p2_name, 'Player 2 name:' %>
+  <%= text_field_tag :p2_name, params[:p2_name] %>
+
+ 	<%= submit_tag "Start match!"%>
+
+<% end %>
+
+  
