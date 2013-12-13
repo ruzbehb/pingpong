@@ -65,6 +65,11 @@
 		</nav>
 
 	</section>
+	<% if @match.over? %>
+
+	Winner is: <%= @match.find_winner.name %>
+
+	<% end %>
 
 
 </div>

@@ -1,21 +1,24 @@
 class Match < ActiveRecord::Base
-	has_and_belongs_to_many :players
-	has_many :scores
-	has_many :games, :through => :scores
+	# has_and_belongs_to_many :players
+	has_many :players, through: :scores, order: 'id ASC'
+
+	has_many :scores, order: 'id ASC'
+
+	has_many :games, :through => :scores, order: 'id ASC'
 	# after_create :add_players
-	after_create :add_scores
+	# after_create :add_scores
 
 	def add_players(p1name, p2name)
 		@player1 = Player.create(guest: true, email: "#{rand(2000000)}@guest.com", password: "password", password_confirmation: "password", name: p1name)
 		@player2 = Player.create(guest: true, email: "#{rand(2000000)}@guest.com", password: "password", password_confirmation: "password",  name: p2name)
-		self.players << [@player1, @player2]
-	end
-
-	def add_scores
 		@score1 = Score.create(player: @player1)
 		@score2 = Score.create(player: @player2)
-		self.scores << [@score1, @score2]
+		self.scores = [@score1, @score2]
 	end
+
+	# def players
+	# 	self.scores.map(&:player)
+	# end
 
 	def player1_name
 		players.first.name
@@ -34,12 +37,14 @@ class Match < ActiveRecord::Base
 	end
 
 	def point_change
-		if current_points_for(1) > 9 && current_points_for(2) > 9 && current_points_for(1) > current_points_for(2) + 1
+
+		if current_points_for(1) > 9 && current_points_for(2) > 9 && current_points_for(1) > (current_points_for(2) + 1)
 			score(1).game_won
-		elsif current_points_for(1) > 9 && current_points_for(2) > 9 && current_points_for(2) > current_points_for(1) + 1
+		elsif current_points_for(1) > 9 && current_points_for(2) > 9 && current_points_for(2) > (current_points_for(1) + 1)
 			score(2).game_won
 		elsif current_points_for(1) == 11 && current_points_for(2) < 10
 			score(1).game_won
+			# score(1).save
 		elsif current_points_for(2) == 11 && current_points_for(1) <10
 			score(2).game_won
 
@@ -49,12 +54,28 @@ class Match < ActiveRecord::Base
 	end
 
 	def update_game_number
+		
 		if score(1).current_game.number > score(2).current_game.number
 			score(2).new_game
+			
 		elsif score(1).current_game.number < score(2).current_game.number
 			score(1).new_game
+		
 		else
 		end
+	end
+
+	def game_winner(game)
+		if scores.first.games[game-1] !=nil && point_change != "continue game"
+			return player1_name if scores.first.games[game-1].points > scores.last.games[0].points
+			player2_name
+		else
+			''
+		end
+	end
+
+	def over?
+		score(1).match_finished? || score(2).match_finished?
 	end
 
 	def find_winner

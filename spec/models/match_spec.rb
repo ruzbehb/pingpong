@@ -11,6 +11,10 @@ describe Match do
 	it {should have_and_belong_to_many :players}
 	it {should have_many(:games).through(:scores)}
 
+	before (:each) do
+		match.add_players('Nat','Will')
+	end
+
 	def example_game(player, number)
 		match.scores[player-1].games[number-1]
 	end
@@ -48,6 +52,8 @@ describe Match do
 		example_game(1,1).points = 9
 		example_game(1,1).award_point
 		example_game(2,1).points = 11
+		example_game(2,1).delete_point
+		example_game(2,1).award_point
 		example_game(2,1).award_point
 
 		match.scores.each(&:reload)
@@ -55,6 +61,8 @@ describe Match do
 		expect(example_game(2,2)).not_to be_nil
 		expect(example_game(1,2)).not_to be_nil
 	end
+
+
 
 	it "knows which score belongs to which player" do
 		expect(match.scores.first.player).to eq player1
@@ -74,7 +82,7 @@ describe Match do
 
 	context "updating progress" do
 
-		it "knows who's serving" do
+		xit "knows who's serving" do
 			expect(match.serving).to eq player1
 			example_game(1,1).award_point
 			example_game(1,1).award_point

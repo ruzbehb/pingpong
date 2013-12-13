@@ -10,5 +10,7 @@
     %link{href: "http://fonts.googleapis.com/css?family=Muli", rel: "stylesheet", type: "text/css"}/
   %body
     %main
+      %a{href: home_index_path}
+        %i.logo= image_tag 'logo.svg', data: { name: 'logo' }
       = yield
     = javascript_include_tag 'application'
