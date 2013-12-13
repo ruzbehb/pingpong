@@ -36,5 +36,31 @@ $(function() {
     $(this).closest('.formContainer').removeClass('active');
   })
 
+  var jcarousel = $('.jcarousel');
+
+  jcarousel
+      .on('jcarousel:reload jcarousel:create', function () {
+          var width = $('.carousel').innerWidth();
+          jcarousel.jcarousel('items').css('width', width + 'px');
+          jcarousel.css('opacity', 1);
+      })
+
+
+  $('.jcarousel').jcarousel({
+
+  });
+
+  $('.jcarousel-control').jcarouselControl({
+    event: 'mouseover'
+  });
+
+  $('.jcarousel-prev').jcarouselControl({
+    target: '-=1'
+  });
+
+  $('.jcarousel-next').jcarouselControl({
+    target: '+=1'
+  });
+
 
 });
