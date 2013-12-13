@@ -1,39 +1,18 @@
-<html ng-app="ClubSearch">
-<section ng-controller="ClubCtrl">
-  Search: <input ng-model="query"/>
-  <section class="clubs">
-    <section class='club' ng-repeat="club in clubs | filter:query">
-      <h3>
-      <a href="{{club.path}}">
-        {{club.name}}
-        </h3>
-        <br/>
-        <article class="address">{{club.address}}</article>
-        <article class="post_code">{{club.post_code}}</article>      
-      </a>
-      <br/>
+<% content_for :angular do %>
+  var ClubSearch = angular.module('ClubSearch', [])
 
-    </section>
-  </section>
-</section>
-
-<script type="text/javascript">
-
-var ClubSearch = angular.module('ClubSearch', [])
-
-ClubSearch.controller("ClubCtrl", function ($scope){
-  $scope.clubs = [ 
-            <% @clubs.each do |club| %>
-            {
-                  'name': '<%= club.name %>',
-                  'path': '<%= club_path(club) %>',
-                  'address': '<%= club.address %>',
-                  'post_code': '<%= club.post_code %>',
-            },
-  <% end %>
-  ];
-});
-
-</script>
+  ClubSearch.controller("ClubCtrl", function ($scope){
+    $scope.clubs = [ 
+              <% @clubs.each do |club| %>
+              {
+                    'name': '<%= club.name %>',
+                    'path': '<%= club_path(club) %>',
+                    'address': '<%= club.address %>',
+                    'post_code': '<%= club.post_code %>',
+              },
+    <% end %>
+    ];
+  });
+<% end %>
  
 <%= yield %>

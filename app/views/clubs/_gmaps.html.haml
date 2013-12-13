@@ -2,9 +2,30 @@
 
 - content_for :scripts do 
 	:javascript
+		
 		handler = Gmaps.build('Google', { builders: { Marker: RichMarkerBuilder } });
-		handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-			markers = handler.addMarkers(#{raw @club_locations.to_json});
-			handler.bounds.extendWith(markers);
-			handler.fitMapToBounds();
+
+		var initialLocation;
+
+		if(navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+
+
+				handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+					markers = handler.addMarkers(#{raw @club_locations.to_json});
+					handler.bounds.extendWith(markers);
+					handler.fitMapToBounds();
+					handler.getMap().setCenter(initialLocation);
+					});
+
+				$('.userLocation').append(initialLocation.mb);
+
+			}, function() {
+				console.log('Error')
 			});
+		}
+
+		
+		
+ 

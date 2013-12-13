@@ -16,8 +16,9 @@
 $(document).ready(function(){
 
 	$('#club_location_finder').on('ajax:success', function(e, clubs){
+		$('.clubs').html("");
 		clubs.forEach(function(club){
-			$('.clubs_near').append($('<div />', {text: (club.club + ': ' + club.distance + ' miles')} ))
+			$('.clubs').append($('<p> <a href=\"' + club.lnk + '\">' + club.name + ': </a>' + club.distance + ' miles away</p>' ))
 		})
 	})
 })

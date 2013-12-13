@@ -1,11 +1,15 @@
-.map_left_container
-	.mainMap
-		= render 'clubs/gmaps'
-.map_right_container
-	.buttons
-		= render 'clubs/buttons'
-	.fullList
-		= render 'clubs/full_list'
-		= render 'clubs/bylocation'
+%head
+	= stylesheet_link_tag 'clubs'
+	= csrf_meta_tag
+.mapControl	
+	.map_left_container
+		.mainMap
+			= render 'clubs/gmaps'
+	.map_right_container
+		.buttons
+			= render 'clubs/search_boxes'
+		.fullList
+			= render 'clubs/full_list'
+			
 
 

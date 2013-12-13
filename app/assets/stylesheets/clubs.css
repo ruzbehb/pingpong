@@ -1,32 +1,71 @@
+body > section.mainWrapper {
+	/*background-color: RGB(230,224,212);*/
+	background-color: white
+}
+
+.mapControl {
+	height: 100%;
+	width: 100%;
+}
 
 .map_left_container {
-	display: inline-block;
+	display: block;
 	height: 100%;
-	width: 40%;
+	width: 500px;
 	min-width: 400px;
-	margin-right: 50px;
+	float: left;
 }
 
 .map_right_container {
 	display: inline-block;
 	height: 100%;
+	margin-left: 50px;
+	width: calc(100% - 550px);
 }
 
 .mainMap {
 	display: left;
-	display: block;
+	display: inline-block;
 	height: 100%;
-	width: 40%;
+	width: 500px;
 }
 
 .buttons {
-	margin-left: 50px;
-	display: block;
+	display: inline-block;
+	float: top;
 	height: 100px;
-	padding-left: 50px;
+	width: 100%;
 }
 
 .fullList {
 	display: block;
-	padding-left: 50px;
+}
+
+.searchBoxContainer {
+		display: inline-block;
+		float: left;
+}
+
+#searchInput, #locationInput {
+	line-height: 2;
+	border: 1px solid #ccc;
+  border-radius: 10px;
+  padding-left: 20px;
+}
+
+#locationInput{
+	margin-left: 30px;
+}
+
+#searchInput {
+	margin-right: 30px
+}
+
+#clubName {
+	margin-bottom: -6px;
+	display: block;
+}
+
+.club {
+	margin-bottom: 10px;
 }
