@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require websocket_rails/main
 //= require underscore
 //= require gmaps/google
+//= require jquery.jcarousel
 //= require_tree .

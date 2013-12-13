@@ -1,5 +1,7 @@
 class Api::MatchesController < ApplicationController
 	respond_to :json
+
+	include MatchesHelper
  
 	  def update
 	    @match = Match.find(params[:id])
@@ -11,8 +13,7 @@ class Api::MatchesController < ApplicationController
 	    else
 	    	@match.scores[player_index].current_game.award_point
 	    end
-
-	    # render :update
+	    WebsocketRails[:table].trigger 'edit', table_data(@match)
  	  end
 
 end

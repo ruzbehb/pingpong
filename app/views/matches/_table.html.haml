@@ -1,0 +1,32 @@
+%table
+	%tr
+		%td Game
+		%td #{@match.player1_name}
+		%td #{@match.player2_name}
+		%td Winner
+	%tr
+		%td 1
+		%td.p1g1 #{@match.scores.first.games[0].points}
+		%td.p2g1 #{@match.scores.last.games[0].points}
+		%td.g1winner #{@match.game_winner(1)}
+	%tr
+		%td 2
+		%td.p1g2 #{@match.scores.first.games[1].try(:points) || 0}
+		%td.p2g2 #{@match.scores.last.games[1].try(:points) || 0}
+		%td.g2winner #{@match.game_winner(2) || 0}
+	%tr
+		%td 3
+		%td.p1g3 
+			= @match.scores.first.games[2].try(:points) || 0
+		%td.p2g3 #{@match.scores.last.games[2].try(:points) || 0}
+		%td.g3winner #{@match.game_winner(3) || 0}
+
+
+= @match.score(1).match_finished?
+= @match.score(2).match_finished?
+= @match.over?
+
+- if @match.over?
+	Winner is: 
+	= @match.find_winner.try(:name) || 0
+

@@ -1,6 +1,6 @@
 class Score < ActiveRecord::Base
 
-	has_many :games
+	has_many :games, order: 'id ASC'
 	belongs_to :player
 	belongs_to :match
 	after_create :add_first_game
@@ -19,12 +19,13 @@ class Score < ActiveRecord::Base
 	end
 
 	def game_won
-		self.won_games = (won_games || 0) + 1
-
+		puts won_games
+		update_attribute(:won_games,won_games + 1)
 		if match_finished?
-			match.find_winner
+			match.over?
 		else
 			new_game
+			
 			match.update_game_number
 		end
 

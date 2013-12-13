@@ -6,6 +6,7 @@ class Game < ActiveRecord::Base
 		self.points += 1
 		save
 		score.match.point_change
+		
 	end
 
 	def delete_point
