@@ -1,0 +1,53 @@
+.chart{
+  font-family: "Helvetica Neue"
+}
+
+.chart_title{
+  font-weight: normal;
+  margin: 0;
+}
+.chart{
+  width: 300px;
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.chart__header{
+  position: relative;
+  background: #8eba45;
+  color: #fff;
+  padding: 0 5px;
+}
+
+.chart__icon{
+  position: absolute;
+  font-size: 17px;
+  right: 5px;
+  top: 0;
+}
+
+.chart__content{
+  background: #b6e356;
+}
+
+.chart__line1{
+  fill: none;
+  stroke: black;
+  stroke-width: 2px;
+}
+
+.chart__line2{
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
+.chart__circle1{
+  fill: black;
+  radius: 5px;  
+}
+
+.chart__circle2{
+  fill: #fff;
+  radius: 5px;  
+}
