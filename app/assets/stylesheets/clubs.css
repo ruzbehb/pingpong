@@ -19,7 +19,7 @@ body > section.mainWrapper {
 .map_right_container {
 	display: inline-block;
 	height: 100%;
-	margin-left: 50px;
+	margin-left: 25px;
 	width: calc(100% - 550px);
 }
 
@@ -50,7 +50,7 @@ body > section.mainWrapper {
 
 #find_clubs_nearby {
 	margin-right: 20px;
-	line-height: 2;
+	line-height: 1.9;
 	border-radius: 10px;
 	border: 1px solid #ccc;
 	padding-left: 20px;
@@ -100,7 +100,7 @@ body > section.mainWrapper {
 }
 
 #clubName {
-	font-style: bold;
+	font-style: strong;
 	color: blue;
 	padding-bottom: 25px;
 }

@@ -49,7 +49,7 @@ group :development, :test do
 	gem 'rspec-rails'
 	gem 'capybara', '~> 2.1'
 	gem 'shoulda-matchers'
-	gem 'poltergeist'
+	gem 'poltergeist', github: 'jonleighton/poltergeist'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
 end
