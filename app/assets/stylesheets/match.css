@@ -8,26 +8,26 @@
 }
 .chart{
   width: 300px;
-  height: 150px;
   border-radius: 8px;
   overflow: hidden;
 }
 .chart__header{
-  position: relative;
   background: #8eba45;
   color: #fff;
-  padding: 0 5px;
+  padding: 4px 5px;
 }
 
 .chart__icon{
   position: absolute;
-  font-size: 17px;
+  font-size: 14px;
   right: 5px;
   top: 0;
 }
 
 .chart__content{
+  height: 120px;
   background: #b6e356;
+  /*background: hsl(220,50%,50%);*/
 }
 
 .chart__line1{

@@ -1,59 +1,41 @@
 window.App = angular.module('App', []);
 
 App.controller('LineChartController', function($scope){
-  // var input = [
-  //   {x: 10, y: 0},
-  // ];
   
-  $scope.data = [
-		{
-		"winner": 1
-		},
-		{
-		"winner": 2
-		},		
-		{
-		"winner": 1
-		}		
-	];
- 
-  var p1_progress = [];
-  var p1_points=0;
-  p1_progress.push({x:0,y:115});
-for (var i = 0; i < $scope.data.length; i++) {
-  if($scope.data[i].winner ==1) p1_points += 1;
-  var new_point = {x: (i+1)*10, y: 115-p1_points*10};
-  p1_progress.push(new_point);
-}
-    
-  $scope.points_1 = p1_progress;
- 
-  $scope.linePath1 = function(){
-    var pathParts = [], currentPoint, i;
-    
-    for (i = 0; i < $scope.points_1.length; i++) {
-      currentPoint = $scope.points_1[i];
-      pathParts.push(currentPoint.x + "," + currentPoint.y);
+  $scope.data = [];
+
+
+  var players = [{points: 0, coordinates: [{x:0,y:115}]},
+                 {points: 0, coordinates: [{x:0,y:115}]}]
+
+  var addCoordinates = function(player, i){
+    player.coordinates.push({x: (i+1)*10, y: 115-player.points*10});
+  }
+
+  var addWinnerI = function(winner,i){
+    players[winner].points +=1;
+    addCoordinates(players[0], i);
+    addCoordinates(players[1], i);
+  }
+  angular.forEach($scope.data, addWinnerI);
+
+  $scope.addWinner = function(winner){
+    $scope.data.push(winner);
+    addWinnerI(winner, $scope.data.length-1);
+  }
+  $scope.scale = 10;
+  var linePaths= function(player_index){
+    return function() {
+      var pathParts = [], currentPoint, i;
+      
+      for (i = 0; i < players[player_index].coordinates.length; i++) {
+        currentPoint = players[player_index].coordinates[i];
+        pathParts.push(currentPoint.x + "," + currentPoint.y);
+      }
+
+      return "M" + pathParts.join(" L");
     }
-
-    return "M" + pathParts.join(" L");
   };
-});
-
-
-// $(function() {
-	// $('.btn').on('click', function() {
-	//    var appElement = document.querySelector('[ng-controller=LineChartController]');
-	//    var $scope = angular.element(appElement).scope();
-
-	//   $scope.$apply(function() {
-	//     $scope.points_1 = [{x: 30, y: 50},
-	//     {x: 100, y: 80},
-	//     {x: 200, y: 40},
-	//     {x: 280, y: 50}]
-	//   });
-	// });
-// });
   
 //   var p2_progress = [];
 //   var p2_points=0;
@@ -64,17 +46,21 @@ for (var i = 0; i < $scope.data.length; i++) {
 //   var new_point_p2 = {x: (j+1)*10, y: 115-p2_points*10};
 //   p2_progress.push(new_point_p2);
 // }
-    
-//   $scope.points_2 = p2_progress;
+
+  $scope.points_1 = players[0].coordinates;
+  $scope.points_2 = players[1].coordinates;
+  $scope.linePath1 = linePaths(0);
+  $scope.linePath2 = linePaths(1);
   
 //     $scope.linePath2 = function(){
 //     var pathParts = [], currentPoint, j;
     
-//     for (j = 0; j < p2_progress.length; j++) {
-//       currentPoint = p2_progress[j];
+//     for (j = 0; j < $scope.points_2.length; j++) {
+//       currentPoint = $scope.points_2[j];
 //       pathParts.push(currentPoint.x + "," + currentPoint.y);
 //     }
 
 //     return "M" + pathParts.join(" L");
 //   }; 
-// });
+});
+
