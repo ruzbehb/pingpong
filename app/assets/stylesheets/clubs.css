@@ -117,16 +117,16 @@ body > section.mainWrapper {
 	padding-right: 10px;
 }
 
-.mainLine {
-	border: none;
-	height: 0.5px;
-	background-color: #C8C8C8;
+#mainLine {
+	height: 1px;
+	background-color: white;
+	color: #C8C8C8;
 }
 
 .minorLine {
 	border: none;
 	height: 0.5px;
-	background-color: #C8C8C8;
+	background-color: white;
 }
 
 .clubtotal {
