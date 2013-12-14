@@ -51,6 +51,15 @@ $ ->
       $("#p2-games").text(data.p2games)
     type: 'PUT'
 
+  $('.btn').on 'click', ->
+    appElement = document.querySelector('[ng-controller=LineChartController]')
+    $scope = angular.element(appElement).scope()
+    $scope.$apply ->
+      $scope.points_1 = [{x: 30, y: 50},
+      {x: 100, y: 80},
+      {x: 200, y: 40},
+      {x: 280, y: 50}]
+
 
   scoreAlert = ->
 
@@ -68,6 +77,8 @@ $ ->
     $('.p1g3').text(match['p1g3'])
     $('.p2g3').text(match['p2g3'])
 
+    
+    
 
     
 
