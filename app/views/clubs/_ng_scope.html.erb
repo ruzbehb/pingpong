@@ -2,6 +2,7 @@
   var ClubSearch = angular.module('ClubSearch', [])
 
   ClubSearch.controller("ClubCtrl", function ($scope){
+    
     $scope.clubs = [ 
               <% @clubs.each do |club| %>
               {
@@ -12,7 +13,19 @@
               },
     <% end %>
     ];
+
+    $scope.currentPage = 0;
+    $scope.pageSize = 5;
+
   });
+
+  ClubSearch.filter('startFrom', function() {
+    return function(input, start) {
+        start = +start; //parse to int
+        return input.slice(start);
+    }
+  });
+
 <% end %>
  
 <%= yield %>

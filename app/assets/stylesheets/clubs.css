@@ -1,6 +1,6 @@
 body > section.mainWrapper {
 	/*background-color: RGB(230,224,212);*/
-	background-color: white
+	/*background-color: white*/
 }
 
 .mapControl {
@@ -26,7 +26,7 @@ body > section.mainWrapper {
 .mainMap {
 	display: left;
 	display: inline-block;
-	width: 500px;
+	padding-top: 20px;
 }
 
 .LocationContainer {
@@ -35,7 +35,8 @@ body > section.mainWrapper {
 
 .locationDetection {
 	display: block;
-	margin-bottom: 20px;
+	margin-top: 20px;
+	margin-bottom: 10px;
 	width: 100%;
 }
 
@@ -63,13 +64,13 @@ body > section.mainWrapper {
 
 .byLocation {
 	display: inline-block;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .searchBoxContainer {
 		display: inline-block;
 		float: left;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 		margin-top: 10px;
 		width: 100%;
 }
@@ -85,20 +86,51 @@ body > section.mainWrapper {
   padding-left: 20px;
 }
 
+#searchInput {
+	margin-bottom: 10px;
+}
+
 #locationInput{
 	margin-left: 20px;
 }
 
-
-.fullList {
-	display: block;
+.club {
+	margin-bottom: 2px;
+	margin-left: 2px;
 }
 
 #clubName {
-	
-	display: block;
+	font-style: bold;
+	color: blue;
+	padding-bottom: 25px;
 }
 
-.club {
-	margin-bottom: 10px;
+.address {
+	padding-bottom: 2px;
+}
+
+.find {
+	line-height: 1.5;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.mainLine {
+	border: none;
+	height: 0.5px;
+	background-color: #C8C8C8;
+}
+
+.minorLine {
+	border: none;
+	height: 0.5px;
+	background-color: #C8C8C8;
+}
+
+.clubtotal {
+	text-align: right;
+	display: block;
+	margin-bottom: 20px;
 }

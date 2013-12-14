@@ -5,14 +5,22 @@
     <input ng-model="query" id="searchInput" placeholder="Search for clubs" autofocus /> 
   </div>
     <section class="clubs">
-    <section class='club' ng-repeat="club in clubs | filter:query">
-      <a id="clubName" ng-bind="club.name" href="{{club.path}}"></a>
+    <section class='club' ng-repeat="club in clubs | filter:query | startFrom:currentPage*pageSize | limitTo:pageSize" >
+      <a class="clubName" ng-bind="club.name" href="{{club.path}}"></a>
         <br/>
         <article class="address" ng-bind="club.address"></article>
-        <article class="post_code" ng-bind="club.post_code"></article>      
+        <article class="post_code" ng-bind="club.post_code"></article>
+        <hr class="minorLine">      
      
       <br/>
 
     </section>
+
+    <div class="clubtotal">
+      Total <%= @clubs.count %> clubs in London
+    </div>
+
+
   </section>
 </section>
+

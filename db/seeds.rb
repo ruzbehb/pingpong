@@ -8,8 +8,19 @@
 
 Club.delete_all
 
-clubs = Club.create([{name: 'Finsbury Table Tennis Club', address: 'Finsbury Leisure Centre, Norman Street', post_code: 'EC1V 3PU'},
+clubs = Club.create([{name: 'Finsbury Table Tennis Club', address: 'Finsbury Leisure Centre, Norman Street, London', post_code: 'EC1V 3PU'},
 										{name: 'Highbury Table Tennis Club', address: 'Highbury Grove School, 8 Highbury Grove, London', post_code: 'N5 2EQ'},
 										{name: 'Crown and Manor', address: 'Wiltshire Row, Islington, London,', post_code: 'N1 5DH'},										
-										{name: 'Tiger & Dragon Table Tennis Club', address: 'Charing Cross Sports Club, Aspenlea Road, Hammersmith, London,', post_code: 'W6 8LH'}										
+										{name: 'International Students House', address: 'Portland Room, 229 Great Portland Street, London,', post_code: 'W1W 5PN'},		
+										{name: 'Irving', address: 'All Saints Church, Monson Road, New Cross, London', post_code: 'SE14 5DJ'},		
+										{name: 'Kamarama', address: '20 Farringdon Road, London', post_code: 'EC1M 3HE'},
+										{name: 'Zebrano', address: '14-16 Ganton Street, London', post_code: 'W1F 7BT'},
+										{name: 'Stepney Green', address: 'Stepney Green School, Ben Jonson Road, London', post_code: 'E1 4SD'},
+										{name: 'Natwest Exiles', address: 'Waterloo Suite, Basement Level 1, 1 Prince’s Street, London', post_code: 'EC2R 8BP'},
+										{name: 'National Audit Office', address: '157 - 197 Buckingham Palace Road, Victoria, London', post_code: 'SW1W 9SP'},
+										{name: 'JOOLA Morpeth Table Tennis Club', address: '2Morpeth School, Morpeth St. entrance, London', post_code: 'E2 0PS'},	
+										{name: 'Moberly Table Tennis Club', address: '2Moberley Sports and Education Centre, Kilburn Lane, London', post_code: 'W10 4AH'},	
+										{name: 'Minshull Table Tennis Club', address: 'St Mary Magdalene Academy, Liverpool Road, London', post_code: 'N7 8PG'},		
+										{name: 'Lambeth Table Tennis Club', address: 'Evelyn Grace Academy, 255 Shakespeare Road, Brixton, London', post_code: 'SE24 0QN'},																				
+										{name: 'Tiger and Dragon Table Tennis Club', address: 'Charing Cross Sports Club, Aspenlea Road, Hammersmith, London,', post_code: 'W6 8LH'}										
 											])

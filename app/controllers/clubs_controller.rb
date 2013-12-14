@@ -8,11 +8,6 @@ class ClubsController < ApplicationController
   		marker.lat club.latitude
   		marker.lng club.longitude
   		marker.infowindow render_to_string(:partial => "/clubs/infowindow", :locals => { :club => club})
-  		marker.picture({
-                  :picture => "/images/tabletennis_gmap.png",
-                  :width   => 32,
-                  :height  => 32
-                 })
   		marker.json({ title: club.name})
   		# render layout: false
 		end

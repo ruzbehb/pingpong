@@ -1,4 +1,4 @@
-#map{style: "width: 500px; height: 500px"}
+#map{style: "width: 450px; height: 450px"}
 
 - content_for :scripts do 
 	:javascript
@@ -7,10 +7,13 @@
 
 		var initialLocation;
 
+		//check if the browser can detect location
+
 		if(navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function(position) {
 				initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
 
+				//build the map and center to user's location
 
 				handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 					markers = handler.addMarkers(#{raw @club_locations.to_json});
@@ -18,6 +21,8 @@
 					handler.fitMapToBounds();
 					handler.getMap().setCenter(initialLocation);
 					});
+
+				//reverse geocode user's location
 
 				var latlng = new google.maps.LatLng(initialLocation.mb, initialLocation.nb);
 				var geocoder = new google.maps.Geocoder();
@@ -28,20 +33,11 @@
 			    }
 			  });
 
-				// $.get('/clubs/location')
-				// $.ajax({
-				// type: "POST",
-				// dataType: "json",
-				// url: '/clubs',
-				// data: initialLocation
-				// });
-
-				// console.log(initialLocation);
-
 			}, function() {
 				console.log('Error')
 			});
 		}
+
 
 		
 		

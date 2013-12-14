@@ -17,8 +17,14 @@ $(document).ready(function(){
 
 	$('.club_location_finder').on('ajax:success', function(e, clubs){
 		$('.clubs').html("");
+		$('.searchBoxContainer').html("");
 		clubs.forEach(function(club){
-			$('.clubs').append($('<p> <a href=\"' + club.lnk + '\">' + club.name + ': </a>' + club.distance + ' miles away</p>' ))
+			$('.clubs').append($('<i><a href=\"' + club.lnk + '\">' + club.name + '</a></i>'));
+			$('.clubs').append("<br>");
+			$('.clubs').append(club.address);
+			$('.clubs').append("<br>");
+			$('.clubs').append(club.post_code);
+			$('.clubs').append($('<i><p align=\"right\">' + club.distance + ' miles away </p></i><hr class=\"minorLine\"><br>' ));
 		})
 	})
 })
