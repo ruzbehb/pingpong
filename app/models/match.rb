@@ -8,103 +8,124 @@ class Match < ActiveRecord::Base
 	# after_create :add_players
 	# after_create :add_scores
 
-	def add_players(p1name, p2name)
-		@player1 = Player.create(guest: true, email: "#{rand(2000000)}@guest.com", password: "password", password_confirmation: "password", name: p1name)
-		@player2 = Player.create(guest: true, email: "#{rand(2000000)}@guest.com", password: "password", password_confirmation: "password",  name: p2name)
-		@score1 = Score.create(player: @player1)
-		@score2 = Score.create(player: @player2)
-		self.scores = [@score1, @score2]
+	def add_players(player_one, player_two)
+		self.scores = [associate_score_to(guest_player_named(player_one)), associate_score_to(guest_player_named(player_two))]
 	end
 
-	# def players
-	# 	self.scores.map(&:player)
-	# end
-
-	def player1_name
-		players.first.name
+	def guest_player_named(name)
+		Player.create(guest: true, email: "#{rand(2000000)}@guest.com", password: "password", password_confirmation: "password", name: name)
 	end
 
-	def player2_name
-		players.last.name
+	def associate_score_to(player)
+		Score.create(player: player)
 	end
 
-	def current_points_for(player)
-		scores[player-1].current_game.points
+	def score(num)
+		scores[num-1]
 	end
 
-	def score(n)
-		scores[n-1]
+	def player(num)
+		players[num-1]
+	end
+
+	def name_of_player(num) #change linked methods for player1_name and player2_name
+		players[num-1].name
+	end
+
+	def current_points_for_player(num)
+		score(num).current_game.points
+	end
+
+	def reports_game_won_to_score(num)
+		score(num).game_won
+	end
+
+	def player_one_wins
+		reports_game_won_to_score(1)
+	end
+
+	def player_two_wins
+		reports_game_won_to_score(2)
 	end
 
 	def point_change
+		player_one_wins if is_player_one_the_winner?
+		player_two_wins if is_player_two_the_winner?
+	end
 
-		if current_points_for(1) > 9 && current_points_for(2) > 9 && current_points_for(1) > (current_points_for(2) + 1)
-			score(1).game_won
-		elsif current_points_for(1) > 9 && current_points_for(2) > 9 && current_points_for(2) > (current_points_for(1) + 1)
-			score(2).game_won
-		elsif current_points_for(1) == 11 && current_points_for(2) < 10
-			score(1).game_won
-			# score(1).save
-		elsif current_points_for(2) == 11 && current_points_for(1) <10
-			score(2).game_won
-
-		else
-			"continue game"
-		end
+	def invoke_new_game_to_score(num)
+		score(num).new_game
 	end
 
 	def update_game_number
 		
 		if score(1).current_game.number > score(2).current_game.number
-			score(2).new_game
+			invoke_new_game_to_score(2)
 			
 		elsif score(1).current_game.number < score(2).current_game.number
-			score(1).new_game
+			invoke_new_game_to_score(1)
 		
 		else
 		end
 	end
 
 	def game_winner(game)
-		if scores.first.games[game-1] !=nil && point_change != "continue game"
-			return player1_name if scores.first.games[game-1].points > scores.last.games[0].points
-			player2_name
+		if score(1).games[game-1] !=nil && point_change != "continue game"
+			return name_of_player(1) if score(1).games[game-1].points > score(2).games[0].points
+			name_of_player(2)
 		else
 			''
 		end
 	end
 
 	def over?
-		score(1).match_finished? || score(2).match_finished?
+		find_winning_score.any?
 	end
 
 	def find_winner
-		if score(1).match_finished?
-			score(1).player
-		elsif score(2).match_finished?
-			score(2).player
-		else
-			'game still in progress'
-		end
+		find_winning_score.first.try(:player) || 'game still in progress'
 	end
 
-	def list_points_for current_score
+	def find_winning_score
+		scores.select(&:match_finished?)
+	end
+
+	def list_points_for_current_score
 		score_array = []
-		scores[current_score-1].games.each{|game| score_array << game.points}
+		players_current_score.games.each{ |game| score_array << game.points }
 		score_array
 	end
 
-	# def same_game?
-	# 	@score1.current_game.number && @score2.current_game.number
-	# end
-
-	def serving
-
+	def players_current_score
+		scores[current_score-1]
 	end
 
-	def points_played
-		# array = []
+	# Methods to write:
 
+	# def serving
+
+	# end
+
+	# def points_played
+	# 	array = []
+	# end
+
+	private
+
+	def is_player_one_the_winner?
+		won_after_eleven_points?(1, 2) || won_at_eleven_points?(1, 2)
+  end
+
+  def is_player_two_the_winner?
+  	won_after_eleven_points?(2, 1) || won_at_eleven_points?(2, 1)
+  end
+
+	def won_at_eleven_points?(num1, num2)
+		current_points_for_player(num1) == 11 && current_points_for_player(num2) < 10
+	end
+
+	def won_after_eleven_points?(num1, num2)
+		current_points_for_player(num1) > 9 && current_points_for_player(num2) > 9 && current_points_for_player(num2) > (current_points_for_player(num1) + 1)
 	end
 
 end

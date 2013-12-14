@@ -14,20 +14,35 @@ class Score < ActiveRecord::Base
 		self.games << Game.create(number: prev_game.number + 1)
 	end
 
+	def game(num)
+		games[num-1]
+	end
+
 	def match_finished?
+		# sleep 2u
+		# puts "match finished method"
 		won_games == 2
+		# puts "end of match finished method"
 	end
 
 	def game_won
-		puts won_games
+		# puts"game is won by #{self.id}"
 		update_attribute(:won_games,won_games + 1)
+		# sleep 2
+		
+		# puts "updating won_games number"
 		if match_finished?
-			match.over?
+			# sleep 2
+			# puts "match finished"
+			# console.log('hello')
+			# match.over?
 		else
 			new_game
+			# puts "new game"
 			
 			match.update_game_number
 		end
+		# puts "are you going here?"
 
 	end
 
