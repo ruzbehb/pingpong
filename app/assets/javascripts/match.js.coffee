@@ -68,6 +68,13 @@ $ ->
     $('.p1g3').text(match['p1g3'])
     $('.p2g3').text(match['p2g3'])
 
+    appElement = document.querySelector('[ng-controller=LineChartController]')
+    $scope = angular.element(appElement).scope()
+    $scope.$apply ->
+      $scope.addRally(match['rally_winner_index'])
+
+    
+    
 
     
 
