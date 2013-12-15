@@ -4,7 +4,6 @@
       = @match.players.first.name
     %article#p1-points= @match.scores.first.current_game.points
     %aside#p1-games= @match.scores.first.won_games
-
     %nav= link_to "Back", '', id: 'p1-back'
 
   %section.player2
@@ -12,7 +11,6 @@
       = @match.players.last.name
     %article#p2-points= @match.scores.last.current_game.points
     %aside#p2-games= @match.scores.last.won_games
-
     %nav= link_to "Back", '', id: 'p2-back'
 
 
