@@ -1,30 +1,22 @@
 section.scoringApp {
   background: #ccc;
-  display: -webkit-flex;
   display: flex;
-
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
+  flex-direction: column;
   align-items: center;
+  padding-top: 3%;
 
   .welcome {
     width: 280px;
     height: 60px;
     background-image: url('welcome.svg');
-    // display: -webkit-flex;
-    // display: flex;
-    // -webkit-justify-content: center;
-    // justify-content: center;
-    // -webkit-align-items: center;
-    // align-items: center;
+    background-repeat: no-repeat;
   }
 
   .scoringApp_form {
 
     section.paddleContainer {
-      display: -webkit-flex;
       display: flex;
+      margin-top: -100px;
 
       .paddleLeft {
         width: 460px;
@@ -33,11 +25,8 @@ section.scoringApp {
         color: #FFF;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        display: -webkit-flex;
         display: flex;
-        -webkit-justify-content: center;
         justify-content: center;
-        -webkit-align-items: center;
         align-items: center;
 
         .fieldLeft {
@@ -52,17 +41,19 @@ section.scoringApp {
         color: #000;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        display: -webkit-flex;
         display: flex;
-        -webkit-justify-content: center;
         justify-content: center;
-        -webkit-align-items: center;
         align-items: center;
 
         .fieldRight {
           padding-left: 20px;
         }
       }
+    }
+    .startMatch {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 5%;
     }
   }
 }
