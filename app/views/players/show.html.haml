@@ -1,13 +1,15 @@
-%ul
-	= image_tag @player.image_url
-%ul
-	= @player.name 
-%ul
-	Sex: 
-	= @player.sex
-%ul
-	Current location:
-	= @player.current_location
-%ul
-	Hometown:
-	= @player.hometown
+.playerContainer
+	.mainProfile
+		%ul
+			= image_tag @player.image_url
+		%ul
+			= @player.name 
+		%ul
+			Sex: 
+			= @player.sex
+		%ul
+			Current location:
+			= @player.current_location
+		%ul
+			Hometown:
+			= @player.hometown
