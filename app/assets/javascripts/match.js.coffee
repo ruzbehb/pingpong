@@ -71,7 +71,7 @@ $ ->
     appElement = document.querySelector('[ng-controller=LineChartController]')
     $scope = angular.element(appElement).scope()
     $scope.$apply ->
-      $scope.addWinner(match['rally_winner_index'])
+      $scope.addRally(match['rally_winner_index'])
 
     
     
