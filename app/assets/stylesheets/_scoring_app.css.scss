@@ -53,7 +53,9 @@ section.scoringApp {
     .startMatch {
       display: flex;
       justify-content: center;
+      margin-top: -50px;
       padding-bottom: 5%;
+      // cursor: pointer;
     }
   }
 }
