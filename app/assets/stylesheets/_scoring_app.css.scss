@@ -60,13 +60,13 @@ section.scoringApp {
   }
 }
 
+
 #container.match {
   
   .player1, .player2 {
     width: 50%;
     height: 90%;
-    font-family: 'Muli', sans-serif;
-    font-size: 50px;
+    font-size: 470%;
     color: #FFF;
     text-align: center;
     padding-top: 10%;
@@ -82,11 +82,15 @@ section.scoringApp {
     }
 
     #p1-points {
-      font-size: 300px;
+      font-size: 440%;
     }
 
     #p1-games {
+      
+    }
 
+    .p1-back a:hover {
+      color: orange;
     }
   }
 
@@ -99,11 +103,15 @@ section.scoringApp {
     }
 
     #p2-points {
-      font-size: 300px;
+      font-size: 440%;
     }
 
     #p2-games {
 
+    }
+
+    .p2-back a:hover {
+      color: red;
     }
   }
 
@@ -115,9 +123,10 @@ section.scoringApp {
     float: left;
   }
 
-  nav {
+  nav.p1-back, .p2-back {
     padding-top: 5%;
     padding-bottom: 5%;
+    font-size: 70%;
   }
 
 }

@@ -15,7 +15,7 @@ a {
 }
 
 a:hover {
-  color: #3B5998;
+  color: #F96B2B;
 }
 
 header, footer {
@@ -66,4 +66,8 @@ body > footer {
 .strongText {
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
+
+  a:hover {
+    color: #F96B2B;
+  }
 }
