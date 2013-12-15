@@ -16,3 +16,111 @@
     border-radius: 50%;
   }
 }
+
+.playerProfileContainer {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.topProfileContainer {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.playerName {
+  display: block;
+  width: 100%;
+  float: top;
+  font-size: 20px;
+  font-style: strong;
+}
+
+.imageMainDetailsContainer {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.profileImageContainer {
+  display: inline-block;
+  float: left;
+  margin-right: 50px;
+}
+
+
+.profileImageContainer img {
+  width: 100px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.profileMainDetails {
+  display: inline-block;
+  width: 350px;
+  margin-right: 100px;
+}
+
+.profilePlayingDetails {
+  display: inline-block;
+  width: 350px;
+}
+
+.topLabel {
+  width: 125px;
+  display: inline-block;
+}
+
+.topValue {
+  display: inline-block;
+}
+
+.middleLeftProfileContainer {
+  display: inline-block;
+  width: 500px;
+  margin-right: 100px;
+}
+
+.currentSeasonAnalytics, .lifetimeAnalytics {
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.weeklyPercentageWins1, .weeklyPercentageWins2 {
+  display: inline-block;
+  width: 245px;
+  height: 200px;
+  border: 1px dotted;
+}
+
+.lifetimeChart {
+  display: block;
+  width: 100%;
+  height: 200px;
+  border: 1px dotted;
+}
+
+.middleRightProfileContainer {
+  display: inline-block;
+  width: 350px;
+  font-size: 15px;
+}
+
+.recentMatches ,.otherBox {
+  display: block;
+  width: 100%;
+  height: 200px;
+  border: 1px dotted;
+  margin-bottom: 20px;
+}
+
+.bottomProfileContainer {
+  display: block;
+  width: 100%;
+  height: 200px;
+  border: 1px dotted;
+  margin-bottom: 20px;
+}

@@ -1,15 +1,134 @@
-.playerContainer
-	.mainProfile
-		%ul
-			= image_tag @player.image_url
-		%ul
+.playerProfileContainer
+	
+	.topProfileContainer
+		
+		.playerName
 			= @player.name 
-		%ul
-			Sex: 
-			= @player.sex
-		%ul
-			Current location:
-			= @player.current_location
-		%ul
-			Hometown:
-			= @player.hometown
+		
+		.imageMainDetailsContainer	
+			
+			.profileImageContainer
+				= image_tag "http://scontent-a-lhr.xx.fbcdn.net/hphotos-prn1/1016715_10151784818657658_83151300_n.jpg"
+			
+			.profileMainDetails
+	
+				.topLabel
+					Sex:
+				.topValue
+					= @player.sex
+				%hr.minorLine
+				
+				.topLabel
+					Age:
+				.topValue
+					33
+				%hr.minorLine				
+
+				.topLabel
+					Current location:
+				.topValue
+					= @player.current_location
+				%hr.minorLine
+
+				.topLabel
+					Hometown:
+				.topValue
+					= @player.hometown
+				%hr.minorLine
+				
+				%br
+
+				.topLabel
+					Club(s):
+				.topValue
+					Finsbury, Stepney Green
+				%hr.minorLine
+
+				.topLabel
+					League(s):
+				.topValue
+					Central London, Civil and Service
+				%hr.minorLine
+
+				%br
+
+			.profilePlayingDetails
+			
+				.topLabel
+					Playing style:
+				.topValue
+					Aggressive Kill Bill Style
+				%hr.minorLine
+
+				.topLabel
+					Plays:
+				.topValue
+					Right-handed
+				%hr.minorLine
+
+				.topLabel
+					Forehand:
+				.topValue
+					Yasaka Mark V
+				%hr.minorLine
+
+				.topLabel
+					Backhand:
+				.topValue
+					Yasaka Phantom (long pimple)
+				%hr.minorLine
+
+				.topLabel
+					Ply:
+				.topValue
+					Stiga
+				%hr.minorLine
+
+				.topLabel
+					Awards:
+				.topValue
+					Best Male Player of the Central  London tournament 2012
+				%hr.minorLine
+
+				%br
+
+	.middleLeftProfileContainer
+	
+		.currentSeasonAnalytics
+
+			2013 - 2014 Performance
+
+			%br
+
+			.weeklyPercentageWins1
+				Central London League
+				%p
+					\% wins by week
+
+			.weeklyPercentageWins2
+				Civil and Service league
+				%p
+					\% wins by week
+
+		.lifetimeAnalytics
+			
+			Lifetime Performance chart
+			.lifetimeChart
+
+	.middleRightProfileContainer
+
+		Recent Matches 
+
+		.recentMatches 
+
+		Other box
+
+		.otherBox
+
+	.bottomProfileContainer
+
+		Image Gallery
+
+		.imageGallery
+	
+
