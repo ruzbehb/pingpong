@@ -113,6 +113,7 @@ button.submitSignUp {
   background-image: url('sign_up.svg');
   background-repeat: no-repeat;
   color: transparent;
+  outline: none;
   margin: 0 auto;
   display: block;
   &:hover {
@@ -126,6 +127,7 @@ button.submitSignIn {
   background-image: url('login.svg');
   background-repeat: no-repeat;
   color: transparent;
+  outline: none;
   margin: 0 auto;
   display: block;
 }

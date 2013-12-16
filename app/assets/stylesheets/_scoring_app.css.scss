@@ -4,6 +4,12 @@ section.scoringApp {
   flex-direction: column;
   align-items: center;
   padding-top: 3%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   .welcome {
     width: 280px;
@@ -21,6 +27,8 @@ section.scoringApp {
       .paddleLeft {
         width: 460px;
         height: 520px;
+        // width: 36.363636%;
+        // height: 86.6811352%;
         background-image: url('paddle_left.svg');
         color: #FFF;
         text-transform: uppercase;
@@ -58,6 +66,7 @@ section.scoringApp {
       button {
         background: transparent;
         border: none;
+        outline: none;
         cursor: pointer;
       }
     }
