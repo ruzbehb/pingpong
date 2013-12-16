@@ -10,7 +10,7 @@ class Game < ActiveRecord::Base
 	end
 
 	def delete_point
-		(decrease_point_count if has_point_been_played? unless score.match.over?
+		decrease_point_count if has_point_been_played? && !score.match.over?
 	end
 
 	private
