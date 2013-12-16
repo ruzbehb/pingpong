@@ -1,0 +1,31 @@
+<% content_for :angular do %>
+  var ClubSearch = angular.module('ClubSearch', [])
+
+  ClubSearch.controller("ClubCtrl", function ($scope){
+    
+    $scope.clubs = [ 
+              <% @clubs.each do |club| %>
+              {
+                    'name': '<%= club.name %>',
+                    'path': '<%= club_path(club) %>',
+                    'address': '<%= club.address %>',
+                    'post_code': '<%= club.post_code %>',
+              },
+    <% end %>
+    ];
+
+    $scope.currentPage = 0;
+    $scope.pageSize = 5;
+
+  });
+
+  ClubSearch.filter('startFrom', function() {
+    return function(input, start) {
+        start = +start; //parse to int
+        return input.slice(start);
+    }
+  });
+
+<% end %>
+ 
+<%= yield %>

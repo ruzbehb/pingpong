@@ -1,9 +1,16 @@
-%section.mapsContent
-	%article.mainMap
-		= render 'clubs/gmaps'
-	%article.buttons
-		= render 'clubs/buttons'
-	%article.fullList
-		= render 'clubs/full_list'
-		= render 'clubs/bylocation'
+%head
+	= stylesheet_link_tag 'clubs'
+	= csrf_meta_tag
+.mapControl	
+	.map_left_container
+		.mainMap
+			= render 'clubs/gmaps'
+	.map_right_container
+		.locationContainer
+			= render 'clubs/currentLocation'
+			= render 'clubs/bylocation'
+		= render 'clubs/search_boxes'	
+		= render 'clubs/ng_scope'
+			
+
 

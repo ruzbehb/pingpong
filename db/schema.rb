@@ -70,19 +70,7 @@ ActiveRecord::Schema.define(version: 20131211191342) do
     t.text     "fb_url"
     t.string   "sex"
     t.text     "google_url"
-    t.text     "address_line1"
-    t.text     "address_line2"
-    t.text     "city_town"
-    t.text     "state"
-    t.string   "post_code"
-    t.string   "country"
     t.boolean  "guest",                  default: false
-    t.text     "address_line1"
-    t.text     "address_line2"
-    t.text     "city_town"
-    t.text     "state"
-    t.string   "post_code"
-    t.string   "country"
   end
 
   add_index "players", ["email"], name: "index_players_on_email", unique: true, using: :btree

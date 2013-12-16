@@ -15,9 +15,16 @@
 
 $(document).ready(function(){
 
-	$('#club_location_finder').on('ajax:success', function(e, clubs){
+	$('.club_location_finder').on('ajax:success', function(e, clubs){
+		$('.clubs').html("");
+		$('.searchBoxContainer').html("");
 		clubs.forEach(function(club){
-			$('.clubs_near').append($('<div />', {text: (club.club + ': ' + club.distance + ' miles')} ))
+			$('.clubs').append($('<i><a href=\"' + club.lnk + '\">' + club.name + '</a></i>'));
+			$('.clubs').append("<br>");
+			$('.clubs').append(club.address);
+			$('.clubs').append("<br>");
+			$('.clubs').append(club.post_code);
+			$('.clubs').append($('<i><p align=\"right\">' + club.distance + ' miles away </p></i><hr class=\"minorLine\"><br>' ));
 		})
 	})
 })

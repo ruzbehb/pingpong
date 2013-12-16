@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :club do
+  	name 'Finsbury Table Tennis Club'
   end
 end

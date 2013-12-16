@@ -5,7 +5,7 @@
     %article#p1-points= @match.score(1).current_game.points
     %aside#p1-games= @match.score(1).won_games
 
-    %nav= link_to "Back", '', id: 'p1-back'
+    %nav= link_to "Back", '', id: 'p1-back', data: { decrement: true }
 
   %section.player2
     %h2#p2-name{"data-id" => @match.player(2).id}
@@ -13,8 +13,4 @@
     %article#p2-points= @match.score(2).current_game.points
     %aside#p2-games= @match.score(2).won_games
 
-    %nav= link_to "Back", '', id: 'p2-back'
-
-
-
-
+    %nav= link_to "Back", '', id: 'p2-back', data: { decrement: true }
