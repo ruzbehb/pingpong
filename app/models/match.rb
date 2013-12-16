@@ -49,32 +49,37 @@ class Match < ActiveRecord::Base
 	end
 
 	def point_change
+		# alert "hello"
+		# finish_game?
 		player_one_wins if is_player_one_the_winner?
 		player_two_wins if is_player_two_the_winner?
+	end
+
+	def finish_game?
+		if is_player_one_the_winner? || is_player_two_the_winner?
+			# alert('do you want to finish this game?')
+		end
+	end
+
+	def halt!
+		
 	end
 
 	def invoke_new_game_to_score(num)
 		score(num).new_game
 	end
 
-	def update_game_number
-		
-		if score(1).current_game.number > score(2).current_game.number
-			invoke_new_game_to_score(2)
-			
-		elsif score(1).current_game.number < score(2).current_game.number
-			invoke_new_game_to_score(1)
-		
-		else
-		end
+	def update_oppositions_game_number
+		invoke_new_game_to_score(2) if score(1).current_game.number > score(2).current_game.number
+		invoke_new_game_to_score(1) if score(1).current_game.number < score(2).current_game.number
 	end
 
-	def game_winner(game)
-		if score(1).games[game-1] !=nil && point_change != "continue game"
-			return name_of_player(1) if score(1).games[game-1].points > score(2).games[0].points
-			name_of_player(2)
-		else
-			''
+	#tidy up winning methods. Too many?
+
+	def game_winner(num)
+		if score(1).game(num) !=nil && point_change != "continue game"
+			name_of_player(1) if score(1).game(num).points > score(2).games[0].points
+			name_of_player(2) if score(2).game(num).points > score(1).games[0].points
 		end
 	end
 
@@ -98,6 +103,10 @@ class Match < ActiveRecord::Base
 
 	def players_current_score
 		scores[current_score-1]
+	end
+
+	def games_for_score(n)
+		score(n).reload.won_games
 	end
 
 	# Methods to write:

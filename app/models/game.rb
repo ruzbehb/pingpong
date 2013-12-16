@@ -6,14 +6,15 @@ class Game < ActiveRecord::Base
 	DECREASE = :-
 
 	def award_point
-		increase_point_count
+		 	increase_point_count unless score.match.over?
 	end
 
 	def delete_point
-		decrease_point_count if has_point_been_played?
+		(decrease_point_count if has_point_been_played?) unless score.match.over?
 	end
 
 	private
+
 	def has_point_been_played?
 		self.points != 0
 	end
