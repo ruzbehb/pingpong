@@ -4,17 +4,45 @@
     %title Ping Pong Pros
     = stylesheet_link_tag 'reset'
     = stylesheet_link_tag 'import'
-    = stylesheet_link_tag 'match'
     = csrf_meta_tag
-    %link{href: "http://fonts.googleapis.com/css?family=Muli", rel: "stylesheet", type: "text/css"}
     %script{src: src="http://code.angularjs.org/1.1.5/angular.js", type: "text/javascript"}
   %body
-    %main
+    %main.matchHeader
       %nav.home
         %a{href: home_index_path}
           %i.logo= image_tag 'logo.svg', data: { name: 'logo' }
-      %nav.match
-        %a{href: "#"}
-          %i.matchItem= image_tag'new_game.svg', data: { name: 'new_game' }
+
+      - if @show_reset_button
+        %nav.match
+          %a{href: new_match_path}
+            %i.matchItem= image_tag 'restart.svg', data: { name: 'restart' }
       = yield
     = javascript_include_tag 'application'
+
+
+
+    / %header
+    /   %nav.home
+    /     %a{href: "/"}
+    /       %i.logo= image_tag 'logo.svg', data: { name: 'logo' }
+    /   %nav.social
+    /     %i.fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/pingpongpros", "data-layout" => "button_count", "data-share" => "false", "data-show-faces" => "false"}
+    /     %a{href: "#"}
+    /       %i.socialItem= image_tag'facebook.svg', data: { name: 'facebook' }
+    /     %a{href: "#"}
+    /       %i.socialItem= image_tag'twitter.svg', data: { name: 'twitter' }
+    /     %a{href: "#"}
+    /       %i.socialItem= image_tag'google+.svg', data: { name: 'google+' }
+
+    /     %nav.registerSignin
+    /       - if !player_signed_in?
+    /         = render 'users/signin', resource_name: :player, resource: Player.new
+    /         = render 'users/register', resource_name: :player, resource: Player.new
+    /         = link_to(new_player_registration_path, class: 'signUp') do
+    /           %i.regItem= image_tag'register.svg', data: { name: 'register' }
+    /         = link_to(new_player_session_path, class: 'signIn') do
+    /           %i.regItem= image_tag'sign_in.svg', data: { name: 'sign_in' }
+    /       - else
+    /         = render 'layouts/signedin'
+    / %section.mainWrapper
+    /   %main

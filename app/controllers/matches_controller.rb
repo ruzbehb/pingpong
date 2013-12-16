@@ -4,7 +4,7 @@ class MatchesController < ApplicationController
 	def edit
 
 		@match = Match.find(params[:id])
-		
+		@show_reset_button = true
 	end
 
 
