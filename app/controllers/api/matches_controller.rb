@@ -13,7 +13,7 @@ class Api::MatchesController < ApplicationController
 	    else
 	    	@match.scores[player_index].current_game.award_point
 	    end
-	    WebsocketRails[:table].trigger 'edit', table_data(@match, player_index)
+	    WebsocketRails["table#{@match.id}"].trigger 'edit', table_data(@match, player_index)
  	  end
 
 end
