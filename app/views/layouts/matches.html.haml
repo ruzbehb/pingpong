@@ -7,7 +7,11 @@
     = csrf_meta_tag
   %body
     %main
-      %a{href: home_index_path}
-        %i.logo= image_tag 'logo.svg', data: { name: 'logo' }
+      %nav.home
+        %a{href: home_index_path}
+          %i.logo= image_tag 'logo.svg', data: { name: 'logo' }
+      %nav.match
+        %a{href: "#"}
+          %i.matchItem= image_tag'new_game.svg', data: { name: 'new_game' }
       = yield
     = javascript_include_tag 'application'

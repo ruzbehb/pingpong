@@ -1,7 +1,5 @@
 nav.social {
-  display: -webkit-flex;
   display: flex;
-  -webkit-align-items: center;
   align-items: center;
 }
 
@@ -15,16 +13,13 @@ nav.social {
 
 nav.registerSignin {
   padding-left: 100px;
-  display: -webkit-flex;
   display: flex;
 }
 
 nav.signOut {
   padding-left: 40px;
   padding-right: 15px;
-  display: -webkit-flex;
   display: flex;
-  -webkit-align-items: center;
   align-items: center;
 }
 
@@ -32,8 +27,12 @@ nav.signOut {
   padding-right: 15px;
 }
 
+nav.match {
+  display: flex;
+  align-items: center;
+}
+
 nav.footNav {
-  display: -webkit-flex;
   display: flex;
 }
 
