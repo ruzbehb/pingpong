@@ -4,17 +4,11 @@
       = @match.players.first.name
     %article#p1-points= @match.scores.first.current_game.points
     %aside#p1-games= @match.scores.first.won_games
-
-    %nav= link_to "Back", '', id: 'p1-back'
+    %nav.p1-back= link_to "Back", '', id: 'p1-back'
 
   %section.player2
     %h2#p2-name{"data-id" => @match.players.last.id}
       = @match.players.last.name
     %article#p2-points= @match.scores.last.current_game.points
     %aside#p2-games= @match.scores.last.won_games
-
-    %nav= link_to "Back", '', id: 'p2-back'
-
-
-
-
+    %nav.p2-back= link_to "Back", '', id: 'p2-back'

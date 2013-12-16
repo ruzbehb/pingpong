@@ -1,0 +1,157 @@
+section.scoringApp {
+  background: #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  .welcome {
+    width: 280px;
+    height: 60px;
+    background-image: url('welcome.svg');
+    background-repeat: no-repeat;
+  }
+
+  .scoringApp_form {
+
+    section.paddleContainer {
+      display: flex;
+      margin-top: -100px;
+
+      .paddleLeft {
+        width: 460px;
+        height: 520px;
+        // width: 36.363636%;
+        // height: 86.6811352%;
+        background-image: url('paddle_left.svg');
+        color: #FFF;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .fieldLeft {
+          padding-left: 20px;
+        }
+      }
+
+      .paddleRight {
+        width: 460px;
+        height: 520px;
+        background-image: url('paddle_right.svg');
+        color: #000;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .fieldRight {
+          padding-left: 20px;
+        }
+      }
+    }
+    .startMatch {
+      display: flex;
+      justify-content: center;
+      margin-top: -50px;
+      padding-bottom: 5%;
+      button {
+        background: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+#container.match {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  .player1, .player2 {
+    width: 50%;
+    height: 90%;
+    color: #FFF;
+    text-align: center;
+    padding-top: 10%;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .player1 {
+    background: red;
+    float: left;
+
+    #p1-name {
+      font-size: 4vw;
+    }
+
+    #p1-points {
+      font-size: 25vw;
+    }
+
+    #p1-games {
+      position: absolute;
+      left: 80%;
+      top: 7%;
+      font-size: 6vw;
+    }
+
+    .p1-back a:hover {
+      color: orange;
+    }
+  }
+
+  .player2 {
+    background: orange;
+    float: right;
+
+    #p2-name {
+      font-size: 4vw;
+    }
+
+    #p2-points {
+      font-size: 25vw;
+    }
+
+    #p2-games {
+      position: absolute;
+      left: 12.5%;
+      top: 7%;
+      font-size: 6vw;
+    }
+
+    .p2-back a:hover {
+      color: red;
+    }
+  }
+
+  &.flipped .player1 {
+    float: right;
+  }
+
+  &.flipped .player2 {
+    float: left;
+  }
+
+  nav.p1-back, .p2-back {
+    padding-top: 3%;
+    padding-bottom: 7%;
+    font-size: 3vw;
+  }
+
+}
