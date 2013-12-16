@@ -93,7 +93,6 @@
   display: inline-block;
   width: 245px;
   height: 200px;
-  border: 1px dotted;
 }
 
 .lifetimeChart {
@@ -123,4 +122,11 @@
   height: 200px;
   border: 1px dotted;
   margin-bottom: 20px;
+}
+
+#smallLineChart {
+  float: left;
+  display: block;
+  height: 100%;
+  width: 80%;
 }

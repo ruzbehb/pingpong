@@ -134,3 +134,14 @@ body > section.mainWrapper {
 	display: block;
 	margin-bottom: 20px;
 }
+
+.spinner {
+	display: none;
+	width: 15px;
+	height: 15px;
+}
+
+.mapSpinner {
+	width: 200px;
+	height: 200px;
+}

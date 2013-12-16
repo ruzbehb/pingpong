@@ -8,7 +8,10 @@
 	<%= form_tag near_clubs_path, method: :get, remote: true, class: 'club_location_finder' do %>
 
   	<%= hidden_field_tag :location, nil, id: 'location_hidden' %>
-		<%= button_tag :"Find clubs nearby", id: 'find_clubs_nearby' %>
+		<%= button_tag id: 'find_clubs_nearby', disabled: true do %>
+			Find clubs nearby &nbsp;
+			<%= image_tag("http://www.trickyplayers.com/images/standard-spinner.gif", :class => 'spinner') %> 
+		<% end %>
 		<i> OR </i> 
 	<% end %>
 </div>

@@ -15,6 +15,10 @@
 
 $(document).ready(function(){
 
+	$('.club_location_finder').on('ajax:beforeSend', function(e) {
+		$(this).find('.spinner').show();
+	});
+
 	$('.club_location_finder').on('ajax:success', function(e, clubs){
 		$('.clubs').html("");
 		$('.searchBoxContainer').html("");
@@ -26,5 +30,6 @@ $(document).ready(function(){
 			$('.clubs').append(club.post_code);
 			$('.clubs').append($('<i><p align=\"right\">' + club.distance + ' miles away </p></i><hr class=\"minorLine\"><br>' ));
 		})
+		$('.spinner').hide();
 	})
 })
