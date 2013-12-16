@@ -6,9 +6,7 @@ class Game < ActiveRecord::Base
 	DECREASE = :-
 
 	def award_point
-			puts self.completed
 		 	increase_point_count unless score.match.over?
-		 	# raise "hello"
 	end
 
 	def delete_point
@@ -25,14 +23,11 @@ class Game < ActiveRecord::Base
 				save
 			else
 				report_point_changed
-				
 			end
-			
+
 		else
 			report_game_completed
-
 		end
-		
 	end
 
 	private

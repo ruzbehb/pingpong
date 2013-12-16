@@ -20,7 +20,6 @@ class Score < ActiveRecord::Base
 
 	def match_finished?
 		won_games == 2
-		# false
 	end
 
 	def game_won	
@@ -28,7 +27,6 @@ class Score < ActiveRecord::Base
 
 		unless match_finished?
 			new_game
-			# current_game.tap { |g| g.completed = true }.save
 
 			match.update_oppositions_game_number
 		end

@@ -17,6 +17,25 @@ $ ->
       $("#p1-games").text(data.p1games)
       $("#p2-points").text(data.p2points)
       $("#p2-games").text(data.p2games)
+      if(data.matchover)
+        if(confirm('Match Over! Would you like to save this game? If you click cancel the data from this game will be deleted.'))
+          alert("Let's save it!")
+        else 
+          alert('bye bye data')
+    type: 'PUT'
+
+  $(".game_button").on 'click', (e) ->
+    e.preventDefault()
+    $.ajax "/api/matches/#{id}",
+    data: {
+      new_game: true
+    }
+    success: (data,status) ->
+      $("#p1-points").text(data.p1points)
+      $("#p1-games").text(data.p1games)
+      $("#p2-points").text(data.p2points)
+      $("#p2-games").text(data.p2games)
+      
     type: 'PUT'
 
   connection = new WebSocketRails('localhost:3000/websocket')
@@ -30,6 +49,9 @@ $ ->
     $('.p2g2').text(match['p2g2'])
     $('.p1g3').text(match['p1g3'])
     $('.p2g3').text(match['p2g3'])
+    $('.g1winner').text(match['g1winner'])
+    $('.g2winner').text(match['g2winner'])
+    $('.g3winner').text(match['g3winner'])
 
     appElement = document.querySelector('[ng-controller=LineChartController]')
 

@@ -1,12 +1,8 @@
 class Match < ActiveRecord::Base
-	# has_and_belongs_to_many :players
+
 	has_many :players, through: :scores, order: 'id ASC'
-
 	has_many :scores, order: 'id ASC'
-
-	has_many :games, :through => :scores, order: 'id ASC'
-	# after_create :add_players
-	# after_create :add_scores
+	has_many :games, through: :scores, order: 'id ASC'
 
 	def add_players(player_one, player_two)
 		self.scores = [associate_score_to(guest_player_named(player_one)), associate_score_to(guest_player_named(player_two))]
@@ -71,14 +67,14 @@ class Match < ActiveRecord::Base
 		invoke_new_game_to_score(1) if score(1).current_game.number < score(2).current_game.number
 	end
 
-	def game_winner(num)
-		if score(1).game(num) != nil
-			if score(1).game(num).completed == true && score(2).game(num).completed == true 
-				name_of_player(1) if score(1).game(num).try(:points) > score(2).game(1).try(:points)
-				name_of_player(2) if score(2).game(num).try(:points) > score(1).games(1).try(:points)
-			end
-		end
-	end
+	# def game_winner(num)
+	# 	if score(1).game(num) != nil
+	# 		if score(1).game(num).completed == true && score(2).game(num).completed == true 
+	# 			name_of_player(1) if score(1).game(num).try(:points) > score(2).game(1).try(:points)
+	# 			name_of_player(2) if score(2).game(num).try(:points) > score(1).games(1).try(:points)
+	# 		end
+	# 	end
+	# end
 
 	def over?
 		find_winning_score.any?
@@ -117,15 +113,17 @@ class Match < ActiveRecord::Base
 	# 	array = []
 	# end
 
-	private
-
-	def is_player_one_the_winner?
+		def is_player_one_the_winner?
 		won_after_eleven_points?(1, 2) || won_at_eleven_points?(1, 2)
   end
 
   def is_player_two_the_winner?
   	won_after_eleven_points?(2, 1) || won_at_eleven_points?(2, 1)
   end
+
+	private
+
+
 
 	def won_at_eleven_points?(num1, num2)
 		current_points_for_player(num1) == 11 && current_points_for_player(num2) < 10
