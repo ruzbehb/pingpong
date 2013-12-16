@@ -8,7 +8,7 @@ describe Match do
 	let (:player2) { match.players.last }
 
 	it {should have_many :scores}
-	it {should have_and_belong_to_many :players}
+	# it {should have_and_belong_to_many :players}
 	it {should have_many(:games).through(:scores)}
 
 	before (:each) do
@@ -27,9 +27,9 @@ describe Match do
 		match.update_game_number
 
 		example_game(1,2).points = 5
-		example_game(2,2).points = 11
+		example_game(2,2).points = 10
 
-		match.point_change
+		example_game(2,2).award_point
 	end
 
 	it "has 2 players" do
@@ -62,8 +62,6 @@ describe Match do
 		expect(example_game(1,2)).not_to be_nil
 	end
 
-
-
 	it "knows which score belongs to which player" do
 		expect(match.scores.first.player).to eq player1
 		expect(match.scores.last.player).to eq player2
@@ -80,6 +78,26 @@ describe Match do
 		expect(match.list_points_for(2)).to eq [12,11]
 	end
 
+	it "should update game number to 2 when 2 games won" do
+		10.times {match.score(2).current_game.award_point}
+		match.score(2).current_game.award_point
+
+		match.scores.each(&:reload)
+
+		expect(match.score(1).won_games).to eq 0
+		expect(match.score(2).won_games).to eq 1
+		10.times {match.score(2).current_game.award_point}
+		match.score(2).current_game.award_point
+
+		match.scores.each(&:reload)
+		
+		expect(match.score(1).won_games).to eq 0
+		expect(match.score(2).won_games).to eq 2
+		expect(match.score(2).match_finished?).to be_true
+
+
+	end
+
 	context "updating progress" do
 
 		xit "knows who's serving" do
@@ -94,6 +112,7 @@ describe Match do
 
 		it "knows who the winner is" do
 			complete_game
+			puts match.find_winning_score
 			expect(match.find_winner).to eq player2
 		end
 	end

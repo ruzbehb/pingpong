@@ -1,8 +1,8 @@
 %table.match{ data: { id: @match.id } }
 	%tr
 		%td Game
-		%td #{@match.player1_name}
-		%td #{@match.player2_name}
+		%td #{@match.name_of_player(1)}
+		%td #{@match.name_of_player(2)}
 		%td Winner
 	%tr
 		%td 1
