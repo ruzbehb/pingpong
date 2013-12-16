@@ -31,7 +31,7 @@ $ ->
     $('.p1g3').text(match['p1g3'])
     $('.p2g3').text(match['p2g3'])
 
-    appElement = document.querySelector('[ng-controller=LineChartController]')
+    appElement = document.querySelector('[ng-controller=ChartController]')
 
     if(appElement)
       $scope = angular.element(appElement).scope()

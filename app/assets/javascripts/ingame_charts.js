@@ -1,6 +1,6 @@
 window.App = angular.module('App', []);
 
-App.controller('LineChartController', function($scope){
+App.controller('ChartController', function($scope){
 
   // $scope.scale = 10;
   
