@@ -36,33 +36,30 @@ class Match < ActiveRecord::Base
 		score(num).current_game.points
 	end
 
-	def reports_game_won_to_score(num)
-		score(num).game_won
+	def set_opposing_game_to_completed
+		score(1).game_completed if score(2).current_game.completed == true
+		score(2).game_completed if score(1).current_game.completed == true
+	end
+
+	def reports_game_completed_to_score(num)
+		score(num).game_completed
 	end
 
 	def player_one_wins
-		reports_game_won_to_score(1)
+		reports_game_completed_to_score(1)
 	end
 
 	def player_two_wins
-		reports_game_won_to_score(2)
+		reports_game_completed_to_score(2)
 	end
 
 	def point_change
-		# alert "hello"
-		# finish_game?
 		player_one_wins if is_player_one_the_winner?
 		player_two_wins if is_player_two_the_winner?
 	end
 
-	def finish_game?
-		if is_player_one_the_winner? || is_player_two_the_winner?
-			# alert('do you want to finish this game?')
-		end
-	end
-
-	def halt!
-		
+	def end_of_current_game?
+		is_player_one_the_winner? || is_player_two_the_winner?
 	end
 
 	def invoke_new_game_to_score(num)
@@ -74,12 +71,12 @@ class Match < ActiveRecord::Base
 		invoke_new_game_to_score(1) if score(1).current_game.number < score(2).current_game.number
 	end
 
-	#tidy up winning methods. Too many?
-
 	def game_winner(num)
-		if score(1).game(num) !=nil && point_change != "continue game"
-			name_of_player(1) if score(1).game(num).points > score(2).games[0].points
-			name_of_player(2) if score(2).game(num).points > score(1).games[0].points
+		if score(1).game(num) != nil
+			if score(1).game(num).completed == true && score(2).game(num).completed == true 
+				name_of_player(1) if score(1).game(num).try(:points) > score(2).game(1).try(:points)
+				name_of_player(2) if score(2).game(num).try(:points) > score(1).games(1).try(:points)
+			end
 		end
 	end
 
@@ -88,7 +85,7 @@ class Match < ActiveRecord::Base
 	end
 
 	def find_winner
-		find_winning_score.first.try(:player) || 'game still in progress'
+		find_winning_score.first.try(:player) || nil
 	end
 
 	def find_winning_score
@@ -101,6 +98,7 @@ class Match < ActiveRecord::Base
 		score_array
 	end
 
+#fix this
 	def players_current_score
 		scores[current_score-1]
 	end
