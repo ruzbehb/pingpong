@@ -10,7 +10,11 @@
     %script{src: src="http://code.angularjs.org/1.1.5/angular.js", type: "text/javascript"}
   %body
     %main
-      %a{href: home_index_path}
-        %i.logo= image_tag 'logo.svg', data: { name: 'logo' }
+      %nav.home
+        %a{href: home_index_path}
+          %i.logo= image_tag 'logo.svg', data: { name: 'logo' }
+      %nav.match
+        %a{href: "#"}
+          %i.matchItem= image_tag'new_game.svg', data: { name: 'new_game' }
       = yield
     = javascript_include_tag 'application'
