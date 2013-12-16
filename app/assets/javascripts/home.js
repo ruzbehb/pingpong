@@ -70,4 +70,10 @@ $(function() {
     event: 'mouseover'
   });
 
+  var altcrement = -1;
+  $(window).resize(function(){
+      var currentFontSize = parseFloat($('html').css('font-size'));
+      $('html').css('font-size', currentFontSize + (altcrement *= -1) + 'px');
+  });
+
 });

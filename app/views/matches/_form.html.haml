@@ -1,0 +1,16 @@
+.scoringApp_form
+  = form_tag matches_path do
+    %section.paddleContainer
+      .paddleLeft
+        = label_tag :p1_name, 'Player 1'
+        .fieldLeft
+          = text_field_tag :p1_name, params[:p1_name]
+      .paddleRight
+        = label_tag :p2_name, 'Player 2'
+        .fieldRight
+          = text_field_tag :p2_name, params[:p2_name]
+    %i.startMatch
+      = button_tag "Start match!" do
+        = image_tag'play.svg', data: { name: 'play' }
+
+  
