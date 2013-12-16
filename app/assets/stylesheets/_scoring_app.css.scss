@@ -55,22 +55,32 @@ section.scoringApp {
       justify-content: center;
       margin-top: -50px;
       padding-bottom: 5%;
-      // cursor: pointer;
+      button {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+      }
     }
   }
 }
 
 
 #container.match {
-  
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
   .player1, .player2 {
     width: 50%;
     height: 90%;
-    font-size: 470%;
     color: #FFF;
     text-align: center;
     padding-top: 10%;
     cursor: pointer;
+    position: relative;
   }
 
   .player1 {
@@ -78,15 +88,18 @@ section.scoringApp {
     float: left;
 
     #p1-name {
-
+      font-size: 4vw;
     }
 
     #p1-points {
-      font-size: 440%;
+      font-size: 25vw;
     }
 
     #p1-games {
-      
+      position: absolute;
+      left: 80%;
+      top: 7%;
+      font-size: 6vw;
     }
 
     .p1-back a:hover {
@@ -99,15 +112,18 @@ section.scoringApp {
     float: right;
 
     #p2-name {
-
+      font-size: 4vw;
     }
 
     #p2-points {
-      font-size: 440%;
+      font-size: 25vw;
     }
 
     #p2-games {
-
+      position: absolute;
+      left: 12.5%;
+      top: 7%;
+      font-size: 6vw;
     }
 
     .p2-back a:hover {
@@ -115,18 +131,18 @@ section.scoringApp {
     }
   }
 
-  .flipped .player1 {
+  &.flipped .player1 {
     float: right;
   }
 
-  .flipped .player2 {
+  &.flipped .player2 {
     float: left;
   }
 
   nav.p1-back, .p2-back {
-    padding-top: 5%;
-    padding-bottom: 5%;
-    font-size: 70%;
+    padding-top: 3%;
+    padding-bottom: 7%;
+    font-size: 3vw;
   }
 
 }

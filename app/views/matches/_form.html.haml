@@ -9,7 +9,8 @@
         = label_tag :p2_name, 'Player 2'
         .fieldRight
           = text_field_tag :p2_name, params[:p2_name]
-    .startMatch
-      = submit_tag "Start match!"
+    %i.startMatch
+      = button_tag "Start match!" do
+        = image_tag'play.svg', data: { name: 'play' }
 
   
