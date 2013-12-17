@@ -3,7 +3,8 @@ class ClubsController < ApplicationController
 	def index
 		
 		@clubs = Club.all
-		
+		@clubs.reject! {|c| !c.latitude || !c.longitude }
+
 		@club_locations = Gmaps4rails.build_markers(@clubs) do |club, marker|
   		marker.lat club.latitude
   		marker.lng club.longitude

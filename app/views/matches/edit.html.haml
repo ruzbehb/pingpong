@@ -1,3 +1,6 @@
+-if @match.end_of_current_game?
+  %button.game_button New Game 
+
 #container.match{"data-id" => @match.id}
   %section.player1
     %h2#p1-name{"data-id" => @match.player(1).id}
@@ -6,6 +9,7 @@
     %aside#p1-games= @match.score(1).won_games
     %nav.p1-back= link_to "Back", '', id: 'p1-back', data: { decrement: true }
 
+
   %section.player2
     %h2#p2-name{"data-id" => @match.player(2).id}
       = @match.name_of_player(2)
@@ -13,3 +17,4 @@
     %aside#p2-games= @match.score(2).won_games
     %nav.p2-back= link_to "Back", '', id: 'p2-back', data: { decrement: true }
 
+ 

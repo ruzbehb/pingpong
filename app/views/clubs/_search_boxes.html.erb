@@ -6,7 +6,7 @@
   </div>
     <section class="clubs">
     <section class='club' ng-repeat="club in clubs | filter:query | startFrom:currentPage*pageSize | limitTo:pageSize" >
-      <a class="clubName" ng-bind="club.name" href="{{club.path}}"></a>
+      <a class="clubName strongText" ng-bind="club.name" href="{{club.path}}"></a>
         <br/>
         <article class="address" ng-bind="club.address"></article>
         <article class="post_code" ng-bind="club.post_code"></article>
@@ -16,7 +16,7 @@
 
     </section>
 
-    <div class="clubtotal">
+    <div class="clubtotal strongText">
       Total <%= @clubs.count %> clubs in London
     </div>
 
