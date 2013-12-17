@@ -17,7 +17,6 @@ class Game < ActiveRecord::Base
 		if operation == DECREASE || !completed
 			self.points= self.points.send(operation, 1)
 			save
-
 			if operation == DECREASE
 				self.completed = false
 				save
@@ -51,6 +50,5 @@ class Game < ActiveRecord::Base
 	def decrease_point_count
 		modify_points_with(DECREASE)
 	end
-
 	
 end

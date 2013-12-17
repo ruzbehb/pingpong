@@ -124,8 +124,6 @@ class Match < ActiveRecord::Base
 
 	private
 
-
-
 	def won_at_eleven_points?(num1, num2)
 		current_points_for_player(num1) == 11 && current_points_for_player(num2) < 10
 	end
