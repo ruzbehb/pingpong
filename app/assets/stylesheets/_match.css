@@ -9,9 +9,8 @@
 
 main, section {
   /*height: 100%;*/
-  width: 630px;
-  float: right;
-
+  /*width: 630px;*/
+  /*float: right;*/
 }
 .chart{
   width: 100%;
