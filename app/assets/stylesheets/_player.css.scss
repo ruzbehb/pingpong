@@ -1,7 +1,5 @@
 .playerProfile {
-  display: -webkit-flex;
   display: flex;
-  -webkit-align-items: center;
   align-items: center;
 
   span {
@@ -23,6 +21,14 @@
   display: block;
 }
 
+.playerProfileContainer h3 {
+  font-size: 15px;
+}
+
+.playerProfileContainer h2 {
+  font-size: 20px;
+}
+
 .topProfileContainer {
   display: block;
   width: 100%;
@@ -35,7 +41,6 @@
   width: 100%;
   float: top;
   font-size: 20px;
-  font-style: strong;
 }
 
 .imageMainDetailsContainer {
@@ -47,20 +52,20 @@
 .profileImageContainer {
   display: inline-block;
   float: left;
-  margin-right: 50px;
+  margin-right: 40px;
 }
 
 
 .profileImageContainer img {
-  width: 100px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
 }
 
 .profileMainDetails {
   display: inline-block;
   width: 350px;
-  margin-right: 100px;
+  margin-right: 50px;
 }
 
 .profilePlayingDetails {
@@ -79,48 +84,47 @@
 
 .middleLeftProfileContainer {
   display: inline-block;
-  width: 500px;
-  margin-right: 100px;
+  width: 550px;
+  margin-right: 50px;
+  vertical-align: top;
 }
 
 .currentSeasonAnalytics, .lifetimeAnalytics {
   width: 100%;
   margin-bottom: 20px;
-  font-size: 15px;
-}
-
-.weeklyPercentageWins1, .weeklyPercentageWins2 {
-  display: inline-block;
-  width: 245px;
   height: 200px;
+  display: inline-block;
 }
 
 .lifetimeChart {
   display: block;
   width: 100%;
   height: 200px;
-  border: 1px dotted;
 }
 
 .middleRightProfileContainer {
   display: inline-block;
   width: 350px;
-  font-size: 15px;
+  vertical-align: top;
 }
 
-.recentMatches ,.otherBox {
+.recentMatches ,.upcomingMatches {
   display: block;
   width: 100%;
   height: 200px;
-  border: 1px dotted;
   margin-bottom: 20px;
+  // line-height: 1.5;
+  vertical-align: top;
+}
+
+.recentMatches i, .upcomingMatches i {
+  line-height: 2;
 }
 
 .bottomProfileContainer {
   display: block;
   width: 100%;
   height: 200px;
-  border: 1px dotted;
   margin-bottom: 20px;
 }
 
@@ -129,4 +133,34 @@
   display: block;
   height: 100%;
   width: 80%;
+}
+
+.imageGallery img {
+  height: 200px;
+  width: 300px;
+  border-radius: 10%;
+}
+
+.imageOverlay {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-content: center;
+
+  img {
+    height: 70%;
+  }
+
+  &.active {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    display: flex;
+    opacity: 1;
+  }
 }

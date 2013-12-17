@@ -23,12 +23,12 @@ $(document).ready(function(){
 		$('.clubs').html("");
 		$('.searchBoxContainer').html("");
 		clubs.forEach(function(club){
-			$('.clubs').append($('<i><a href=\"' + club.lnk + '\">' + club.name + '</a></i>'));
+			$('.clubs').append($('<i class="clubName strongText"> <a href=\"' + club.lnk + '\">' + club.name + '</a></i>'));
 			$('.clubs').append("<br>");
 			$('.clubs').append(club.address);
 			$('.clubs').append("<br>");
 			$('.clubs').append(club.post_code);
-			$('.clubs').append($('<i><p align=\"right\">' + club.distance + ' miles away </p></i><hr class=\"minorLine\"><br>' ));
+			$('.clubs').append($('<em class="strongText"><p align=\"right\">' + club.distance + ' miles away </p></em><hr class=\"minorLine\"><br>' ));
 		})
 		$('.spinner').hide();
 	})

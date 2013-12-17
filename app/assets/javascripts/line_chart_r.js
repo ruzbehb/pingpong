@@ -4,14 +4,14 @@ new Morris.Line({
   // Chart data records -- each entry in this array corresponds to a point on
   // the chart.
   data: [
-    { "wk commencing": '07 Oct 13', "% wins": 46 },
-    { "wk commencing": '14 Oct 13', "% wins": 45 },
-    { "wk commencing": '21 Oct 13', "% wins": 49 },
-    { "wk commencing": '28 Oct 13', "% wins": 50 },
-    { "wk commencing": '04 Nov 13', "% wins": 47 },
-    { "wk commencing": '11 Nov 13', "% wins": 46 },
-    { "wk commencing": '18 Nov 13', "% wins": 50 },
-    { "wk commencing": '25 Nov 13', "% wins": 67 },
+    { "wk commencing": '2013-10-07', "% wins": 46 },
+    { "wk commencing": '2013-10-14', "% wins": 45 },
+    { "wk commencing": '2013-10-21', "% wins": 49 },
+    { "wk commencing": '2013-10-28', "% wins": 50 },
+    { "wk commencing": '2013-11-04', "% wins": 47 },
+    { "wk commencing": '2013-11-11', "% wins": 46 },
+    { "wk commencing": '2013-11-18', "% wins": 50 },
+    { "wk commencing": '2013-11-25', "% wins": 52 }
   ],
   // The name of the data record attribute that contains x-"% wins"s.
   xkey: 'wk commencing',
@@ -21,7 +21,7 @@ new Morris.Line({
   // chart.
   labels: [''],
 
-  lineColors: ["black"],
+  lineColors: ["#424242"],
 
   postUnits: ["%"], 
 
@@ -31,11 +31,16 @@ new Morris.Line({
 
   xLabelFormat: function (x) { return x.toString();},
 
+  // hoverCallback: function(index, options, content) {
+  //   wins = options.data[index]['% wins'];
+  //   return (wins + '%');
+  // },
+
   grid: false,
 
-  pointSize: ["2"],
+  //pointSize: ["4"],
 
-  hideHover: ["auto"],
+  // hideHover: ["auto"],
 
   lineWidth: ["2"]
 

@@ -1,14 +1,17 @@
+.imageOverlay
+
 .playerProfileContainer
-	
+
 	.topProfileContainer
 		
 		.playerName
-			= @player.name 
+			.strongText
+				= @player.name 
 		
 		.imageMainDetailsContainer	
 			
 			.profileImageContainer
-				= image_tag "http://scontent-a-lhr.xx.fbcdn.net/hphotos-prn1/1016715_10151784818657658_83151300_n.jpg"
+				= image_tag "ruz_profile.jpg"
 			
 			.profileMainDetails
 	
@@ -96,40 +99,55 @@
 	
 		.currentSeasonAnalytics
 
-			2013 - 2014 Performance
-
-			%br
-
-			.weeklyPercentageWins1
-				Central London League
-				%p
-					\% wins by week
-				= render 'players/pc_wins_chart'
-
-			.weeklyPercentageWins2
-				Civil and Service league
-				%p
-					\% wins by week
-
-		.lifetimeAnalytics
+			%h2
+				2013 - 2014 Performance
 			
-			Lifetime Performance chart
+			<hr class="minorLine">
+			
+			\% wins by week (cumulative)
+			
+			%br
+		
+				Central London league
+					
+			= render 'players/pc_wins_chart'
+		
+		.lifetimeAnalytics
+			%h2
+				Lifetime Performance chart	
+			<hr class="minorLine">
 			.lifetimeChart
 
 	.middleRightProfileContainer
 
-		Recent Matches 
+		.upcomingMatches
+			%h2
+				Upcoming Matches
+			<hr class="minorLine">
 
-		.recentMatches 
+			%i
+				%p 
+					09 Jan 2014	
+					Home 	Finsbury 2 v. Highbury 
+				
+				17 Jan 2014 
+				Away Irving 2 v. Finsbury 2
 
-		Other box
+		%h2
+			Recent Matches 
+		<hr class="minorLine">
 
-		.otherBox
+		.recentMatches
+			%i
+				25 Nov 2013	
+				Home 	Finsbury 2 v. ISH 1
+				%p
+					17 Nov 2014 
+					Away Crown and Mayor 2 v. Finsbury 2
 
 	.bottomProfileContainer
 
-		Image Gallery
-
 		.imageGallery
-	
-
+			= link_to image_tag("ruz1.jpg"), image_path("ruz1.jpg")
+			= link_to image_tag("ruz2.jpg"), image_path("ruz2.jpg")
+			= link_to image_tag("ruz3.jpg"), image_path("ruz3.jpg")
