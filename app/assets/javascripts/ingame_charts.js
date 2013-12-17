@@ -36,9 +36,25 @@ App.controller('ChartController', function($scope){
     rallyWinner.push(winnerIndex);
     var serverIndex = serverLookup(rallyWinner.length);
     serveStatsAllocate(serverIndex, winnerIndex);
-    $scope.pieOptions.data = [serveStats[0].servePointsAgainst, serveStats[0].servePointsFor];
     $scope.p1ServePercentage = servePointPercentage(0);
+    $scope.pieOptions.data = pieData(0);
   }
+
+
+  var pieData = function(serverIndex) {
+    if (servePointPercentage(serverIndex) === '0' ) 
+      {
+        return [1000000, 1];
+      }
+    else if (servePointPercentage(serverIndex) === ('100' || 'NaN'))
+      {
+        return [1, 1000000];
+      }
+    else
+      {
+        return [serveStats[serverIndex].servePointsAgainst, serveStats[serverIndex].servePointsFor];
+      }
+  };
 
 
   $scope.pieOptions = {
