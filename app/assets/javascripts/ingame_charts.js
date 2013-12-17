@@ -2,24 +2,12 @@ window.App = angular.module('App', []);
 
 App.controller('ChartController', function($scope){
 
-  // $scope.scale = 10;
-  
-  var playerRecords = [{points: 0, coordinates: [{x:0,y:115}]},
-                        {points: 0, coordinates: [{x:0,y:115}]}]
+  var playerRecords = [{points: 0, coordinates: [{x:25,y:300}]},
+                        {points: 0, coordinates: [{x:25,y:300}]}]
 
   var addCoordinates = function(recordsElement){
     var length = recordsElement.coordinates.length;
-    recordsElement.coordinates.push({x: length*10, y: 115-recordsElement.points*10});
-  }
-
-  $scope.addRally = function(winnerIndex){
-    playerRecords[winnerIndex].points +=1;
-    addCoordinates(playerRecords[0]);
-    addCoordinates(playerRecords[1]);
-    rallyWinner.push(winnerIndex);
-    var serverIndex = serverLookup(rallyWinner.length);
-    serveStatsAllocate(serverIndex, winnerIndex);
-    $scope.pieOptions.data = [serveStats[0].servePointsFor, serveStats[0].servePointsAgainst];
+    recordsElement.coordinates.push({x: 25+(length*25), y: 300-recordsElement.points*25});
   }
 
   var linePaths= function(playerIndex){
@@ -40,12 +28,26 @@ App.controller('ChartController', function($scope){
   $scope.linePath1 = linePaths(0);
   $scope.linePath2 = linePaths(1);
 
+
+  $scope.addRally = function(winnerIndex){
+    playerRecords[winnerIndex].points +=1;
+    addCoordinates(playerRecords[0]);
+    addCoordinates(playerRecords[1]);
+    rallyWinner.push(winnerIndex);
+    var serverIndex = serverLookup(rallyWinner.length);
+    serveStatsAllocate(serverIndex, winnerIndex);
+    $scope.pieOptions.data = [serveStats[0].servePointsAgainst, serveStats[0].servePointsFor];
+    $scope.p1ServePercentage = servePointPercentage(0);
+  }
+
+
   $scope.pieOptions = {
     data: [],
     wedges: [],
     cx: 160,
-    cy: 250,
-    r: 100
+    cy: 525,
+    r: 100,
+    colors: ["black", "white"]
   };
 
   $scope.$watch('pieOptions', function(oldVal, newVal) {
@@ -126,6 +128,11 @@ App.controller('ChartController', function($scope){
     {
       serveStats[server].servePointsAgainst +=1;
     }
+  };
+
+  var servePointPercentage = function(server) {
+    var servePoints = serveStats[server].servePointsFor + serveStats[server].servePointsAgainst;
+    return (serveStats[server].servePointsFor/servePoints*100).toFixed(0);
   };
   
 });
