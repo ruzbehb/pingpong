@@ -27,9 +27,13 @@ nav.signOut {
   padding-right: 15px;
 }
 
-nav.match {
+.matchHeader {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+}
+
+.restart {
+  padding-right: 20px;
 }
 
 nav.footNav {

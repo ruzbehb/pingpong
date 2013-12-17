@@ -1,9 +1,3 @@
-main.matchHeader {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 section.scoringApp {
   padding-top: 4%;
   background: #ccc;
@@ -26,6 +20,7 @@ section.scoringApp {
 
   .scoringApp_form {
     width: 100%;
+    padding-bottom: 5%;
 
     section.paddleContainer {
       display: flex;
@@ -61,10 +56,12 @@ section.scoringApp {
       }
     }
     .startMatch {
+      position: absolute;
       display: flex;
       justify-content: center;
       margin-top: -90px;
-      padding-bottom: 5%;
+      width: 100%;
+
       button {
         background: transparent;
         border: none;
