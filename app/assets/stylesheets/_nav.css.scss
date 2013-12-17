@@ -1,6 +1,8 @@
+@import 'mixins';
+
 nav.social {
-  display: flex;
-  align-items: center;
+  @include flex;
+  @include align-items-center;
 }
 
 .socialItem {
@@ -13,14 +15,14 @@ nav.social {
 
 nav.registerSignin {
   padding-left: 100px;
-  display: flex;
+  @include flex;
 }
 
 nav.signOut {
   padding-left: 40px;
   padding-right: 15px;
-  display: flex;
-  align-items: center;
+  @include flex;
+  @include align-items-center;
 }
 
 .regItem {
@@ -28,7 +30,7 @@ nav.signOut {
 }
 
 .matchHeader {
-  // display: flex;
+  // @include flex;
 }
 
 .restart {
@@ -36,7 +38,7 @@ nav.signOut {
 }
 
 nav.footNav {
-  display: flex;
+  @include flex;
 }
 
 .footLinks {

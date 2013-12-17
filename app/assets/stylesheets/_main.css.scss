@@ -1,11 +1,12 @@
+@import 'variables';
+@import 'mixins';
+
 html, body {
   height: 100%;
 }
 
 body {
-  font-family: 'Muli', sans-serif;
-  color: #000;
-  font-size: 0.8em;
+  @include font-main;
 }
 
 a {
@@ -25,10 +26,10 @@ header, footer {
 }
 
 header, section.mainWrapper, footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-flow: row wrap;
+  @include flex;
+  @include justify-content-space-between;
+  @include align-items-center;
+  @include flex-flow-row-wrap;
 }
 
 body > header {
@@ -41,21 +42,21 @@ body > section.mainWrapper {
   min-height: calc(100% - 100px);
   padding-top: 50px;
   background: #CCC;
-  justify-content: center;
-  align-content: center;
+  @include justify-content-center;
+  @include align-content-center;
 
   main {
     height: 100%;
     width: 84%;
-    display: flex;  
+    @include flex; 
   }
 }
 
 section.matchWrapper {
   padding-top: 50px;
   background: #FFF;
-  justify-content: center;
-  align-content: center;
+  @include justify-content-center;
+  @include align-content-center;
 }
 
 body > footer {
@@ -73,8 +74,7 @@ body > footer {
 }
 
 .strongText {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
+  @include font-bold;
 
   a:hover {
     color: #F96B2B;
