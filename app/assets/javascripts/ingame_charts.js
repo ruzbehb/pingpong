@@ -3,11 +3,18 @@ window.App = angular.module('App', []);
 App.controller('ChartController', function($scope){
 
   var playerRecords = [{points: 0, coordinates: [{x:25,y:300}]},
-                        {points: 0, coordinates: [{x:25,y:300}]}]
+                        {points: 0, coordinates: [{x:25,y:300}]}];
 
   var addCoordinates = function(recordsElement){
     var length = recordsElement.coordinates.length;
     recordsElement.coordinates.push({x: 25+(length*25), y: 300-recordsElement.points*25});
+  }
+
+  var removeLastTwoSetsCoordinates = function(){
+    playerRecords[0].coordinates.pop();
+    playerRecords[1].coordinates.pop();
+    playerRecords[0].coordinates.pop();
+    playerRecords[1].coordinates.pop();
   }
 
   var linePaths= function(playerIndex){
@@ -30,6 +37,18 @@ App.controller('ChartController', function($scope){
 
 
   $scope.addRally = function(winnerIndex){
+    if (winnerIndex === "back")
+      {
+        var lastWinner = rallyWinner.pop();
+        var lastServer = serverLookup(rallyWinner.length);
+        winnerIndex = rallyWinner.pop();
+        var serverBeforeLast = serverLookup(rallyWinner.length);
+        playerRecords[lastWinner].points -=1;
+        playerRecords[winnerIndex].points -=1;
+        removeLastTwoSetsCoordinates();
+        undoServeStats(lastServer, lastWinner);
+        undoServeStats(serverBeforeLast, winnerIndex);
+      }
     playerRecords[winnerIndex].points +=1;
     addCoordinates(playerRecords[0]);
     addCoordinates(playerRecords[1]);
@@ -69,6 +88,17 @@ App.controller('ChartController', function($scope){
   else
     {
       serveStats[server].servePointsAgainst +=1;
+    }
+  };
+
+  var undoServeStats = function(server, winner){
+  if (server === winner)
+    {
+      serveStats[server].servePointsFor -=1;
+    }
+  else
+    {
+      serveStats[server].servePointsAgainst -=1;
     }
   };
 
