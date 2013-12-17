@@ -24,8 +24,8 @@ class Match < ActiveRecord::Base
 		players[num-1]
 	end
 
-	def name_of_player(num) #change linked methods for player1_name and player2_name
-		players[num-1].name
+	def name_of_player(n) #change linked methods for player1_name and player2_name
+		player(n).name
 	end
 
 	def current_points_for_player(num)
@@ -37,8 +37,9 @@ class Match < ActiveRecord::Base
 		score(2).game_completed if score(1).current_game.completed == true
 	end
 
-	def reports_game_completed_to_score(num)
-		score(num).game_completed
+	def reports_game_completed_to_score(n)
+		score(1).game_completed
+		score(2).game_completed
 	end
 
 	def player_one_wins
@@ -67,30 +68,30 @@ class Match < ActiveRecord::Base
 		invoke_new_game_to_score(1) if score(1).current_game.number < score(2).current_game.number
 	end
 
-	# def game_winner(num)
-	# 	if score(1).game(num) != nil
-	# 		if score(1).game(num).completed == true && score(2).game(num).completed == true 
-	# 			name_of_player(1) if score(1).game(num).try(:points) > score(2).game(1).try(:points)
-	# 			name_of_player(2) if score(2).game(num).try(:points) > score(1).games(1).try(:points)
-	# 		end
-	# 	end
-	# end
+	def winner_of_game(n)
+		if score(1).game(n) != nil && score(1).game(n).completed == true
+			return name_of_player(1) if score(1).game(n).points > score(2).game(n).points
+			return name_of_player(2) if score(2).game(n).points > score(1).game(n).points
+		end
+	end
 
 	def over?
 		find_winning_score.any?
 	end
 
 	def find_winner
-		find_winning_score.first.try(:player) || nil
+		if find_winning_score != []
+			find_winning_score.first.player.name
+		end
 	end
 
 	def find_winning_score
 		scores.select(&:match_finished?)
 	end
 
-	def list_points_for_current_score
+	def list_points_for(score)
 		score_array = []
-		players_current_score.games.each{ |game| score_array << game.points }
+		score(score).games.each{ |game| score_array << game.points }
 		score_array
 	end
 

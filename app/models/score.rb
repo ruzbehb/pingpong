@@ -25,9 +25,9 @@ class Score < ActiveRecord::Base
 	def game_won	
 		update_attribute(:won_games,won_games + 1)
 
-		unless match_finished?
+		if !match_finished?
+		
 			new_game
-
 			match.update_oppositions_game_number
 		end
 
