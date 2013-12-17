@@ -1,6 +1,8 @@
+@import 'mixins';
+
 .playerProfile {
-  display: flex;
-  align-items: center;
+  @include flex;
+  @include align-items-center;
 
   span {
     padding-right: 25px;

@@ -1,3 +1,5 @@
+@import 'mixins';
+
 .loginOverlay {
   display: none;
   opacity: 0;
@@ -25,7 +27,7 @@
 
   &.active {
     opacity: 1;
-    display: flex;
+    @include flex;
     visibility: visible;
     -webkit-transition: all 1s ease;
     transition: all 1s ease;
@@ -47,14 +49,10 @@
   width: 250px;
   background: #FFF;
   border-radius: 7px;
-  display: -webkit-flex;
-  display: flex;
-   -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-content: center;
-  align-content: center;
-  -webkit-align-items: center;
-  align-items: center;
+  @include flex;
+  @include justify-content-center;
+  @include align-content-center;
+  @include align-items-center;
 }
 
 .close {
@@ -74,15 +72,13 @@ h2.shadowCaps {
 }
 
 i.facebookSignin {
-  display: -webkit-flex;
-  display: flex;
+  @include flex;
   padding-top: 20px;
   padding-bottom: 5px;
 }
 
 i.googleSignin {
-  display: -webkit-flex;
-  display: flex;
+  @include flex;
 }
 
 p.or {
@@ -95,12 +91,9 @@ p.or {
 }
 
 article.siteSignin {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  align-items: center;
+  @include flex;
+  @include flex-direction-column;
+  @include align-items-center;
 }
 
 h3.field {
@@ -156,8 +149,6 @@ button.submitSignIn:hover {
 }
 
 .rememberMe {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
+  @include flex;
+  @include align-items-center;
 }
