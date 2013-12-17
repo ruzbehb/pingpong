@@ -1,15 +1,12 @@
+@import 'mixins';
+
 section.scoringApp {
-  background: #ccc;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding-top: 3%;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  background: #ccc;
+  @include flex;
+  @include flex-direction-column;
+  @include align-items-center;
+  @include user-select-none;
 
   .welcome {
     width: 280px;
@@ -19,50 +16,49 @@ section.scoringApp {
   }
 
   .scoringApp_form {
+    width: 100%;
+    padding-bottom: 4%;
 
     section.paddleContainer {
-      display: flex;
-      margin-top: -100px;
+      @include flex;
 
-      .paddleLeft {
-        width: 460px;
-        height: 520px;
-        // width: 36.363636%;
-        // height: 86.6811352%;
-        background-image: url('paddle_left.svg');
-        color: #FFF;
+      .paddle {
+        width: 100%;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .fieldLeft {
-          padding-left: 20px;
+        @include flex;
+        @include justify-content-center;
+        position: relative;
+        
+        img { 
+          width: 37%;
         }
-      }
-
-      .paddleRight {
-        width: 460px;
-        height: 520px;
-        background-image: url('paddle_right.svg');
-        color: #000;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
+        .fieldLeft {
+          color: #FFF;
+          position: absolute;
+          left: 23%;
+          top: 30%;
+        }
         .fieldRight {
-          padding-left: 20px;
+          position: absolute;
+          left: 61%;
+          top: 30%;
+        }
+
+        .fieldLeft, .fieldRight {
+          @media(max-width: 768px) {
+            input { display: block; }
+          }
         }
       }
     }
     .startMatch {
-      display: flex;
-      justify-content: center;
-      margin-top: -50px;
-      padding-bottom: 5%;
+      position: absolute;
+      @include flex;
+      @include justify-content-center;
+      margin-top: -90px;
+      width: 100%;
+
       button {
         background: transparent;
         border: none;
@@ -75,12 +71,7 @@ section.scoringApp {
 
 
 #container.match {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  @include user-select-none;
 
   .player1, .player2 {
     width: 50%;

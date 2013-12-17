@@ -95,6 +95,7 @@ body > section.mainWrapper {
 }
 
 .club {
+	display: block;
 	margin-bottom: 2px;
 	margin-left: 2px;
 }
@@ -132,5 +133,16 @@ body > section.mainWrapper {
 .clubtotal {
 	text-align: right;
 	display: block;
-	margin-bottom: 20px;
+	margin-bottom: 50px;
+}
+
+.spinner {
+	display: none;
+	width: 15px;
+	height: 15px;
+}
+
+.mapSpinner {
+	width: 200px;
+	height: 200px;
 }

@@ -1,6 +1,8 @@
+@import 'mixins';
+
 .playerProfile {
-  display: flex;
-  align-items: center;
+  @include flex;
+  @include align-items-center;
 
   span {
     padding-right: 25px;
@@ -12,5 +14,155 @@
     height: 33px;
     width: 33px;
     border-radius: 50%;
+  }
+}
+
+.playerProfileContainer {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.playerProfileContainer h3 {
+  font-size: 15px;
+}
+
+.playerProfileContainer h2 {
+  font-size: 20px;
+}
+
+.topProfileContainer {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.playerName {
+  display: block;
+  width: 100%;
+  float: top;
+  font-size: 20px;
+}
+
+.imageMainDetailsContainer {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.profileImageContainer {
+  display: inline-block;
+  float: left;
+  margin-right: 40px;
+}
+
+
+.profileImageContainer img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+}
+
+.profileMainDetails {
+  display: inline-block;
+  width: 350px;
+  margin-right: 50px;
+}
+
+.profilePlayingDetails {
+  display: inline-block;
+  width: 350px;
+}
+
+.topLabel {
+  width: 125px;
+  display: inline-block;
+}
+
+.topValue {
+  display: inline-block;
+}
+
+.middleLeftProfileContainer {
+  display: inline-block;
+  width: 550px;
+  margin-right: 50px;
+  vertical-align: top;
+}
+
+.currentSeasonAnalytics, .lifetimeAnalytics {
+  width: 100%;
+  margin-bottom: 20px;
+  height: 200px;
+  display: inline-block;
+}
+
+.lifetimeChart {
+  display: block;
+  width: 100%;
+  height: 200px;
+}
+
+.middleRightProfileContainer {
+  display: inline-block;
+  width: 350px;
+  vertical-align: top;
+}
+
+.recentMatches ,.upcomingMatches {
+  display: block;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 20px;
+  // line-height: 1.5;
+  vertical-align: top;
+}
+
+.recentMatches i, .upcomingMatches i {
+  line-height: 2;
+}
+
+.bottomProfileContainer {
+  display: block;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+#smallLineChart {
+  float: left;
+  display: block;
+  height: 100%;
+  width: 80%;
+}
+
+.imageGallery img {
+  height: 200px;
+  width: 300px;
+  border-radius: 10%;
+}
+
+.imageOverlay {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-content: center;
+
+  img {
+    height: 70%;
+  }
+
+  &.active {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    display: flex;
+    opacity: 1;
   }
 }

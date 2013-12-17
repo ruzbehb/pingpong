@@ -4,14 +4,18 @@
     %title Ping Pong Pros
     = stylesheet_link_tag 'reset'
     = stylesheet_link_tag 'import'
-    = stylesheet_link_tag 'match'
     = csrf_meta_tag
-    %link{href: "http://fonts.googleapis.com/css?family=Muli", rel: "stylesheet", type: "text/css"}
     %script{src: src="http://code.angularjs.org/1.1.5/angular.js", type: "text/javascript"}
   %body
-    %main
-      %a{href: home_index_path}
-        %i.logo= image_tag 'logo.svg', data: { name: 'logo' }
-      = notice
-      = yield
+    %header.matchHeader
+      %nav.home2
+        %a{href: home_index_path}
+          %i.matchItem= image_tag 'logo.svg', data: { name: 'logo' }
+
+      - if @show_reset_button
+        %nav.match{data: { id: @match.id } }
+          %a{href: new_match_path}
+            %i.restart= image_tag 'restart.svg', data: { name: 'restart' }
+    %section.matchWrapper
+    = yield
     = javascript_include_tag 'application'

@@ -1,15 +1,153 @@
-.playerContainer
-	.mainProfile
-		%ul
-			= image_tag @player.image_url
-		%ul
-			= @player.name 
-		%ul
-			Sex: 
-			= @player.sex
-		%ul
-			Current location:
-			= @player.current_location
-		%ul
-			Hometown:
-			= @player.hometown
+.imageOverlay
+
+.playerProfileContainer
+
+	.topProfileContainer
+		
+		.playerName
+			.strongText
+				= @player.name 
+		
+		.imageMainDetailsContainer	
+			
+			.profileImageContainer
+				= image_tag "ruz_profile.jpg"
+			
+			.profileMainDetails
+	
+				.topLabel
+					Sex:
+				.topValue
+					= @player.sex
+				%hr.minorLine
+				
+				.topLabel
+					Age:
+				.topValue
+					33
+				%hr.minorLine				
+
+				.topLabel
+					Current location:
+				.topValue
+					= @player.current_location
+				%hr.minorLine
+
+				.topLabel
+					Hometown:
+				.topValue
+					= @player.hometown
+				%hr.minorLine
+				
+				%br
+
+				.topLabel
+					Club(s):
+				.topValue
+					Finsbury, Stepney Green
+				%hr.minorLine
+
+				.topLabel
+					League(s):
+				.topValue
+					Central London, Civil and Service
+				%hr.minorLine
+
+				%br
+
+			.profilePlayingDetails
+			
+				.topLabel
+					Playing style:
+				.topValue
+					Aggressive Kill Bill Style
+				%hr.minorLine
+
+				.topLabel
+					Plays:
+				.topValue
+					Right-handed
+				%hr.minorLine
+
+				.topLabel
+					Forehand:
+				.topValue
+					Yasaka Mark V
+				%hr.minorLine
+
+				.topLabel
+					Backhand:
+				.topValue
+					Yasaka Phantom (long pimple)
+				%hr.minorLine
+
+				.topLabel
+					Ply:
+				.topValue
+					Stiga
+				%hr.minorLine
+
+				.topLabel
+					Awards:
+				.topValue
+					Best Male Player of the Central  London tournament 2012
+				%hr.minorLine
+
+				%br
+
+	.middleLeftProfileContainer
+	
+		.currentSeasonAnalytics
+
+			%h2
+				2013 - 2014 Performance
+			
+			<hr class="minorLine">
+			
+			\% wins by week (cumulative)
+			
+			%br
+		
+				Central London league
+					
+			= render 'players/pc_wins_chart'
+		
+		.lifetimeAnalytics
+			%h2
+				Lifetime Performance chart	
+			<hr class="minorLine">
+			.lifetimeChart
+
+	.middleRightProfileContainer
+
+		.upcomingMatches
+			%h2
+				Upcoming Matches
+			<hr class="minorLine">
+
+			%i
+				%p 
+					09 Jan 2014	
+					Home 	Finsbury 2 v. Highbury 
+				
+				17 Jan 2014 
+				Away Irving 2 v. Finsbury 2
+
+		%h2
+			Recent Matches 
+		<hr class="minorLine">
+
+		.recentMatches
+			%i
+				25 Nov 2013	
+				Home 	Finsbury 2 v. ISH 1
+				%p
+					17 Nov 2014 
+					Away Crown and Mayor 2 v. Finsbury 2
+
+	.bottomProfileContainer
+
+		.imageGallery
+			= link_to image_tag("ruz1.jpg"), image_path("ruz1.jpg")
+			= link_to image_tag("ruz2.jpg"), image_path("ruz2.jpg")
+			= link_to image_tag("ruz3.jpg"), image_path("ruz3.jpg")

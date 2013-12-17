@@ -30,8 +30,10 @@
 			    if (status == google.maps.GeocoderStatus.OK) {
 			      $('.userAddress').append(results[1].address_components[3].long_name + ', ' + results[1].address_components[4].long_name + ', ' + results[1].address_components[2].long_name);
 			      $('#location_hidden').val($('.userAddress').text());
+			      $('#find_clubs_nearby').attr('disabled', false);
 			    }
 			  });
+			  $('.mapSpinner').hide();
 
 			}, function() {
 				console.log('Error')
