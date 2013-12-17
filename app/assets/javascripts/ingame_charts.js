@@ -39,24 +39,7 @@ App.controller('ChartController', function($scope){
     $scope.p1ServePercentage = servePointPercentage(0);
     $scope.pieOptions.data = pieData(0);
   }
-
-
-  var pieData = function(serverIndex) {
-    if (servePointPercentage(serverIndex) === '0' ) 
-      {
-        return [1000000, 1];
-      }
-    else if (servePointPercentage(serverIndex) === ('100' || 'NaN'))
-      {
-        return [1, 1000000];
-      }
-    else
-      {
-        return [serveStats[serverIndex].servePointsAgainst, serveStats[serverIndex].servePointsFor];
-      }
-  };
-
-
+  
   $scope.pieOptions = {
     data: [],
     wedges: [],
@@ -149,6 +132,21 @@ App.controller('ChartController', function($scope){
   var servePointPercentage = function(server) {
     var servePoints = serveStats[server].servePointsFor + serveStats[server].servePointsAgainst;
     return (serveStats[server].servePointsFor/servePoints*100).toFixed(0);
+  };
+
+  var pieData = function(serverIndex) {
+    if (servePointPercentage(serverIndex) === '0' ) 
+      {
+        return [1000000, 1];
+      }
+    else if (servePointPercentage(serverIndex) === ('100' || 'NaN'))
+      {
+        return [1, 1000000];
+      }
+    else
+      {
+        return [serveStats[serverIndex].servePointsAgainst, serveStats[serverIndex].servePointsFor];
+      }
   };
   
 });
