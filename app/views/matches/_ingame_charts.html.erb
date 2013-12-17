@@ -1,0 +1,21 @@
+
+<section ng-app="App">
+	<div class="chart" ng-controller="ChartController">
+			<div class="chart__header">
+	      <h2 class="chart__title" >Game Progress</h2>
+	      <span class="chart__icon">&#9787</span>
+	    </div>
+	    <svg xmlns="http://www.w3.org/2000/svg" class="chart__content">
+	      <path class="chart__line1" ng-attr-d="{{linePath1()}}"></path>
+	      <path class="chart__line2" ng-attr-d="{{linePath2()}}"></path>
+	      <circle class="chart__circle1" r="6" ng-repeat="p in points_1" ng-attr-cx="{{p.x}}" ng-attr-cy="{{p.y}}"></circle>
+	      <circle class="chart__circle2" r="6" ng-repeat="p in points_2" ng-attr-cx="{{p.x}}" ng-attr-cy="{{p.y}}"></circle>
+	      <path
+        ng-repeat="d in pieOptions.wedges"
+        class='chart__pie' 
+        ng-attr-d="{{d}}" />
+        <text x="40" y="390" fill="black"><%= @match.name_of_player(1) %></text>
+        <text x="40" y="405" fill="black" ng-bind-template="Points won on serve: {{p1ServePercentage}}%">Points won on serve</text>
+	    </svg>	    
+	</div>
+</section>
