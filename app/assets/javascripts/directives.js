@@ -14,7 +14,6 @@ App.directive('pie',function(){
 		    r: 100
 		  };
 		  var buildPiePathWedges = function() {
-		  	console.log(scope.data);
 		    scope.wedges = [];
 
 		    // Add up the data values so we know how big the pie is
