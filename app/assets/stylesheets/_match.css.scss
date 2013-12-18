@@ -1,0 +1,114 @@
+@import 'mixins';
+
+section.ingameCharts {
+  width: 100%;
+  @include flex;
+  @include justify-content-center;
+}
+
+.charts {
+  font-family: "Helvetica Neue";
+  width: 100%;
+  overflow: hidden;
+  background: #5bd3ad;
+}
+
+.chart_header {
+  text-align: center;
+  background: #09A351;
+  color: #fff;
+  padding: 4px 5px;
+}
+
+.chart_title {
+  text-transform: uppercase;
+  color: #09A351;
+}
+
+.chart_content{
+  height: 350px;
+}
+
+.chart_line1 {
+  fill: none;
+  stroke: black;
+  stroke-width: 6px;
+}
+
+.chart_line2 {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 6px;
+}
+
+.chart_circle1 {
+  fill: black;
+  radius: 5px;  
+}
+
+.chart_circle2 {
+  fill: #fff;
+  radius: 5px;  
+}
+
+.chart_pie {
+  stroke: #09A351;
+  stroke-width: 4px;
+}
+
+.pie {
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  // letter-spacing: 0.15em;
+
+  p.player_name {
+    letter-spacing: 0.15em;
+    font-size: 1.5em;
+    color: #FFF;
+  }
+
+  p.points_won {
+    line-height: 3em;
+    font-size: 0.9em;
+    letter-spacing: 0.05em;
+  }
+}
+
+
+table.match {
+  background: #FFF;
+  border-radius: 7px 7px;
+  // border: 4px solid #09A351;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  line-height: 2em;
+  width: 250px;
+  height: 100px;
+  
+  td.title, .player {
+    font-size: 0.9em;
+  }
+
+  td.title {
+
+  }
+
+  td.player {
+    color: #6192F2;
+  }
+
+  td.game {
+    color: #09A351;
+  }
+
+  td.g1winner, .g2winner, .g3winner {
+    color: #09A351;
+    font-size: 0.9em;
+  }
+
+}
+
+
+
