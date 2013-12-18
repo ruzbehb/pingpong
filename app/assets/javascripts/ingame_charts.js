@@ -37,18 +37,6 @@ App.controller('ChartController', function($scope){
 
 
   $scope.addRally = function(winnerIndex){
-    if (winnerIndex === "back")
-      {
-        var lastWinner = rallyWinner.pop();
-        var lastServer = serverLookup(rallyWinner.length);
-        winnerIndex = rallyWinner.pop();
-        var serverBeforeLast = serverLookup(rallyWinner.length);
-        playerRecords[lastWinner].points -=1;
-        playerRecords[winnerIndex].points -=1;
-        removeLastTwoSetsCoordinates();
-        undoServeStats(lastServer, lastWinner);
-        undoServeStats(serverBeforeLast, winnerIndex);
-      }
     playerRecords[winnerIndex].points +=1;
     addCoordinates(playerRecords[0]);
     addCoordinates(playerRecords[1]);

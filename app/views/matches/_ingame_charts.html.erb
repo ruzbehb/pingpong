@@ -4,7 +4,9 @@
 			<div class="chart__header">
 	      <h2 class="chart__title" >Do we need title/section here?</h2>
 	    </div>
+	    <%= render('table')%>
 	    <svg xmlns="http://www.w3.org/2000/svg" class="chart__content">
+	    	
 	      <path class="chart__line1" ng-attr-d="{{linePath1()}}"></path>
 	      <path class="chart__line2" ng-attr-d="{{linePath2()}}"></path>
 	      <circle class="chart__circle1" r="6" ng-repeat="p in points_1" ng-attr-cx="{{p.x}}" ng-attr-cy="{{p.y}}"></circle>
