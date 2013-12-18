@@ -29,19 +29,26 @@ App.controller('ChartController', function($scope){
   $scope.updateRally = function(winnerIndex, decrement){
     if (decrement) 
     {
-      console.log("Decrement!");
+      deletePoint(winnerIndex);
+      $scope.clearPlayerProgressRecords();
+      recreateLineCharts();
+      clearServeStats();
+      recreateStatsAndPies();
     }
-    $scope.playerRecords[winnerIndex].points +=1;
-    addCoordinates($scope.playerRecords[0]);
-    addCoordinates($scope.playerRecords[1]);
-    rallyWinner.push(winnerIndex);
-    var serverIndex = serverLookup(rallyWinner.length);
-    serveStatsAllocate(serverIndex, winnerIndex);
-    $scope.p1ServePercentage = servePointPercentage(0);
-    $scope.p2ServePercentage = servePointPercentage(1);
-    $scope.pieData[serverIndex] = pieData(serverIndex);
-    $scope.points_1 = $scope.playerRecords[0].coordinates;
-    $scope.points_2 = $scope.playerRecords[1].coordinates;
+    else
+    {
+      $scope.playerRecords[winnerIndex].points +=1;
+      addCoordinates($scope.playerRecords[0]);
+      addCoordinates($scope.playerRecords[1]);
+      rallyWinner.push(winnerIndex);
+      var serverIndex = serverLookup(rallyWinner.length);
+      serveStatsAllocate(serverIndex, winnerIndex);
+      $scope.p1ServePercentage = servePointPercentage(0);
+      $scope.p2ServePercentage = servePointPercentage(1);
+      $scope.pieData[serverIndex] = pieData(serverIndex);
+      $scope.points_1 = $scope.playerRecords[0].coordinates;
+      $scope.points_2 = $scope.playerRecords[1].coordinates;
+    }
   }
 
   $scope.clearPlayerProgressRecords = function(){
@@ -49,6 +56,11 @@ App.controller('ChartController', function($scope){
                         {points: 0, coordinates: [{x:25,y:300}]}];
     $scope.points_1 = $scope.playerRecords[0].coordinates;
     $scope.points_2 = $scope.playerRecords[1].coordinates;
+  }
+
+  var clearServeStats = function(){
+    serveStats = [{servePointsFor: 0, servePointsAgainst: 0},
+                    {servePointsFor: 0, servePointsAgainst: 0}];
   }
   
   $scope.pieData = [[],[]];
@@ -82,17 +94,6 @@ App.controller('ChartController', function($scope){
     }
   };
 
-  var undoServeStats = function(server, winner){
-  if (server === winner)
-    {
-      serveStats[server].servePointsFor -=1;
-    }
-  else
-    {
-      serveStats[server].servePointsAgainst -=1;
-    }
-  };
-
   var servePointPercentage = function(server) {
     var servePoints = serveStats[server].servePointsFor + serveStats[server].servePointsAgainst;
     if(servePoints == 0) return '-';
@@ -113,6 +114,41 @@ App.controller('ChartController', function($scope){
         return [serveStats[serverIndex].servePointsAgainst, serveStats[serverIndex].servePointsFor];
       }
   };
-   
+
+  var deletePoint = function(winnerIndex){
+    indicies = []
+
+    rallyWinner.forEach(function(result, i) {
+      if(result === winnerIndex) {
+        indicies.push(i)
+      }
+    })
+
+    if(indicies.length) {
+      rallyWinner.splice(indicies.pop(), 1)
+    }
+  };
+
+  var recreateLineCharts = function(){
+    rallyWinner.forEach(function(winner){
+      $scope.playerRecords[winner].points +=1;
+      addCoordinates($scope.playerRecords[0]);
+      addCoordinates($scope.playerRecords[1]);
+    })
+    $scope.points_1 = $scope.playerRecords[0].coordinates;
+    $scope.points_2 = $scope.playerRecords[1].coordinates;
+  };
+
+  var recreateStatsAndPies = function(){
+    rallyWinner.forEach(function(winner, i){
+      var server = serverLookup(i + 1);
+      serveStatsAllocate(server, winner);
+    })
+    $scope.p1ServePercentage = servePointPercentage(0);
+    $scope.p2ServePercentage = servePointPercentage(1);
+    $scope.pieData[0] = pieData(0);
+    $scope.pieData[1] = pieData(1);
+  };
+  
 });
 
