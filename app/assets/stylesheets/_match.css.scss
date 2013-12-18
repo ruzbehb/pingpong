@@ -1,185 +1,183 @@
 @import 'mixins';
 
-section.ingameCharts {
-  width: 100%;
-  @include flex;
-  @include justify-content-center;
-}
-
-.charts {
-  font-family: "Helvetica Neue";
-  width: 100%;
-  overflow: hidden;
-  background: #5bd3ad;
-}
-
-.chart_header {
-  text-align: center;
-  background: #09A351;
-  color: white;
-  padding: 4px 5px;
-}
-
-.chart_title {
-  text-transform: uppercase;
-  color: #09A351;
-}
-
-.chart_content{
-  height: 350px;
-}
-
-.chart_line1 {
-  fill: none;
-  stroke: black;
-  stroke-width: 6px;
-}
-
-.chart_line2 {
-  fill: none;
-  stroke: white;
-  stroke-width: 6px;
-}
-
-.chart_circle1 {
-  fill: black;
-  radius: 5px;  
-}
-
-.chart_circle2 {
-  fill: white;
-  radius: 5px;  
-}
-
 .chart_pie {
   stroke: #09A351;
   stroke-width: 4px;
   text-align: center;
 }
 
-.pie {
-  display: inline-block;
-  text-align: center;
-  text-transform: uppercase;
-
-  .player1_name {
-    letter-spacing: 0.15em;
-    font-size: 1.5em;
-    color: black;
-  }
-
-  .player2_name {
-    letter-spacing: 0.15em;
-    font-size: 1.5em;
-    color: white;
-  }
-
-  .p1_points_won, .p2_points_won {
-    line-height: 3em;
-    font-size: 0.9em;
-    letter-spacing: 0.05em;
-  }
-  
-  .p1_points_won {
-    color: black;
-  }
-  
-  .p2_points_won {
-    color: white;
-  }
-}
-
-
-table.match {
-  background: white;
-  border-radius: 7px 7px;
-  // border: 4px solid #09A351;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  line-height: 2em;
-  width: 250px;
-  height: 100px;
-  
-  td.title, .player {
-    font-size: 0.9em;
-  }
-
-  td.title {
-
-  }
-
-  td.player {
-    color: #6192F2;
-  }
-
-  td.game {
-    color: #09A351;
-  }
-
-  td.g1winner, .g2winner, .g3winner {
-    color: #09A351;
-    font-size: 0.9em;
-  }
-}
-
-section.key {
-  width: 250px;
-  height: 30px;
+section.ingameCharts {
+  width: 100%;
   @include flex;
-  @include flex-direction-column;
   @include justify-content-center;
 
-  .playersKey {
-    @include flex;
-    @include justify-content-space-between;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: 1.1em;
+  section.charts {
+    font-family: "Helvetica Neue";
+    width: 100%;
+    overflow: hidden;
+    background: #5bd3ad;
+   
+    .chart_header {
+      text-align: center;
+      background: #09A351;
+      color: white;
+      padding: 4px 5px;
+    
+      .chart_title {
+        text-transform: uppercase;
+        color: #09A351;
+      }
+    }
+    
+    table.match {
+      background: white;
+      border-radius: 7px 7px;
+      // border: 4px solid #09A351;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      line-height: 2em;
+      width: 250px;
+      height: 100px;
+      
+      td.title, .player {
+        font-size: 0.9em;
+      }
 
-    aside.player1 {
-      width: 100px;
-      @include flex;
-      @include justify-content-space-between;
-      color: black;
-
-      .p1_name {
+      td.title {
 
       }
 
-      .symbol1 {
-        background: black;
-        border-radius: 50%;
-        width: 15px;
-        height: 15px;
+      td.player {
+        color: #6192F2;
       }
 
-      .score1 {
+      td.game {
+        color: #09A351;
+      }
 
+      td.g1winner, .g2winner, .g3winner {
+        color: #09A351;
+        font-size: 0.9em;
       }
     }
 
-    aside.player2 {
-      width: 100px;
+    section.key {
+      width: 250px;
+      height: 30px;
       @include flex;
-      @include justify-content-space-between;
-      color: white;
+      @include flex-direction-column;
+      @include justify-content-center;
 
-      .p2_name {
+      article.playersKey {
+        @include flex;
+        @include justify-content-space-between;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 1.1em;
 
+        aside.player1 {
+          width: 100px;
+          @include flex;
+          @include justify-content-space-between;
+          color: black;
+
+          .p1_name {
+
+          }
+
+          .symbol1 {
+            background: black;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+          }
+
+          .score1 {
+
+          }
+        }
+
+        aside.player2 {
+          width: 100px;
+          @include flex;
+          @include justify-content-space-between;
+          color: white;
+
+          .p2_name {
+
+          }
+
+          .symbol2 {
+            background: white;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+          }
+
+          .score2 {
+
+          }
+        }
+      }
+    }
+
+    svg.chart_content {
+      height: 350px;
+
+      .chart_line1 {
+        fill: none;
+        stroke: black;
+        stroke-width: 6px;
       }
 
-      .symbol2 {
-        background: white;
-        border-radius: 50%;
-        width: 15px;
-        height: 15px;
+      .chart_line2 {
+        fill: none;
+        stroke: white;
+        stroke-width: 6px;
       }
 
-      .score2 {
+      .chart_circle1 {
+        fill: black;
+        radius: 5px;  
+      }
 
+      .chart_circle2 {
+        fill: white;
+        radius: 5px;  
+      } 
+    }
+
+    article.pie {
+      display: inline-block;
+      text-align: center;
+      text-transform: uppercase;
+
+      .player1_name {
+        letter-spacing: 0.15em;
+        font-size: 1.5em;
+        color: black;
+      }
+
+      .player2_name {
+        letter-spacing: 0.15em;
+        font-size: 1.5em;
+        color: white;
+      }
+
+      .p1_points_won, .p2_points_won {
+        line-height: 3em;
+        font-size: 0.9em;
+        letter-spacing: 0.05em;
+      }
+      
+      .p1_points_won {
+        color: black;
+      }
+      
+      .p2_points_won {
+        color: white;
       }
     }
   }
 }
-
