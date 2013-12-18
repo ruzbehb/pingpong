@@ -1,5 +1,13 @@
--if @match.end_of_current_game?
-  %button.game_button New Game 
+%div.game_over  
+  / -if @match.end_of_current_game? && !@match.over?
+  %button.game_button Next Game 
+
+%div.match_over
+  / -if @match.over?
+  Congratulations #{@match.find_winner}! Would you like to
+  = link_to "Save Game?", connect_match_path, method: :get, class: "match_button" 
+  or clear the score and
+  = link_to "Start New Game?", new_match_path, method: :get, class: "new_match_button" 
 
 #container.match{"data-id" => @match.id}
   %section.player1

@@ -63,7 +63,7 @@ $(function() {
   });
 
   $('.jcarousel').jcarouselAutoscroll({
-    interval: 5000
+    interval: 7500
   });
 
   $('.jcarousel-control').jcarouselControl({

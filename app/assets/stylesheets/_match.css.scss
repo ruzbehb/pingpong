@@ -16,7 +16,7 @@ section.ingameCharts {
 .chart_header {
   text-align: center;
   background: #09A351;
-  color: #fff;
+  color: white;
   padding: 4px 5px;
 }
 
@@ -37,7 +37,7 @@ section.ingameCharts {
 
 .chart_line2 {
   fill: none;
-  stroke: #fff;
+  stroke: white;
   stroke-width: 6px;
 }
 
@@ -47,7 +47,7 @@ section.ingameCharts {
 }
 
 .chart_circle2 {
-  fill: #fff;
+  fill: white;
   radius: 5px;  
 }
 
@@ -60,24 +60,37 @@ section.ingameCharts {
   display: inline-block;
   text-align: center;
   text-transform: uppercase;
-  // letter-spacing: 0.15em;
-
-  p.player_name {
-    letter-spacing: 0.15em;
-    font-size: 1.5em;
-    color: #FFF;
-  }
-
-  p.points_won {
-    line-height: 3em;
-    font-size: 0.9em;
-    letter-spacing: 0.05em;
-  }
 }
 
+p.player1_name, .player2_name {
+  letter-spacing: 0.15em;
+  font-size: 1.5em;
+}
+
+.player1_name {
+  color: black;
+}
+
+.player2_name {
+  color: white;
+}
+
+p.p1_points_won, .p1_points_won {
+  line-height: 3em;
+  font-size: 0.9em;
+  letter-spacing: 0.05em;
+}
+
+.p1_points_won {
+  color: black;
+}
+
+.p2_points_won {
+  color: white;
+}
 
 table.match {
-  background: #FFF;
+  background: white;
   border-radius: 7px 7px;
   // border: 4px solid #09A351;
   text-align: center;
@@ -107,8 +120,23 @@ table.match {
     color: #09A351;
     font-size: 0.9em;
   }
-
 }
 
+section.key {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 1.1em;
 
+  article.player1 {
+    color: black;
+  }
+
+  article.player2 {
+    color: white;
+  }
+
+  // li {
+  //   text-decoration: none;
+  // }
+}
 

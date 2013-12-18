@@ -11,7 +11,7 @@
 		.imageMainDetailsContainer	
 			
 			.profileImageContainer
-				= image_tag "ruz_profile.jpg"
+				= image_tag @player.image_url
 			
 			.profileMainDetails
 	
@@ -24,7 +24,7 @@
 				.topLabel
 					Age:
 				.topValue
-					33
+					= @player.age
 				%hr.minorLine				
 
 				.topLabel
@@ -56,42 +56,42 @@
 				%br
 
 			.profilePlayingDetails
-			
-				.topLabel
-					Playing style:
-				.topValue
-					Aggressive Kill Bill Style
-				%hr.minorLine
+				- if @player.first_name == "Ruzbeh"			
+					.topLabel
+						Playing style:
+					.topValue
+						Aggressive Kill Bill Style
+					%hr.minorLine
 
-				.topLabel
-					Plays:
-				.topValue
-					Right-handed
-				%hr.minorLine
+					.topLabel
+						Plays:
+					.topValue
+						Right-handed
+					%hr.minorLine
 
-				.topLabel
-					Forehand:
-				.topValue
-					Yasaka Mark V
-				%hr.minorLine
+					.topLabel
+						Forehand:
+					.topValue
+						Yasaka Mark V
+					%hr.minorLine
 
-				.topLabel
-					Backhand:
-				.topValue
-					Yasaka Phantom (long pimple)
-				%hr.minorLine
+					.topLabel
+						Backhand:
+					.topValue
+						Yasaka Phantom (long pimple)
+					%hr.minorLine
 
-				.topLabel
-					Ply:
-				.topValue
-					Stiga
-				%hr.minorLine
+					.topLabel
+						Ply:
+					.topValue
+						Stiga
+					%hr.minorLine
 
-				.topLabel
-					Award(s):
-				.topValue
-					Best Male Player of the Central  London tournament 2012
-				%hr.minorLine
+					.topLabel
+						Award(s):
+					.topValue
+						Best Male Player of the Central  London tournament 2012
+					%hr.minorLine
 
 				%br
 
@@ -125,37 +125,53 @@
 				Upcoming Matches
 			<hr class="minorLine">
 
-			%i
-				%p 
-					09 Jan 2014	
-					Home 	Finsbury 2 v. Highbury 
-				
-				17 Jan 2014 
-				Away Irving 2 v. Finsbury 2
+			.matchLabel 
+				9 Jan 2014
+			
+			.matchValue	
+				Finsbury 2 v. Highbury
+
+			%p 
+				.matchLabel
+					17 Jan 2014
+				.matchValue
+					Away Irving 2 v. Finsbury 2
 
 		%h2
 			Recent Matches 
 		<hr class="minorLine">
 
 		.recentMatches
-			%i
-				- @matches.each do |match|
+			- @matches.each do |match|
+				.matchLabel
+					= localize(match.updated_at, :format => '%d %m %Y')
+				.matchValue
 					= match.name_of_player(1)
-					vs.
+					v.
 					= match.name_of_player(2)
+				
+				.matchLabel
 					= match.score(1).game(1).points
 					\-
 					= match.score(2).game(1).points
+					,
 					= match.score(1).game(2).points
 					\-
 					= match.score(2).game(2).points
+					- if (match.score(1).game(3))
+						,
+						= match.score(1).game(3).points
+						\-
+						= match.score(2).game(3).points
+					%p
+
 
 	.bottomProfileContainer
-
-		.imageGallery
-			.image1
-				= link_to image_tag("ruz1.jpg"), image_path("ruz1.jpg")
-			.image2
-				= link_to image_tag("ruz2.jpg"), image_path("ruz2.jpg")
-			.image3
-				= link_to image_tag("ruz3.jpg"), image_path("ruz3.jpg")
+		- if @player.first_name == "Ruzbeh"
+			.imageGallery
+				.image1
+					= link_to image_tag("ruz1.jpg"), image_path("ruz1.jpg")
+				.image2
+					= link_to image_tag("ruz2.jpg"), image_path("ruz2.jpg")
+				.image3
+					= link_to image_tag("ruz3.jpg"), image_path("ruz3.jpg")
