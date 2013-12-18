@@ -8,7 +8,7 @@ class Player < ActiveRecord::Base
   validates :password, presence: { message: '*please complete' }
   validates :password_confirmation, presence: { message: '*please complete' }
 
-  has_and_belongs_to_many :matches
+  has_many :matches, through: :scores
   has_many :scores
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
