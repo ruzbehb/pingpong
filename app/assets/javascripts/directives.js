@@ -4,7 +4,7 @@ App.directive('pie',function(){
 		replace: true,
 		transclude: true,
 		scope: { data:'=',colors: '=' },
-		template: '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" class="chart_content">'+
+		template: '<svg xmlns="http://www.w3.org/2000/svg" width="260" height="260" class="chart_content">'+
 		      '<path ng-repeat="d in wedges" class="chart_pie" ng-attr-d="{{d}}" fill="{{colors[$index]}}" />' +
 		    '</svg>	',
 	  link: function(scope, element, attrs){
