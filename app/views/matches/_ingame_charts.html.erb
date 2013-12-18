@@ -5,15 +5,17 @@
 	    </div>
 	    <%= render('table')%>
 			<section class='key'>
-				<article class='player1'>
-					<li><%= @match.name_of_player(1) %></li>
-					<li></li>
-					<li></li>
-				</article>
-				<article class='player2'>
-					<li><%= @match.name_of_player(2) %></li>
-					<li></li>
-					<li></li>
+				<article class='playersKey'>
+					<aside class='player1'>
+						<p class='p1_name'><%= @match.name_of_player(1) %></p>
+						<p class='symbol1'></p>
+						<p class='score1'><%= @match.score(1).game(1).points %></p>
+					</aside>
+					<aside class='player2'>
+						<p class='p2_name'><%= @match.name_of_player(2) %></p>
+						<p class='symbol2'></p>
+						<p class='score2'><%= @match.score(1).game(1).points %></p>
+					</aside>
 				</article>
 			</section>
 
@@ -27,7 +29,7 @@
 	    <div class="pie">
 	    	<p class='player1_name'><%= @match.name_of_player(1) %></p>
 	    	<p class='p1_points_won' ng-bind-template="Points won on serve: {{p1ServePercentage}}%">Points won on serve</p>
-	    	<pie data='pieData[0]' colors='colors1' ></pie>
+	    	<pie data='pieData[0]' colors='colors1'></pie>
 	    </div>
 
 	    <div class="pie">

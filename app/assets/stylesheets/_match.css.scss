@@ -54,40 +54,41 @@ section.ingameCharts {
 .chart_pie {
   stroke: #09A351;
   stroke-width: 4px;
+  text-align: center;
 }
 
 .pie {
   display: inline-block;
   text-align: center;
   text-transform: uppercase;
+
+  .player1_name {
+    letter-spacing: 0.15em;
+    font-size: 1.5em;
+    color: black;
+  }
+
+  .player2_name {
+    letter-spacing: 0.15em;
+    font-size: 1.5em;
+    color: white;
+  }
+
+  .p1_points_won, .p2_points_won {
+    line-height: 3em;
+    font-size: 0.9em;
+    letter-spacing: 0.05em;
+  }
+  
+  .p1_points_won {
+    color: black;
+  }
+  
+  .p2_points_won {
+    color: white;
+  }
 }
 
-p.player1_name, .player2_name {
-  letter-spacing: 0.15em;
-  font-size: 1.5em;
-}
-
-.player1_name {
-  color: black;
-}
-
-.player2_name {
-  color: white;
-}
-
-p.p1_points_won, .p1_points_won {
-  line-height: 3em;
-  font-size: 0.9em;
-  letter-spacing: 0.05em;
-}
-
-.p1_points_won {
-  color: black;
-}
-
-.p2_points_won {
-  color: white;
-}
 
 table.match {
   background: white;
@@ -123,20 +124,62 @@ table.match {
 }
 
 section.key {
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-size: 1.1em;
+  width: 250px;
+  height: 30px;
+  @include flex;
+  @include flex-direction-column;
+  @include justify-content-center;
 
-  article.player1 {
-    color: black;
+  .playersKey {
+    @include flex;
+    @include justify-content-space-between;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 1.1em;
+
+    aside.player1 {
+      width: 100px;
+      @include flex;
+      @include justify-content-space-between;
+      color: black;
+
+      .p1_name {
+
+      }
+
+      .symbol1 {
+        background: black;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+      }
+
+      .score1 {
+
+      }
+    }
+
+    aside.player2 {
+      width: 100px;
+      @include flex;
+      @include justify-content-space-between;
+      color: white;
+
+      .p2_name {
+
+      }
+
+      .symbol2 {
+        background: white;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+      }
+
+      .score2 {
+
+      }
+    }
   }
-
-  article.player2 {
-    color: white;
-  }
-
-  // li {
-  //   text-decoration: none;
-  // }
 }
 
