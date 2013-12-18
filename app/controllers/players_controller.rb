@@ -10,8 +10,8 @@ class PlayersController < ApplicationController
 
 	def show
 		@player = Player.find params[:id]
-		@matches = Match.where((score(1).player_id == @player.id or score(2).player_id == @player.id))
-		# raise @matches.inspect
+		@all_matches = Match.all
+		@matches = @player.matches.first(5)
 	end
 
 end

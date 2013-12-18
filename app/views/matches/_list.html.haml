@@ -1,0 +1,36 @@
+-@matches.each do |match|
+	%table.match{ data: { id: match.id } }
+		%tr
+			%td Game
+			%td 
+				=match.name_of_player(1)
+			%td 
+				=match.name_of_player(2)
+			%td Winner
+		%tr
+			%td 1
+			%td.p1g1 
+				=match.score(1).game(1).points
+			%td.p2g1 
+				=match.score(2).game(1).points
+			%td.g1winner 
+				=match.winner_of_game(1) || ''
+		%tr
+			%td 2
+			%td.p1g2 
+				=match.score(1).game(2).try(:points) || 0
+			%td.p2g2 
+				=match.score(2).game(2).try(:points) || 0
+			%td.g2winner 
+				=match.winner_of_game(2) || ''
+		%tr
+			%td 3
+			%td.p1g3 
+				= match.score(1).game(3).try(:points) || 0
+			%td.p2g3 
+				=match.score(2).game(3).try(:points) || 0
+			%td.g3winner 
+				=match.winner_of_game(3) || ''
+
+	- if match.over?
+		Winner of match is: #{match.find_winner}
