@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Club.delete_all
+Player.delete_all
 
 clubs = Club.create([{name: 'Finsbury Table Tennis Club', address: 'Finsbury Leisure Centre, Norman Street, London', post_code: 'EC1V 3PU'},
 										{name: 'Highbury Table Tennis Club', address: 'Highbury Grove School, 8 Highbury Grove, London', post_code: 'N5 2EQ'},
@@ -24,3 +25,9 @@ clubs = Club.create([{name: 'Finsbury Table Tennis Club', address: 'Finsbury Lei
 										{name: 'Lambeth Table Tennis Club', address: 'Evelyn Grace Academy, 255 Shakespeare Road, Brixton, London', post_code: 'SE24 0QN'},																				
 										{name: 'Tiger and Dragon Table Tennis Club', address: 'Charing Cross Sports Club, Aspenlea Road, Hammersmith, London,', post_code: 'W6 8LH'}										
 											])
+
+players = Player.create([{email: "ruzbehb@yahoo.com", password: "12345678", password_confirmation: "12345678", first_name: 'Ruzbeh', last_name: 'Bacha', sex: 'Male', current_location: 'London, United Kingdom', hometown: 'Mumbai, India', fb_url: "http://graph.facebook.com/509597657/picture?type=square"},
+												{email: "n.l.eskinazi@gmail.com", password: "12345678", password_confirmation: "12345678", first_name: 'Natalie', last_name: 'Eskinazi', sex: 'Female', current_location: 'London, United Kingdom', hometown: 'London, United Kingdom'},
+												{email: "alexandria.lawrence@mac.com", password: "12345678", password_confirmation: "12345678", first_name: 'Alexandria' , last_name: 'Lawrence', sex: 'Female', current_location: 'London, United Kingdom', hometown: 'London, United Kingdom'},
+												{email: "willbell@gmail.com", password: "12345678", password_confirmation: "12345678", first_name: 'Will' , last_name: 'Bell', sex: 'Male', current_location: 'London, United Kingdom', hometown: 'London, United Kingdom'},
+		])
