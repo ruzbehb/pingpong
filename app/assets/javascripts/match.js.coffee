@@ -5,6 +5,12 @@ $ ->
   p1_id = $('#p1-name').data('id')
   p2_id = $('#p2-name').data('id')
 
+  isOddNumberedGame = (match) ->
+    (match.p1games + match.p2games) % 2 != 0
+
+  flipBoard = (match) ->
+    $('.match').toggleClass('flipped', isOddNumberedGame(match))
+
   $("#p1-points, #p2-points, #p1-back, #p2-back").on 'click', (e) ->
     e.preventDefault()
     $.ajax "/api/matches/#{id}",
@@ -17,6 +23,7 @@ $ ->
       $("#p1-games").text(data.p1games)
       $("#p2-points").text(data.p2points)
       $("#p2-games").text(data.p2games)
+      flipBoard(data)
       if(data.matchover)
         if(confirm('Match Over! Would you like to save this game? If you click cancel the data from this game will be deleted.'))
           alert("Let's save it!")
@@ -35,7 +42,7 @@ $ ->
       $("#p1-games").text(data.p1games)
       $("#p2-points").text(data.p2points)
       $("#p2-games").text(data.p2games)
-      
+      flipBoard(data)
     type: 'PUT'
 
   connection = new WebSocketRails('localhost:3000/websocket')
