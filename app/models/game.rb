@@ -13,10 +13,30 @@ class Game < ActiveRecord::Base
 		decrease_point_count if has_point_been_played? && !score.match.over?
 	end
 
+	def modify_points_with(operation)
+		if operation == DECREASE || !completed
+			self.points= self.points.send(operation, 1)
+			save
+			if operation == DECREASE
+				self.completed = false
+				save
+			else
+				report_point_changed
+			end
+
+		else
+			report_game_completed
+		end
+	end
+
 	private
 
 	def has_point_been_played?
 		self.points != 0
+	end
+
+	def report_game_completed
+		score.match.set_opposing_game_to_completed
 	end
 
 	def report_point_changed
@@ -30,10 +50,5 @@ class Game < ActiveRecord::Base
 	def decrease_point_count
 		modify_points_with(DECREASE)
 	end
-
-	def modify_points_with(operation)
-		self.points= self.points.send(operation, 1)
-		save
-		report_point_changed
-	end
+	
 end

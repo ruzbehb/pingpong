@@ -2,8 +2,17 @@ require 'spec_helper'
 
 describe Score do
 
-	let(:match) {mock_model('Match')}
-	let(:score) {Score.create(match: match)}
+	let(:match) {Match.create}
+	let(:score) {match.score(1)}
+	let(:score2) {match.score(2)}
+	# let(:score) {Score.create(match: match)}
+
+	before (:each) do
+		match.add_players('Nat','Will')
+	end
+
+	let(:score) {match.score(1)}
+	# let(:score2) {match.score(2)}
 
 	it {should belong_to :match}
 	it {should belong_to :player}
@@ -22,14 +31,16 @@ describe Score do
 	end
 
 	it "can create a new game" do
+		score.game_completed
 		score.game_won
+		# allow(match).to receive(:update_oppositions_game_number)
 		expect(score.won_games).to eq 1
 		expect(score.games.count).to eq 2
 	end
 
 	it "knows to finish match after 2 wins" do
 		score.game_won
-		allow(match).to receive(:find_winner)
+		# allow(match).to receive(:find_winner)
 		score.game_won
 		expect(score.match_finished?).to be_true
 	end
@@ -41,7 +52,7 @@ describe Score do
 
 	it "lets the match know it's over" do
 		score.game_won
-		expect(match).to receive(:find_winner)
+		# expect(match).to receive(:find_winner)
 		score.game_won
 	end
 
