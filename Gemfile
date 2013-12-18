@@ -55,7 +55,6 @@ group :development, :test do
 end
 
 gem 'devise'
-
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
@@ -67,4 +66,5 @@ gem 'websocket-rails'
 gem 'thin'
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 

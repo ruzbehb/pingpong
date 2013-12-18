@@ -30,5 +30,5 @@ Pingpong::Application.configure do
 
   #as required by Devise
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-
+  # config.session_store :active_record_store
 end
