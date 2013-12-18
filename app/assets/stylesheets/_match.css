@@ -1,40 +1,24 @@
-.chart{
-  font-family: "Helvetica Neue"
-}
-
 .chart_title{
   font-weight: normal;
   margin: 0;
 }
 
-main, section {
-  /*height: 100%;*/
-  /*width: 630px;*/
-  /*float: right;*/
-}
-.chart{
-  width: 100%;
-  height: 70%;
+.charts{
+  font-family: "Helvetica Neue";
+  width: 630px;
   border-radius: 8px;
   overflow: hidden;
+  background: #b6e356;
 }
+
 .chart__header{
   background: #8eba45;
   color: #fff;
   padding: 4px 5px;
 }
 
-.chart__icon{
-  position: absolute;
-  font-size: 14px;
-  right: 5px;
-  top: 0;
-}
-
 .chart__content{
-  /*height: 370px;*/
-  background: #b6e356;
-  /*background: hsl(220,50%,50%);*/
+  height: 350px;
 }
 
 .chart__line1{
@@ -60,7 +44,10 @@ main, section {
 }
 
 .chart__pie {
-  fill: #fff;
-  stroke: black;
+  stroke: hsl(0, 0%, 65%);
   stroke-width: 3px;
+}
+
+.pie {
+  display: inline-block;
 }

@@ -16,4 +16,6 @@
 //= require underscore
 //= require gmaps/google
 //= require jquery.jcarousel
+//= require ingame_charts
+//= require directives
 //= require_tree .
