@@ -10,7 +10,12 @@ Pingpong::Application.routes.draw do
     end
   end
 
-  resources :matches
+  resources :matches do
+    member do
+      get 'connect'
+      post 'player_saved'
+    end
+  end
 
 
   namespace :api, defaults: { format: :json } do
