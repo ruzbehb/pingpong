@@ -27,7 +27,7 @@ clubs = Club.create([{name: 'Finsbury Table Tennis Club', address: 'Finsbury Lei
 											])
 
 players = Player.create([{email: "ruzbehb@yahoo.com", name: "Ruzbeh Bacha", password: "12345678", password_confirmation: "12345678", first_name: 'Ruzbeh', last_name: 'Bacha', sex: 'Male', current_location: 'London, United Kingdom', hometown: 'Mumbai, India', image_url: "http://graph.facebook.com/509597657/picture?type=square"},
-												{email: "n.l.eskinazi@gmail.com", name: "Natalie Eskinazi", password: "12345678", password_confirmation: "12345678", first_name: 'Natalie', last_name: 'Eskinazi', sex: 'Female', current_location: 'London, United Kingdom', hometown: 'London, United Kingdom'},
+												{email: "n.l.eskinazi@gmail.com", name: "Natalie Eskinazi", password: "12345678", password_confirmation: "12345678", first_name: 'Natalie', last_name: 'Eskinazi', sex: 'Female', current_location: 'London, United Kingdom', hometown: 'London, England', image_url: "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c22.0.86.86/s64x64/1488201_10100715132196751_2127665367_s.jpg"},
 												{email: "alexandria.lawrence@mac.com", name: "Alexandra Lawrence", password: "12345678", password_confirmation: "12345678", first_name: 'Alexandria' , last_name: 'Lawrence', sex: 'Female', current_location: 'London, United Kingdom', hometown: 'London, United Kingdom'},
 												{email: "willbell@gmail.com", name: "Will Bell", password: "12345678", password_confirmation: "12345678", first_name: 'Will' , last_name: 'Bell', sex: 'Male', current_location: 'London, United Kingdom', hometown: 'London, United Kingdom'},
 		])
