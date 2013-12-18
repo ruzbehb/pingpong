@@ -23,6 +23,10 @@ section.homeContent {
  
   .jcarousel li {    
     float: left;
+
+    img:first-child {
+      display: none;
+    }
   }
  
   .jcarousel-pagination {
@@ -40,7 +44,7 @@ section.homeContent {
       &.active {
         background: #757475;
       }
-    }     
+    }
   }
    
   article.container {
@@ -48,12 +52,12 @@ section.homeContent {
     @include justify-content-center;
 
     .circles {    
-      padding-top: 3%;
-      width: 80%;
+      padding-top: 2%;
+      width: 75%;
       height: 50%;
       @include flex;
       @include justify-content-space-between;
-      margin-bottom: 2%;
+      margin-bottom: 1%;
 
       aside {
         background: transparent;
@@ -68,11 +72,12 @@ section.homeContent {
         background-size: cover;
 
         img {
-          width: 80%;
+          width: 89%;
           border-radius: 50%;
           border: 12px solid;
           border-color: #FFF;
           margin-top: 9%;
+          box-sizing: border-box;
         }
       }
 

@@ -84,9 +84,9 @@ section.scoringApp {
   }
 
   .player1 {
-    background: red;
+    background: #2c78cc;
+    background: #6192F2;
     float: left;
-    opacity: 0.7;
 
     #p1-name {
       font-size: 4vw;
@@ -104,14 +104,13 @@ section.scoringApp {
     }
 
     .p1-back a:hover {
-      color: orange;
+      color: #5bd3ad;
     }
   }
 
   .player2 {
-    background: orange;
+    background: #5bd3ad;
     float: right;
-    opacity: 0.8;
 
     #p2-name {
       font-size: 4vw;
