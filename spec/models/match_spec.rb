@@ -16,20 +16,32 @@ describe Match do
 	end
 
 	def example_game(player, number)
-		match.scores[player-1].games[number-1]
+		match.score(player).game(number)
 	end
 
 	def complete_game
-		example_game(1,1).points = 10
-		example_game(2,1).points = 12
+		example_game(1,1).points = 9
+		example_game(2,1).points = 11
+
+		example_game(1,1).award_point
+		example_game(2,1).award_point
 
 		match.point_change
-		match.update_game_number
+		match.score(2).game_won
+		# match.update_oppositions_game_number
 
-		example_game(1,2).points = 5
+		match.scores.each(&:reload)
+		example_game(1,2).points = 4
 		example_game(2,2).points = 10
 
+		example_game(1,2).award_point
 		example_game(2,2).award_point
+
+		match.point_change
+		match.score(2).game_won
+		match.scores.each(&:reload)
+		# match.update_oppositions_game_number
+
 	end
 
 	it "has 2 players" do
@@ -41,9 +53,10 @@ describe Match do
 	end
 
 	it "knows the match is over" do
-		expect(match.find_winner).to eq 'game still in progress'
+		expect(match.find_winner).to eq nil
 		complete_game
-		expect(match.find_winner).not_to eq 'game still in progress'
+		expect(match.find_winner).not_to eq nil
+		expect(match.over?).to be_true
 	end
 
 	it "lets the score know to start a new game" do
@@ -51,6 +64,7 @@ describe Match do
 
 		example_game(1,1).points = 9
 		example_game(1,1).award_point
+		match.score(1).game_won
 		example_game(2,1).points = 11
 		example_game(2,1).delete_point
 		example_game(2,1).award_point
@@ -67,11 +81,6 @@ describe Match do
 		expect(match.scores.last.player).to eq player2
 	end
 
-	xit "knows which player belongs to which score" do
-		expect(match.players.first.score).to eq score1
-		expect(match.players.last.score).to eq score2
-	end
-
 	it "knows the current score" do
 		complete_game
 		expect(match.list_points_for(1)).to eq [10,5]
@@ -81,21 +90,27 @@ describe Match do
 	it "should update game number to 2 when 2 games won" do
 		10.times {match.score(2).current_game.award_point}
 		match.score(2).current_game.award_point
+		match.score(2).game_won
 
 		match.scores.each(&:reload)
 
 		expect(match.score(1).won_games).to eq 0
 		expect(match.score(2).won_games).to eq 1
-		10.times {match.score(2).current_game.award_point}
-		match.score(2).current_game.award_point
+		11.times {match.score(2).current_game.award_point}
+		match.score(2).game_won
+
 
 		match.scores.each(&:reload)
 		
 		expect(match.score(1).won_games).to eq 0
 		expect(match.score(2).won_games).to eq 2
 		expect(match.score(2).match_finished?).to be_true
+	end
 
-
+	it "knows the winner of each game" do
+		complete_game
+		expect(match.winner_of_game(1)).to eq "Will"
+		expect(match.winner_of_game(2)).to eq "Will"
 	end
 
 	context "updating progress" do
@@ -112,8 +127,8 @@ describe Match do
 
 		it "knows who the winner is" do
 			complete_game
-			puts match.find_winning_score
-			expect(match.find_winner).to eq player2
+			# puts match.find_winning_score
+			expect(match.find_winner).to eq 'Will'
 		end
 	end
 

@@ -84,7 +84,8 @@ section.scoringApp {
   }
 
   .player1 {
-    background: red;
+    background: #2c78cc;
+    background: #6192F2;
     float: left;
 
     #p1-name {
@@ -103,12 +104,12 @@ section.scoringApp {
     }
 
     .p1-back a:hover {
-      color: orange;
+      color: #5bd3ad;
     }
   }
 
   .player2 {
-    background: orange;
+    background: #5bd3ad;
     float: right;
 
     #p2-name {

@@ -23,6 +23,10 @@ section.homeContent {
  
   .jcarousel li {    
     float: left;
+
+    img:first-child {
+      display: none;
+    }
   }
  
   .jcarousel-pagination {
@@ -40,33 +44,74 @@ section.homeContent {
       &.active {
         background: #757475;
       }
-    }     
+    }
   }
    
-  article.container {    
-    padding-top: 20px;
-    width: 100%;
-    height: 50%;
+  article.container {
     @include flex;
-    @include justify-content-space-between;
+    @include justify-content-center;
 
-    aside {      
-      height: 300px;
-      background: #eee;
-      text-align: center;
-      line-height: 30px;
-    }
-   
-    .playWhere {
-      width: 320px;
-    }
-   
-    .scoringApp {
-      width: 320px;
-    }
-   
-    .scores {
-      width: 320px;
+    .circles {    
+      padding-top: 2%;
+      width: 75%;
+      height: 50%;
+      @include flex;
+      @include justify-content-space-between;
+      margin-bottom: 1%;
+
+      aside {
+        background: transparent;
+        text-align: center;
+        line-height: 30px;
+      }
+     
+      .playWhere {
+        background-image: url('where_to_play.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        img {
+          width: 89%;
+          border-radius: 50%;
+          border: 12px solid;
+          border-color: #FFF;
+          margin-top: 9%;
+          box-sizing: border-box;
+        }
+      }
+
+      .scoringApp {
+        background-image: url('scoring_app.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        img {
+          width: 80%;
+          border-radius: 50%;
+          border: 12px solid;
+          border-color: #FFF;
+          margin-top: 9%
+        }
+      }
+
+     
+      .statsCentre {
+        background-image: url('stats_centre.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        img {
+          width: 80%;
+          border-radius: 50%;
+          border: 12px solid;
+          border-color: #FFF;
+          margin-top: 9%;
+        }
+      }
+
     }
   }
 }

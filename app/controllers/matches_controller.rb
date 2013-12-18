@@ -1,6 +1,11 @@
 class MatchesController < ApplicationController
 	layout 'matches'
 
+	def index
+		@matches = Match.all(order: 'created_at DESC')
+		# @match = Match.find(params[:match_id])
+	end
+
 	def edit
 
 		@match = Match.find(params[:id])
