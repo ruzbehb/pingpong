@@ -106,7 +106,7 @@
 
 .middleRightProfileContainer {
   display: inline-block;
-  width: 350px;
+  width: 365px;
   vertical-align: top;
 }
 
@@ -116,11 +116,6 @@
   height: 150px;
   // line-height: 1.5;
   vertical-align: top;
-}
-
-.recentMatches i, .upcomingMatches i {
-  line-height: 2;
-  color: #08088A;
 }
 
 .bottomProfileContainer {
@@ -154,6 +149,18 @@
 .image3 img {
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
+}
+
+.matchLabel {
+  color: black;
+  display: inline;
+  line-height: 2;
+}
+
+.matchValue {
+  color: #08088A;
+  display: inline;
+  line-height: 2;
 }
 
 .imageOverlay {

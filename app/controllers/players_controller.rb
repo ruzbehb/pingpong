@@ -10,8 +10,7 @@ class PlayersController < ApplicationController
 
 	def show
 		@player = Player.find params[:id]
-		@all_matches = Match.all
-		@matches = @player.matches.first(5)
+		@matches = @player.matches.last(3).sort_by {|obj| obj.updated_at}.reverse
 	end
 
 end
