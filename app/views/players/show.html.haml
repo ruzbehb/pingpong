@@ -139,11 +139,16 @@
 
 		.recentMatches
 			%i
-				25 Nov 2013	
-				Home 	Finsbury 2 v. ISH 1
-				%p
-					17 Nov 2014 
-					Away Crown and Mayor 2 v. Finsbury 2
+				- @matches.each do |match|
+					= match.name_of_player(1)
+					vs.
+					= match.name_of_player(2)
+					= match.score(1).game(1).points
+					\-
+					= match.score(2).game(1).points
+					= match.score(1).game(2).points
+					\-
+					= match.score(2).game(2).points
 
 	.bottomProfileContainer
 

@@ -23,7 +23,7 @@ class Api::MatchesController < ApplicationController
 		    end
 		  end
 	    
-	    WebsocketRails["table#{@match.id}"].trigger 'edit', table_data(@match, player_index)
+	    WebsocketRails["table#{@match.id}"].trigger 'edit', table_data(@match, player_index, @point_direction, @new_game)
  	  end
 
 end

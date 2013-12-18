@@ -4,8 +4,8 @@ App.directive('pie',function(){
 		replace: true,
 		transclude: true,
 		scope: { data:'=',colors: '=' },
-		template: '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" class="chart__content">'+
-		      '<path ng-repeat="d in wedges" class="chart__pie" ng-attr-d="{{d}}" fill="{{colors[$index]}}" />' +
+		template: '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" class="chart_content">'+
+		      '<path ng-repeat="d in wedges" class="chart_pie" ng-attr-d="{{d}}" fill="{{colors[$index]}}" />' +
 		    '</svg>	',
 	  link: function(scope, element, attrs){
   	  var pieOptions = {
@@ -14,7 +14,6 @@ App.directive('pie',function(){
 		    r: 100
 		  };
 		  var buildPiePathWedges = function() {
-		  	console.log(scope.data);
 		    scope.wedges = [];
 
 		    // Add up the data values so we know how big the pie is

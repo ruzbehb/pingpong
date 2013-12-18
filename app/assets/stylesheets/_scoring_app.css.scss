@@ -84,7 +84,7 @@ section.scoringApp {
   }
 
   .player1 {
-    background: #2c78cc;
+    // background: #2c78cc;
     background: #6192F2;
     float: left;
 
@@ -128,7 +128,7 @@ section.scoringApp {
     }
 
     .p2-back a:hover {
-      color: red;
+      color: #6192F2;
     }
   }
 
@@ -138,6 +138,14 @@ section.scoringApp {
 
   &.flipped .player2 {
     float: left;
+  }
+
+  &.flipped #p1-games {
+    left: 12.5%;;
+  }
+
+  &.flipped #p2-games {
+    left: 80%;
   }
 
   nav.p1-back, .p2-back {
