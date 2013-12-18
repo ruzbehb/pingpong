@@ -86,6 +86,7 @@ section.scoringApp {
   .player1 {
     background: red;
     float: left;
+    opacity: 0.7;
 
     #p1-name {
       font-size: 4vw;
@@ -110,6 +111,7 @@ section.scoringApp {
   .player2 {
     background: orange;
     float: right;
+    opacity: 0.8;
 
     #p2-name {
       font-size: 4vw;

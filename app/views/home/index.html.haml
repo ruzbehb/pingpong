@@ -20,10 +20,11 @@
     .jcarousel-pagination
 
   %article.container
-    %aside.playWhere
-      Where to Play
-    %aside.scoringApp
-      %a{href: "/matches/new"}
-        Scoring App
-    %aside.scores
-      Scores
+    .circles
+      %aside.playWhere
+        %h2= image_tag 'map.jpg'
+      %aside.scoringApp
+        %a{href: "/matches/new"}
+          %h2= image_tag 'map.jpg'
+      %aside.statsCentre
+        %h2= image_tag 'map.jpg'
