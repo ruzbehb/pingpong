@@ -139,6 +139,14 @@ section.scoringApp {
     float: left;
   }
 
+  &.flipped #p1-games {
+    left: 12.5%;;
+  }
+
+  &.flipped #p2-games {
+    left: 80%;
+  }
+
   nav.p1-back, .p2-back {
     padding-top: 3%;
     padding-bottom: 7%;
