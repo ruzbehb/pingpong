@@ -38,11 +38,41 @@ section.scoringApp {
           position: absolute;
           left: 23%;
           top: 30%;
+
+          label {
+            color: rgba(255,255,255,0.6);
+            font-weight: 800;
+            font-family: Helvetica;
+          }
+
+          input {
+            border: 0;
+            background: rgba(255,255,255,0);
+            color: rgba(255,255,255,0.6);
+            border-bottom: 1px solid rgba(255,255,255,0.6);
+            width: 60%;
+            font-size: 1.2em;
+          }
         }
         .fieldRight {
           position: absolute;
           left: 61%;
           top: 30%;
+          
+          label {
+            color: rgba(0,0,0,0.6);
+            font-weight: 800;
+            font-family: Helvetica;
+          }
+
+          input {
+            border: 0;
+            background: rgba(0,0,0,0);
+            color: rgba(0,0,0,0.6);
+            border-bottom: 1px solid rgba(0,0,0,0.6);
+            width: 60%;
+            font-size: 1.2em;
+          }
         }
 
         .fieldLeft, .fieldRight {
