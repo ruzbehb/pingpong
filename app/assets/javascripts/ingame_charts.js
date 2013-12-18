@@ -36,7 +36,11 @@ App.controller('ChartController', function($scope){
   $scope.linePath2 = linePaths(1);
 
 
-  $scope.addRally = function(winnerIndex){
+  $scope.updateRally = function(winnerIndex, decrement){
+    if (decrement) 
+    {
+      console.log("Decrement!");
+    }
     playerRecords[winnerIndex].points +=1;
     addCoordinates(playerRecords[0]);
     addCoordinates(playerRecords[1]);
@@ -46,6 +50,10 @@ App.controller('ChartController', function($scope){
     $scope.p1ServePercentage = servePointPercentage(0);
     $scope.p2ServePercentage = servePointPercentage(1);
     $scope.pieData[serverIndex] = pieData(serverIndex);
+  }
+
+  $scope.clearRallies = function(){
+    console.log("clearRallies!");
   }
   
   $scope.pieData = [[],[]];
@@ -92,6 +100,7 @@ App.controller('ChartController', function($scope){
 
   var servePointPercentage = function(server) {
     var servePoints = serveStats[server].servePointsFor + serveStats[server].servePointsAgainst;
+    if(servePoints == 0) return '-';
     return (serveStats[server].servePointsFor/servePoints*100).toFixed(0);
   };
 

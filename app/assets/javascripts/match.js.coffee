@@ -58,4 +58,7 @@ $ ->
     if(appElement)
       $scope = angular.element(appElement).scope()
       $scope.$apply ->
-        $scope.addRally(match['rally_winner_index'])
+        if(Boolean(match.new_game))
+          $scope.clearRallies()
+        else
+          $scope.updateRally(match['rally_winner_index'], Boolean(match.decrement))
