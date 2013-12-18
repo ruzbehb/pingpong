@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131216163037) do
+ActiveRecord::Schema.define(version: 20131217180153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,13 +71,13 @@ ActiveRecord::Schema.define(version: 20131216163037) do
     t.text     "fb_url"
     t.string   "sex"
     t.text     "google_url"
-    t.boolean  "guest",                  default: false
     t.text     "address_line1"
     t.text     "address_line2"
     t.text     "city_town"
     t.text     "state"
     t.string   "post_code"
     t.string   "country"
+    t.boolean  "guest",                  default: false
   end
 
   add_index "players", ["email"], name: "index_players_on_email", unique: true, using: :btree
@@ -93,5 +93,15 @@ ActiveRecord::Schema.define(version: 20131216163037) do
 
   add_index "scores", ["match_id"], name: "index_scores_on_match_id", using: :btree
   add_index "scores", ["player_id"], name: "index_scores_on_player_id", using: :btree
+
+  create_table "sessions", force: true do |t|
+    t.string   "session_id", null: false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
 
 end

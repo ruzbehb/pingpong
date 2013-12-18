@@ -15,7 +15,8 @@ class Player < ActiveRecord::Base
 
   	player = Player.where(:provider => auth.provider, :uid => auth.uid).first
 	  unless player
-	    player = Player.create(name:auth.extra.raw_info.name,
+      pwd = Devise.friendly_token[0,20]
+	    player = Player.create!(name:auth.extra.raw_info.name,
 	                         provider:auth.provider,
 	                         uid:auth.uid,
 	                         email:auth.info.email,
@@ -26,7 +27,8 @@ class Player < ActiveRecord::Base
                            current_location:auth.info.location,
                            hometown:auth.extra.raw_info.hometown.name,
                            sex:auth.extra.raw_info.gender,
-	                         password:Devise.friendly_token[0,20]
+	                         password: pwd,
+                           password_confirmation: pwd
 	                         )
 	  end
   	player

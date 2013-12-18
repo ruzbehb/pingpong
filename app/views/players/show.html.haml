@@ -88,7 +88,7 @@
 				%hr.minorLine
 
 				.topLabel
-					Awards:
+					Award(s):
 				.topValue
 					Best Male Player of the Central  London tournament 2012
 				%hr.minorLine
@@ -139,15 +139,23 @@
 
 		.recentMatches
 			%i
-				25 Nov 2013	
-				Home 	Finsbury 2 v. ISH 1
-				%p
-					17 Nov 2014 
-					Away Crown and Mayor 2 v. Finsbury 2
+				- @matches.each do |match|
+					= match.name_of_player(1)
+					vs.
+					= match.name_of_player(2)
+					= match.score(1).game(1).points
+					\-
+					= match.score(2).game(1).points
+					= match.score(1).game(2).points
+					\-
+					= match.score(2).game(2).points
 
 	.bottomProfileContainer
 
 		.imageGallery
-			= link_to image_tag("ruz1.jpg"), image_path("ruz1.jpg")
-			= link_to image_tag("ruz2.jpg"), image_path("ruz2.jpg")
-			= link_to image_tag("ruz3.jpg"), image_path("ruz3.jpg")
+			.image1
+				= link_to image_tag("ruz1.jpg"), image_path("ruz1.jpg")
+			.image2
+				= link_to image_tag("ruz2.jpg"), image_path("ruz2.jpg")
+			.image3
+				= link_to image_tag("ruz3.jpg"), image_path("ruz3.jpg")
