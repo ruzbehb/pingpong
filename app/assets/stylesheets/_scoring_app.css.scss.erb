@@ -126,6 +126,7 @@ section.scoringApp {
 
     #p1-points {
       font-size: 25vw;
+      color: #FCFFE3;
     }
 
     #p1-games {
@@ -133,7 +134,14 @@ section.scoringApp {
       left: 80%;
       top: 7%;
       font-size: 6vw;
+      color: #FCFFE3;
     }
+
+    .p1serveball {
+      position: absolute;
+      left: 76.5%;
+      top: 50%;
+     }
 
     .p1-back a:hover {
       color: #6192F2;
@@ -150,6 +158,7 @@ section.scoringApp {
 
     #p2-points {
       font-size: 25vw;
+      color: #FCFFE3;
     }
 
     #p2-games {
@@ -157,6 +166,17 @@ section.scoringApp {
       left: 12.5%;
       top: 7%;
       font-size: 6vw;
+      color: #FCFFE3;
+    }
+
+    .p2serveball {
+      position: absolute;
+      left: 9.5%;
+      top: 50%;
+    }
+
+    #p2marker {
+      display: hidden;
     }
 
     .p2-back a:hover {
@@ -178,6 +198,14 @@ section.scoringApp {
 
   &.flipped #p2-games {
     left: 80%;
+  }
+
+  &.flipped .p1serveball {
+    left: 9.5%;
+  }
+
+  &.flipped .p2serveball {
+    left: 76.5%;
   }
 
   nav.p1-back, .p2-back {
