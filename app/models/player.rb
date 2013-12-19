@@ -13,7 +13,7 @@ class Player < ActiveRecord::Base
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
 
-  	player = Player.where(:provider => auth.provider, :uid => auth.uid).first
+  	player = Player.where(:email => auth.info.email).first
 	  unless player
       pwd = Devise.friendly_token[0,20]
 	    player = Player.create!(name:auth.extra.raw_info.name,

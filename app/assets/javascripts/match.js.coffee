@@ -14,22 +14,26 @@ $ ->
   $("#p1-points, #p2-points, #p1-back, #p2-back").on 'click', (e) ->
     e.preventDefault()
     $.ajax "/api/matches/#{id}",
-    data: {
+    data:
       player_id: $(this).closest('section').find('h2').data('id'),
       decrement: $(this).data('decrement')
-    }
+    ,
     success: (data,status) ->
       $("#p1-points").text(data.p1points)
       $("#p1-games").text(data.p1games)
       $("#p2-points").text(data.p2points)
       $("#p2-games").text(data.p2games)
+      console.log(data)
+      console.log(data.gameover)
+      if(data.gameover == true)
+        $('.game_over').show()
+      else
+        $('.game_over').hide()
+      if(data.matchover == true)
+        $('.match_over').show()
+        $('.game_over').hide()
       flipBoard(data)
-      if(data.matchover)
-        if(confirm('Match Over! Would you like to save this game? If you click cancel the data from this game will be deleted.'))
-          alert("Let's save it!")
-        else 
-          alert('bye bye data')
-    type: 'PUT'
+    ,type: 'PUT'
 
   $(".game_button").on 'click', (e) ->
     e.preventDefault()
@@ -67,5 +71,11 @@ $ ->
       $scope.$apply ->
         if(Boolean(match.new_game))
           $scope.clearPlayerProgressRecords()
+          if(match['g2winner'])
+            $scope.setServer(0)
+          else if(match['g1winner'])
+            $scope.setServer(1)
+          else 
+            $scope.setServer(0)
         else
           $scope.updateRally(match['rally_winner_index'], Boolean(match.decrement))
