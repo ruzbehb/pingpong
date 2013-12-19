@@ -1,0 +1,1817 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+.loginOverlay {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); }
+  .loginOverlay.active {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    display: block;
+    opacity: 1; }
+
+.formContainer.loginModal, .formContainer.registerModal {
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  visibility: hidden;
+  opacity: 0; }
+  .formContainer.loginModal.active, .formContainer.registerModal.active {
+    opacity: 1;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    visibility: visible;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease; }
+
+.signInPage .loginModal, .signUpPage .registerModal {
+  opacity: 1;
+  visibility: visible; }
+  .signInPage .loginModal .close, .signUpPage .registerModal .close {
+    display: none; }
+
+.formContainer {
+  /*min-height: 370px;*/
+  padding: 30px 0;
+  width: 250px;
+  background: #FFF;
+  border-radius: 7px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -moz-align-content: center;
+  -ms-align-content: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+
+.close {
+  display: block;
+  position: relative;
+  text-align: right;
+  margin-top: -43px;
+  margin-right: -43px; }
+
+h2.shadowCaps {
+  text-shadow: -1px -1px 2px #CCC;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.3em;
+  letter-spacing: 0.1em; }
+
+i.facebookSignin {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 5px; }
+
+i.googleSignin {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex; }
+
+p.or {
+  padding: 14px 0 14px 0;
+  text-shadow: -1px -1px 2px #CCC;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.3em;
+  letter-spacing: 0.1em; }
+
+article.siteSignin {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+
+h3.field {
+  padding-bottom: 8px; }
+
+button.submitSignUp {
+  width: 80px;
+  height: 34px;
+  background-image: url("sign_up.svg");
+  background-repeat: no-repeat;
+  color: transparent;
+  outline: none;
+  margin: 0 auto;
+  display: block; }
+  button.submitSignUp:hover {
+    background-image: url("sign_up_hover.svg"); }
+
+button.submitSignIn {
+  width: 80px;
+  height: 34px;
+  background-image: url("login.svg");
+  background-repeat: no-repeat;
+  color: transparent;
+  outline: none;
+  margin: 0 auto;
+  display: block; }
+
+button.submitSignIn:hover {
+  background-image: url("login_hover.svg"); }
+
+.fieldContainer label {
+  display: block;
+  width: 100%; }
+
+.field input:not([type=checkbox]) {
+  width: 100%;
+  box-sizing: border-box; }
+
+.field_with_errors input {
+  border: solid 1px #fda63c; }
+
+.error {
+  color: red;
+  display: block; }
+
+.rememberMe {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+section.homeContent {
+  width: 100%;
+  height: 100%; }
+  section.homeContent .jcarousel {
+    position: relative;
+    overflow: hidden;
+    transition: 1s opacity ease;
+    opacity: 0; }
+    section.homeContent .jcarousel img {
+      width: 100%; }
+  section.homeContent .jcarousel ul {
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  section.homeContent .jcarousel li {
+    float: left; }
+    section.homeContent .jcarousel li img:first-child {
+      display: none; }
+  section.homeContent .jcarousel-pagination {
+    text-align: center; }
+    section.homeContent .jcarousel-pagination a {
+      display: inline-block;
+      font-size: 11px;
+      height: 10px;
+      width: 10px;
+      border-radius: 10px;
+      background: #fff;
+      text-indent: -9999px;
+      margin-right: 9px; }
+      section.homeContent .jcarousel-pagination a.active {
+        background: #757475; }
+  section.homeContent article.container {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center; }
+    section.homeContent article.container .circles {
+      padding-top: 2%;
+      width: 75%;
+      height: 50%;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: flex;
+      -webkit-justify-content: space-between;
+      -moz-justify-content: space-between;
+      -ms-justify-content: space-between;
+      justify-content: space-between;
+      margin-bottom: 1%; }
+      section.homeContent article.container .circles aside {
+        background: transparent;
+        text-align: center;
+        line-height: 30px; }
+      section.homeContent article.container .circles .playWhere {
+        background-image: url("where_to_play.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; }
+        section.homeContent article.container .circles .playWhere img {
+          width: 89%;
+          border-radius: 50%;
+          border: 12px solid;
+          border-color: #FFF;
+          margin-top: 9%;
+          box-sizing: border-box; }
+      section.homeContent article.container .circles .scoringApp {
+        background-image: url("scoring_app.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; }
+        section.homeContent article.container .circles .scoringApp img {
+          width: 80%;
+          border-radius: 50%;
+          border: 12px solid;
+          border-color: #FFF;
+          margin-top: 9%; }
+      section.homeContent article.container .circles .statsCentre {
+        background-image: url("stats_centre.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; }
+        section.homeContent article.container .circles .statsCentre img {
+          width: 80%;
+          border-radius: 50%;
+          border: 12px solid;
+          border-color: #FFF;
+          margin-top: 9%; }
+html, body {
+  height: 100%; }
+
+body {
+  font-family: "Muli", sans-serif;
+  font-size: 0.8em;
+  color: #000; }
+
+a {
+  color: #000;
+  text-decoration: none;
+  outline: none; }
+
+a:hover {
+  color: #F96B2B; }
+
+header, footer {
+  width: 100%;
+  height: 50px; }
+
+header, section.mainWrapper, footer {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-flex-flow: row wrap;
+  -moz-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap; }
+
+body > header {
+  position: fixed;
+  background: #FFF;
+  z-index: 999; }
+
+body > section.mainWrapper {
+  min-height: calc(100% - 100px);
+  padding-top: 50px;
+  background: #CCC;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -moz-align-content: center;
+  -ms-align-content: center;
+  align-content: center; }
+  body > section.mainWrapper main {
+    height: 100%;
+    width: 84%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex; }
+
+section.matchWrapper {
+  padding-top: 50px;
+  background: #FFF;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -moz-align-content: center;
+  -ms-align-content: center;
+  align-content: center; }
+
+body > footer {
+  background: #000;
+  color: #FFF; }
+
+.copyright {
+  padding-right: 20px; }
+
+.orangeText a {
+  color: #FDA63C;
+  text-shadow: none; }
+
+.strongText {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700; }
+  .strongText a:hover {
+    color: #F96B2B; }
+section.ingameCharts {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center; }
+
+.charts {
+  font-family: "Helvetica Neue";
+  width: 100%;
+  overflow: hidden;
+  background: #5bd3ad; }
+
+.chart_header {
+  text-align: center;
+  background: #09A351;
+  color: white;
+  padding: 4px 5px; }
+
+.chart_title {
+  text-transform: uppercase;
+  color: #09A351; }
+
+.chart_content {
+  height: 350px; }
+
+.chart_line1 {
+  fill: none;
+  stroke: black;
+  stroke-width: 6px; }
+
+.chart_line2 {
+  fill: none;
+  stroke: white;
+  stroke-width: 6px; }
+
+.chart_circle1 {
+  fill: black;
+  radius: 5px; }
+
+.chart_circle2 {
+  fill: white;
+  radius: 5px; }
+
+.chart_pie {
+  stroke: #09A351;
+  stroke-width: 4px; }
+
+.pie {
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase; }
+
+p.player1_name, .player2_name {
+  letter-spacing: 0.15em;
+  font-size: 1.5em; }
+
+.player1_name {
+  color: black; }
+
+.player2_name {
+  color: white; }
+
+p.p1_points_won, .p1_points_won {
+  line-height: 3em;
+  font-size: 0.9em;
+  letter-spacing: 0.05em; }
+
+.p1_points_won {
+  color: black; }
+
+.p2_points_won {
+  color: white; }
+
+table.match {
+  background: white;
+  border-radius: 7px 7px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  line-height: 2em;
+  width: 250px;
+  height: 100px; }
+  table.match td.title, table.match .player {
+    font-size: 0.9em; }
+  table.match td.player {
+    color: #6192F2; }
+  table.match td.game {
+    color: #09A351; }
+  table.match td.g1winner, table.match .g2winner, table.match .g3winner {
+    color: #09A351;
+    font-size: 0.9em; }
+
+section.key {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 1.1em; }
+  section.key article.player1 {
+    color: black; }
+  section.key article.player2 {
+    color: white; }
+nav.social {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+
+.socialItem {
+  padding: 12px; }
+
+.fb-like {
+  padding-right: 10px; }
+
+nav.registerSignin {
+  padding-left: 100px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex; }
+
+nav.signOut {
+  padding-left: 40px;
+  padding-right: 15px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+
+.regItem {
+  padding-right: 15px; }
+
+.restart {
+  padding-right: 20px; }
+
+nav.footNav {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex; }
+
+.footLinks {
+  padding-left: 20px; }
+.playerProfile {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+  .playerProfile span {
+    padding-right: 25px;
+    font-size: 1.2em;
+    letter-spacing: 0.05em; }
+  .playerProfile img {
+    height: 33px;
+    width: 33px;
+    border-radius: 50%; }
+
+.playerProfileContainer {
+  width: 100%;
+  height: 100%;
+  display: block; }
+
+.playerProfileContainer h3 {
+  font-size: 15px; }
+
+.playerProfileContainer h2 {
+  font-size: 20px; }
+
+.topProfileContainer {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+.playerName {
+  display: block;
+  width: 100%;
+  float: top;
+  font-size: 20px; }
+
+.imageMainDetailsContainer {
+  display: block;
+  width: 100%;
+  margin-top: 20px; }
+
+.profileImageContainer {
+  display: inline-block;
+  float: left;
+  margin-right: 40px; }
+
+.profileImageContainer img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%; }
+
+.profileMainDetails {
+  display: inline-block;
+  width: 350px;
+  margin-right: 50px; }
+
+.profilePlayingDetails {
+  display: inline-block;
+  width: 350px; }
+
+.topLabel {
+  width: 125px;
+  display: inline-block; }
+
+.topValue {
+  display: inline-block;
+  color: #08088A; }
+
+.middleLeftProfileContainer {
+  display: inline-block;
+  width: 550px;
+  margin-right: 50px;
+  vertical-align: top; }
+
+.currentSeasonAnalytics, .lifetimeAnalytics {
+  width: 100%;
+  height: 150px;
+  display: inline-block; }
+
+.lifetimeChart {
+  display: block;
+  width: 100%;
+  height: 200px; }
+
+.middleRightProfileContainer {
+  display: inline-block;
+  width: 365px;
+  vertical-align: top; }
+
+.recentMatches, .upcomingMatches {
+  display: block;
+  width: 100%;
+  height: 150px;
+  vertical-align: top; }
+
+.bottomProfileContainer {
+  display: block;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 20px; }
+
+#smallLineChart {
+  float: left;
+  display: block;
+  height: 100%;
+  width: 80%; }
+
+.imageGallery img {
+  height: 200px;
+  width: 300px; }
+
+.image1 img {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px; }
+
+.image1, .image2, .image3 {
+  display: inline-block; }
+
+.image3 img {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px; }
+
+.matchLabel {
+  color: black;
+  display: inline;
+  line-height: 2; }
+
+.matchValue {
+  color: #08088A;
+  display: inline;
+  line-height: 2; }
+
+.imageOverlay {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; }
+  .imageOverlay img {
+    height: 70%; }
+  .imageOverlay.active {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    display: flex;
+    opacity: 1; }
+section.scoringApp {
+  padding-top: 3%;
+  background: #ccc;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  section.scoringApp .welcome {
+    width: 280px;
+    height: 60px;
+    background-image: url("welcome.svg");
+    background-repeat: no-repeat; }
+  section.scoringApp .scoringApp_form {
+    width: 100%;
+    padding-bottom: 4%; }
+    section.scoringApp .scoringApp_form section.paddleContainer {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: flex; }
+      section.scoringApp .scoringApp_form section.paddleContainer .paddle {
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        justify-content: center;
+        position: relative; }
+        section.scoringApp .scoringApp_form section.paddleContainer .paddle img {
+          width: 37%; }
+        section.scoringApp .scoringApp_form section.paddleContainer .paddle .fieldLeft {
+          color: #FFF;
+          position: absolute;
+          left: 23%;
+          top: 30%; }
+          section.scoringApp .scoringApp_form section.paddleContainer .paddle .fieldLeft label {
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 800;
+            font-family: Helvetica; }
+          section.scoringApp .scoringApp_form section.paddleContainer .paddle .fieldLeft input {
+            border: 0;
+            background: rgba(255, 255, 255, 0);
+            color: rgba(255, 255, 255, 0.6);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+            width: 60%;
+            font-size: 1.2em; }
+        section.scoringApp .scoringApp_form section.paddleContainer .paddle .fieldRight {
+          position: absolute;
+          left: 61%;
+          top: 30%; }
+          section.scoringApp .scoringApp_form section.paddleContainer .paddle .fieldRight label {
+            color: rgba(0, 0, 0, 0.6);
+            font-weight: 800;
+            font-family: Helvetica; }
+          section.scoringApp .scoringApp_form section.paddleContainer .paddle .fieldRight input {
+            border: 0;
+            background: rgba(0, 0, 0, 0);
+            color: rgba(0, 0, 0, 0.6);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+            width: 60%;
+            font-size: 1.2em; }
+        @media (max-width: 768px) {
+          section.scoringApp .scoringApp_form section.paddleContainer .paddle .fieldLeft input, section.scoringApp .scoringApp_form section.paddleContainer .paddle .fieldRight input {
+            display: block; } }
+    section.scoringApp .scoringApp_form .startMatch {
+      position: absolute;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: flex;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      -ms-justify-content: center;
+      justify-content: center;
+      margin-top: -90px;
+      width: 100%; }
+      section.scoringApp .scoringApp_form .startMatch button {
+        background: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer; }
+
+#container.match {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  #container.match .player1, #container.match .player2 {
+    width: 50%;
+    height: 90%;
+    color: #FFF;
+    text-align: center;
+    padding-top: 10%;
+    cursor: pointer;
+    position: relative; }
+  #container.match .player1 {
+    background: #6192F2;
+    float: left; }
+    #container.match .player1 #p1-name {
+      font-size: 4vw; }
+    #container.match .player1 #p1-points {
+      font-size: 25vw; }
+    #container.match .player1 #p1-games {
+      position: absolute;
+      left: 80%;
+      top: 7%;
+      font-size: 6vw; }
+    #container.match .player1 .p1-back a:hover {
+      color: #5bd3ad; }
+  #container.match .player2 {
+    background: #5bd3ad;
+    float: right; }
+    #container.match .player2 #p2-name {
+      font-size: 4vw; }
+    #container.match .player2 #p2-points {
+      font-size: 25vw; }
+    #container.match .player2 #p2-games {
+      position: absolute;
+      left: 12.5%;
+      top: 7%;
+      font-size: 6vw; }
+    #container.match .player2 .p2-back a:hover {
+      color: #6192F2; }
+  #container.match.flipped .player1 {
+    float: right; }
+  #container.match.flipped .player2 {
+    float: left; }
+  #container.match.flipped #p1-games {
+    left: 12.5%; }
+  #container.match.flipped #p2-games {
+    left: 80%; }
+  #container.match nav.p1-back, #container.match .p2-back {
+    padding-top: 3%;
+    padding-bottom: 7%;
+    font-size: 3vw; }
+
+.match_over {
+  display: none; }
+
+.game_over {
+  display: none; }
+body > section.mainWrapper {
+	/*background-color: RGB(230,224,212);*/
+	/*background-color: white*/
+}
+
+.mapControl {
+	height: 100%;
+	width: 100%;
+}
+
+.map_left_container {
+	display: block;
+	height: 100%;
+	width: 500px;
+	min-width: 400px;
+	float: left;
+}
+
+.map_right_container {
+	display: inline-block;
+	height: 100%;
+	margin-left: 25px;
+	width: calc(100% - 550px);
+}
+
+.mainMap {
+	display: left;
+	display: inline-block;
+	padding-top: 20px;
+}
+
+.LocationContainer {
+
+}
+
+.locationDetection {
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.userLocation, .userAddress {
+	display: inline-block;
+}
+
+#club_location_finder {
+	display: block;
+}
+
+#find_clubs_nearby {
+	margin-right: 20px;
+	line-height: 1.9;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.searchByLocation {
+	display: block;
+	float: left;
+}
+
+.byLocation {
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.searchBoxContainer {
+		display: inline-block;
+		float: left;
+		margin-bottom: 10px;
+		margin-top: 10px;
+		width: 100%;
+}
+
+.userAddress {
+	font-style: bold;
+}
+
+#searchInput, #locationInput {
+	line-height: 2;
+	border: 1px solid #ccc;
+  border-radius: 10px;
+  padding-left: 20px;
+}
+
+#searchInput {
+	margin-bottom: 10px;
+}
+
+#locationInput{
+	margin-left: 20px;
+}
+
+.club {
+	display: block;
+	margin-bottom: 2px;
+	margin-left: 2px;
+}
+
+#clubName {
+	font-style: strong;
+	color: blue;
+	padding-bottom: 25px;
+}
+
+.address {
+	padding-bottom: 2px;
+}
+
+.find {
+	line-height: 1.5;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#mainLine {
+	height: 1px;
+	background-color: white;
+	color: #C8C8C8;
+}
+
+.minorLine {
+	border: none;
+	height: 0.5px;
+	background-color: white;
+}
+
+.clubtotal {
+	text-align: right;
+	display: block;
+	margin-bottom: 50px;
+}
+
+.spinner {
+	display: none;
+	width: 15px;
+	height: 15px;
+}
+
+.mapSpinner {
+	width: 50px;
+	height: 50px;
+}
+@import url(http://fonts.googleapis.com/css?family=Muli:400,400italic|Open+Sans:700);
+html, body {
+  height: 100%; }
+
+body {
+  font-family: "Muli", sans-serif;
+  font-size: 0.8em;
+  color: #000; }
+
+a {
+  color: #000;
+  text-decoration: none;
+  outline: none; }
+
+a:hover {
+  color: #F96B2B; }
+
+header, footer {
+  width: 100%;
+  height: 50px; }
+
+header, section.mainWrapper, footer {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-flex-flow: row wrap;
+  -moz-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap; }
+
+body > header {
+  position: fixed;
+  background: #FFF;
+  z-index: 999; }
+
+body > section.mainWrapper {
+  min-height: calc(100% - 100px);
+  padding-top: 50px;
+  background: #CCC;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -moz-align-content: center;
+  -ms-align-content: center;
+  align-content: center; }
+  body > section.mainWrapper main {
+    height: 100%;
+    width: 84%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex; }
+
+section.matchWrapper {
+  padding-top: 50px;
+  background: #FFF;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -moz-align-content: center;
+  -ms-align-content: center;
+  align-content: center; }
+
+body > footer {
+  background: #000;
+  color: #FFF; }
+
+.copyright {
+  padding-right: 20px; }
+
+.orangeText a {
+  color: #FDA63C;
+  text-shadow: none; }
+
+.strongText {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700; }
+  .strongText a:hover {
+    color: #F96B2B; }
+
+nav.social {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+
+.socialItem {
+  padding: 12px; }
+
+.fb-like {
+  padding-right: 10px; }
+
+nav.registerSignin {
+  padding-left: 100px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex; }
+
+nav.signOut {
+  padding-left: 40px;
+  padding-right: 15px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+
+.regItem {
+  padding-right: 15px; }
+
+.restart {
+  padding-right: 20px; }
+
+nav.footNav {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex; }
+
+.footLinks {
+  padding-left: 20px; }
+
+section.homeContent {
+  width: 100%;
+  height: 100%; }
+  section.homeContent .jcarousel {
+    position: relative;
+    overflow: hidden;
+    transition: 1s opacity ease;
+    opacity: 0; }
+    section.homeContent .jcarousel img {
+      width: 100%; }
+  section.homeContent .jcarousel ul {
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  section.homeContent .jcarousel li {
+    float: left; }
+    section.homeContent .jcarousel li img:first-child {
+      display: none; }
+  section.homeContent .jcarousel-pagination {
+    text-align: center; }
+    section.homeContent .jcarousel-pagination a {
+      display: inline-block;
+      font-size: 11px;
+      height: 10px;
+      width: 10px;
+      border-radius: 10px;
+      background: #fff;
+      text-indent: -9999px;
+      margin-right: 9px; }
+      section.homeContent .jcarousel-pagination a.active {
+        background: #757475; }
+  section.homeContent article.container {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center; }
+    section.homeContent article.container .circles {
+      padding-top: 2%;
+      width: 75%;
+      height: 50%;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: flex;
+      -webkit-justify-content: space-between;
+      -moz-justify-content: space-between;
+      -ms-justify-content: space-between;
+      justify-content: space-between;
+      margin-bottom: 1%; }
+      section.homeContent article.container .circles aside {
+        background: transparent;
+        text-align: center;
+        line-height: 30px; }
+      section.homeContent article.container .circles .playWhere {
+        background-image: url("where_to_play.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; }
+        section.homeContent article.container .circles .playWhere img {
+          width: 89%;
+          border-radius: 50%;
+          border: 12px solid;
+          border-color: #FFF;
+          margin-top: 9%;
+          box-sizing: border-box; }
+      section.homeContent article.container .circles .scoringApp {
+        background-image: url("scoring_app.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; }
+        section.homeContent article.container .circles .scoringApp img {
+          width: 80%;
+          border-radius: 50%;
+          border: 12px solid;
+          border-color: #FFF;
+          margin-top: 9%; }
+      section.homeContent article.container .circles .statsCentre {
+        background-image: url("stats_centre.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; }
+        section.homeContent article.container .circles .statsCentre img {
+          width: 80%;
+          border-radius: 50%;
+          border: 12px solid;
+          border-color: #FFF;
+          margin-top: 9%; }
+
+.loginOverlay {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); }
+  .loginOverlay.active {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    display: block;
+    opacity: 1; }
+
+.formContainer.loginModal, .formContainer.registerModal {
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  visibility: hidden;
+  opacity: 0; }
+  .formContainer.loginModal.active, .formContainer.registerModal.active {
+    opacity: 1;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    visibility: visible;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease; }
+
+.signInPage .loginModal, .signUpPage .registerModal {
+  opacity: 1;
+  visibility: visible; }
+  .signInPage .loginModal .close, .signUpPage .registerModal .close {
+    display: none; }
+
+.formContainer {
+  /*min-height: 370px;*/
+  padding: 30px 0;
+  width: 250px;
+  background: #FFF;
+  border-radius: 7px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -moz-align-content: center;
+  -ms-align-content: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+
+.close {
+  display: block;
+  position: relative;
+  text-align: right;
+  margin-top: -43px;
+  margin-right: -43px; }
+
+h2.shadowCaps {
+  text-shadow: -1px -1px 2px #CCC;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.3em;
+  letter-spacing: 0.1em; }
+
+i.facebookSignin {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 5px; }
+
+i.googleSignin {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex; }
+
+p.or {
+  padding: 14px 0 14px 0;
+  text-shadow: -1px -1px 2px #CCC;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.3em;
+  letter-spacing: 0.1em; }
+
+article.siteSignin {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+
+h3.field {
+  padding-bottom: 8px; }
+
+button.submitSignUp {
+  width: 80px;
+  height: 34px;
+  background-image: url("sign_up.svg");
+  background-repeat: no-repeat;
+  color: transparent;
+  outline: none;
+  margin: 0 auto;
+  display: block; }
+  button.submitSignUp:hover {
+    background-image: url("sign_up_hover.svg"); }
+
+button.submitSignIn {
+  width: 80px;
+  height: 34px;
+  background-image: url("login.svg");
+  background-repeat: no-repeat;
+  color: transparent;
+  outline: none;
+  margin: 0 auto;
+  display: block; }
+
+button.submitSignIn:hover {
+  background-image: url("login_hover.svg"); }
+
+.fieldContainer label {
+  display: block;
+  width: 100%; }
+
+.field input:not([type=checkbox]) {
+  width: 100%;
+  box-sizing: border-box; }
+
+.field_with_errors input {
+  border: solid 1px #fda63c; }
+
+.error {
+  color: red;
+  display: block; }
+
+.rememberMe {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+
+.playerProfile {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+  .playerProfile span {
+    padding-right: 25px;
+    font-size: 1.2em;
+    letter-spacing: 0.05em; }
+  .playerProfile img {
+    height: 33px;
+    width: 33px;
+    border-radius: 50%; }
+
+.playerProfileContainer {
+  width: 100%;
+  height: 100%;
+  display: block; }
+
+.playerProfileContainer h3 {
+  font-size: 15px; }
+
+.playerProfileContainer h2 {
+  font-size: 20px; }
+
+.topProfileContainer {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+.playerName {
+  display: block;
+  width: 100%;
+  float: top;
+  font-size: 20px; }
+
+.imageMainDetailsContainer {
+  display: block;
+  width: 100%;
+  margin-top: 20px; }
+
+.profileImageContainer {
+  display: inline-block;
+  float: left;
+  margin-right: 40px; }
+
+.profileImageContainer img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%; }
+
+.profileMainDetails {
+  display: inline-block;
+  width: 350px;
+  margin-right: 50px; }
+
+.profilePlayingDetails {
+  display: inline-block;
+  width: 350px; }
+
+.topLabel {
+  width: 125px;
+  display: inline-block; }
+
+.topValue {
+  display: inline-block;
+  color: #08088A; }
+
+.middleLeftProfileContainer {
+  display: inline-block;
+  width: 550px;
+  margin-right: 50px;
+  vertical-align: top; }
+
+.currentSeasonAnalytics, .lifetimeAnalytics {
+  width: 100%;
+  height: 150px;
+  display: inline-block; }
+
+.lifetimeChart {
+  display: block;
+  width: 100%;
+  height: 200px; }
+
+.middleRightProfileContainer {
+  display: inline-block;
+  width: 365px;
+  vertical-align: top; }
+
+.recentMatches, .upcomingMatches {
+  display: block;
+  width: 100%;
+  height: 150px;
+  vertical-align: top; }
+
+.bottomProfileContainer {
+  display: block;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 20px; }
+
+#smallLineChart {
+  float: left;
+  display: block;
+  height: 100%;
+  width: 80%; }
+
+.imageGallery img {
+  height: 200px;
+  width: 300px; }
+
+.image1 img {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px; }
+
+.image1, .image2, .image3 {
+  display: inline-block; }
+
+.image3 img {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px; }
+
+.matchLabel {
+  color: black;
+  display: inline;
+  line-height: 2; }
+
+.matchValue {
+  color: #08088A;
+  display: inline;
+  line-height: 2; }
+
+.imageOverlay {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; }
+  .imageOverlay img {
+    height: 70%; }
+  .imageOverlay.active {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    display: flex;
+    opacity: 1; }
+
+section.scoringApp {
+  padding-top: 3%;
+  background: #ccc;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  section.scoringApp .welcome {
+    width: 280px;
+    height: 60px;
+    background-image: url("welcome.svg");
+    background-repeat: no-repeat; }
+  section.scoringApp .scoringApp_form {
+    width: 100%;
+    padding-bottom: 4%; }
+    section.scoringApp .scoringApp_form section.paddleContainer {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: flex; }
+      section.scoringApp .scoringApp_form section.paddleContainer .paddle {
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        justify-content: center;
+        position: relative; }
+        section.scoringApp .scoringApp_form section.paddleContainer .paddle img {
+          width: 37%; }
+        section.scoringApp .scoringApp_form section.paddleContainer .paddle .fieldLeft {
+          color: #FFF;
+          position: absolute;
+          left: 23%;
+          top: 30%; }
+          section.scoringApp .scoringApp_form section.paddleContainer .paddle .fieldLeft label {
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 800;
+            font-family: Helvetica; }
+          section.scoringApp .scoringApp_form section.paddleContainer .paddle .fieldLeft input {
+            border: 0;
+            background: rgba(255, 255, 255, 0);
+            color: rgba(255, 255, 255, 0.6);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+            width: 60%;
+            font-size: 1.2em; }
+        section.scoringApp .scoringApp_form section.paddleContainer .paddle .fieldRight {
+          position: absolute;
+          left: 61%;
+          top: 30%; }
+          section.scoringApp .scoringApp_form section.paddleContainer .paddle .fieldRight label {
+            color: rgba(0, 0, 0, 0.6);
+            font-weight: 800;
+            font-family: Helvetica; }
+          section.scoringApp .scoringApp_form section.paddleContainer .paddle .fieldRight input {
+            border: 0;
+            background: rgba(0, 0, 0, 0);
+            color: rgba(0, 0, 0, 0.6);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+            width: 60%;
+            font-size: 1.2em; }
+        @media (max-width: 768px) {
+          section.scoringApp .scoringApp_form section.paddleContainer .paddle .fieldLeft input, section.scoringApp .scoringApp_form section.paddleContainer .paddle .fieldRight input {
+            display: block; } }
+    section.scoringApp .scoringApp_form .startMatch {
+      position: absolute;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: flex;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      -ms-justify-content: center;
+      justify-content: center;
+      margin-top: -90px;
+      width: 100%; }
+      section.scoringApp .scoringApp_form .startMatch button {
+        background: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer; }
+
+#container.match {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  #container.match .player1, #container.match .player2 {
+    width: 50%;
+    height: 90%;
+    color: #FFF;
+    text-align: center;
+    padding-top: 10%;
+    cursor: pointer;
+    position: relative; }
+  #container.match .player1 {
+    background: #6192F2;
+    float: left; }
+    #container.match .player1 #p1-name {
+      font-size: 4vw; }
+    #container.match .player1 #p1-points {
+      font-size: 25vw; }
+    #container.match .player1 #p1-games {
+      position: absolute;
+      left: 80%;
+      top: 7%;
+      font-size: 6vw; }
+    #container.match .player1 .p1-back a:hover {
+      color: #5bd3ad; }
+  #container.match .player2 {
+    background: #5bd3ad;
+    float: right; }
+    #container.match .player2 #p2-name {
+      font-size: 4vw; }
+    #container.match .player2 #p2-points {
+      font-size: 25vw; }
+    #container.match .player2 #p2-games {
+      position: absolute;
+      left: 12.5%;
+      top: 7%;
+      font-size: 6vw; }
+    #container.match .player2 .p2-back a:hover {
+      color: #6192F2; }
+  #container.match.flipped .player1 {
+    float: right; }
+  #container.match.flipped .player2 {
+    float: left; }
+  #container.match.flipped #p1-games {
+    left: 12.5%; }
+  #container.match.flipped #p2-games {
+    left: 80%; }
+  #container.match nav.p1-back, #container.match .p2-back {
+    padding-top: 3%;
+    padding-bottom: 7%;
+    font-size: 3vw; }
+
+.match_over {
+  display: none; }
+
+.game_over {
+  display: none; }
+
+section.ingameCharts {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center; }
+
+.charts {
+  font-family: "Helvetica Neue";
+  width: 100%;
+  overflow: hidden;
+  background: #5bd3ad; }
+
+.chart_header {
+  text-align: center;
+  background: #09A351;
+  color: white;
+  padding: 4px 5px; }
+
+.chart_title {
+  text-transform: uppercase;
+  color: #09A351; }
+
+.chart_content {
+  height: 350px; }
+
+.chart_line1 {
+  fill: none;
+  stroke: black;
+  stroke-width: 6px; }
+
+.chart_line2 {
+  fill: none;
+  stroke: white;
+  stroke-width: 6px; }
+
+.chart_circle1 {
+  fill: black;
+  radius: 5px; }
+
+.chart_circle2 {
+  fill: white;
+  radius: 5px; }
+
+.chart_pie {
+  stroke: #09A351;
+  stroke-width: 4px; }
+
+.pie {
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase; }
+
+p.player1_name, .player2_name {
+  letter-spacing: 0.15em;
+  font-size: 1.5em; }
+
+.player1_name {
+  color: black; }
+
+.player2_name {
+  color: white; }
+
+p.p1_points_won, .p1_points_won {
+  line-height: 3em;
+  font-size: 0.9em;
+  letter-spacing: 0.05em; }
+
+.p1_points_won {
+  color: black; }
+
+.p2_points_won {
+  color: white; }
+
+table.match {
+  background: white;
+  border-radius: 7px 7px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  line-height: 2em;
+  width: 250px;
+  height: 100px; }
+  table.match td.title, table.match .player {
+    font-size: 0.9em; }
+  table.match td.player {
+    color: #6192F2; }
+  table.match td.game {
+    color: #09A351; }
+  table.match td.g1winner, table.match .g2winner, table.match .g3winner {
+    color: #09A351;
+    font-size: 0.9em; }
+
+section.key {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 1.1em; }
+  section.key article.player1 {
+    color: black; }
+  section.key article.player2 {
+    color: white; }
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+section.tabs {
+  position: relative;
+  width: 750px;
+  margin: 40px auto; }
+
+.tabs input {
+  position: absolute;
+  z-index: 1000;
+  width: 120px;
+  height: 40px; }
