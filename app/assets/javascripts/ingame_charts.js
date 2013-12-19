@@ -41,7 +41,7 @@ App.controller('ChartController', function($scope){
       addCoordinates($scope.playerRecords[0]);
       addCoordinates($scope.playerRecords[1]);
       rallyWinner.push(winnerIndex);
-      var serverIndex = serverLookup(rallyWinner.length);
+      var serverIndex = serverLookup(rallyWinner.length,startingServer);
       serveStatsAllocate(serverIndex, winnerIndex);
       $scope.p1ServePercentage = servePointPercentage(0);
       $scope.p2ServePercentage = servePointPercentage(1);
@@ -69,17 +69,26 @@ App.controller('ChartController', function($scope){
 
   
   var rallyWinner = [];
+  var rallyStartIndex = 0; //Size of rallyWinner when game started
+  var startingServer = 0;
 
   var serveStats = [{servePointsFor: 0, servePointsAgainst: 0},
                     {servePointsFor: 0, servePointsAgainst: 0}];
 
-  var serverLookup = function(nthRally){
+  var serverLookup = function(nthRallyMatch,startingServer){
+   var server;
+   var nthRally = nthRallyMatch - rallyStartIndex;
    if (Math.round(nthRally/2)% 2 == 1) 
     {
-       return 0;
+       server = 0;
     }
    else {
-       return 1;
+       server = 1;
+    }
+    if(startingServer==1){
+      return 1-server;
+    } else {
+      return server;
     }
   };
 
@@ -141,7 +150,7 @@ App.controller('ChartController', function($scope){
 
   var recreateStatsAndPies = function(){
     rallyWinner.forEach(function(winner, i){
-      var server = serverLookup(i + 1);
+      var server = serverLookup(i + 1, 0);
       serveStatsAllocate(server, winner);
     })
     $scope.p1ServePercentage = servePointPercentage(0);
@@ -149,6 +158,11 @@ App.controller('ChartController', function($scope){
     $scope.pieData[0] = pieData(0);
     $scope.pieData[1] = pieData(1);
   };
+
+  $scope.setServer = function(_startingServer){
+    startingServer = _startingServer;
+    rallyStartIndex = rallyWinner.length;
+  }
   
 });
 
