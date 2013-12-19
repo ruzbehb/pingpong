@@ -4,14 +4,14 @@
 
   = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
     %i.close
-      = image_tag 'close.svg', data: { name: 'close' }
+      = hoverable_image_tag 'close'
     %h2.shadowCaps Sign in
     %i.facebookSignin
       = link_to player_omniauth_authorize_path(:facebook) do
-        = image_tag 'facebook_login.svg', data: { name: 'facebook_login' }
+        = hoverable_image_tag 'facebook_login'
     %i.googleSignin
       = link_to player_omniauth_authorize_path(:google_oauth2) do
-        = image_tag 'google_login.svg', data: { name: 'google_login' }
+        = hoverable_image_tag 'google_login'
     %p.or
       or
     %article.siteSignin
