@@ -86,6 +86,8 @@ $ ->
     $('.g1winner').text(match['g1winner'])
     $('.g2winner').text(match['g2winner'])
     $('.g3winner').text(match['g3winner'])
+    $('.score1').text(match['p1current_points']) 
+    $('.score2').text(match['p2current_points']) 
 
     appElement = document.querySelector('[ng-controller=ChartController]')
 
