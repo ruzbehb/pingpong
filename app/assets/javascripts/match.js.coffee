@@ -86,5 +86,11 @@ $ ->
       $scope.$apply ->
         if(Boolean(match.new_game))
           $scope.clearPlayerProgressRecords()
+          if(match['g2winner'])
+            $scope.setServer(0)
+          else if(match['g1winner'])
+            $scope.setServer(1)
+          else 
+            $scope.setServer(0)
         else
           $scope.updateRally(match['rally_winner_index'], Boolean(match.decrement))
