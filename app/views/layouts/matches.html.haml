@@ -10,7 +10,7 @@
     %header.matchHeader
       %nav.home2
         %a{href: home_index_path}
-          %i.matchItem= hoverable_image_tag 'logo.svg', data: { name: 'logo' }
+          %i.matchItem= image_tag 'logo.svg', data: { name: 'logo' }
 
       - if @show_reset_button
         %nav.match{data: { id: @match.id } }
