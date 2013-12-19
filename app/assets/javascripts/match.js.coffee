@@ -11,6 +11,11 @@ $ ->
   flipBoard = (match) ->
     $('.match').toggleClass('flipped', isOddNumberedGame(match))
 
+  indicateServer = (match) ->
+    $('#p1marker').toggle(match.currently_serving == 0)
+    $('#p2marker').toggle(match.currently_serving == 1)
+    console.log("server: #{match.currently_serving}")
+
   $("#p1-points, #p2-points").on 'click', (e) ->
     e.preventDefault()
     $.ajax "/api/matches/#{id}",
@@ -25,6 +30,7 @@ $ ->
       $("#p2-games").text(data.p2games)
 
       flipBoard(data)
+      indicateServer(data)
       if(data.gameover)
         $('.game_over').show()
     ,type: 'PUT'
@@ -44,6 +50,7 @@ $ ->
       $("#p2-games").text(data.p2games)
 
       flipBoard(data)
+      indicateServer(data)
       $('.game_over').hide()
     ,type: 'PUT'
 
@@ -62,6 +69,7 @@ $ ->
       if(data.matchover)
         $('.match_over').show()
       flipBoard(data)
+      indicateServer(data)
     type: 'PUT'
 
   connection = new WebSocketRails(window.location.host + '/websocket')
