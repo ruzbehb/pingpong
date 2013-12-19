@@ -28,7 +28,7 @@ class Match < ActiveRecord::Base
 	end
 
 	def name_of_player(n) #change linked methods for player1_name and player2_name
-		player(n).name
+		player(n).try(:name)
 	end
 
 	def current_points_for_player(num)
@@ -89,7 +89,7 @@ class Match < ActiveRecord::Base
 
 	def find_winner
 		if find_winning_score != []
-			find_winning_score.first.player.name
+			find_winning_score.first.player.try(:name)
 		end
 	end
 

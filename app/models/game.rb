@@ -18,7 +18,7 @@ class Game < ActiveRecord::Base
 			self.points= self.points.send(operation, 1)
 			save
 			if operation == DECREASE
-				self.completed = false
+				self.completed = false if points >= 10
 				save
 				report_game_not_completed
 			else

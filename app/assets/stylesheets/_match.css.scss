@@ -1,5 +1,59 @@
 @import 'mixins';
 
+section.tableContainer {
+  padding-top: 20px;
+  padding-left: 20px;
+  
+  table.match {
+    width: 280px;
+    height: 100px;
+    display: relative;
+    background: white;
+    border-radius: 7px 7px;
+    // border: 4px solid #09A351;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    line-height: 2em;
+    
+    td.title, .player {
+      font-size: 0.9em;
+    }
+
+    td.player {
+      color: #6192F2;
+    }
+
+    td.game {
+      color: #09A351;
+    }
+
+    td.g1winner, .g2winner, .g3winner {
+      color: #09A351;
+      font-size: 0.9em;
+    }
+
+    tr:first-child td {
+      padding-top: 10px
+    }
+
+    tr:last-child td {
+      padding-bottom: 10px
+    }
+
+    td {
+      padding: 0 10px;
+    }
+  }
+
+  h2.matchWinner {
+    padding-top: 20px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.15em;
+  }
+}
+
 section.ingameCharts {
   width: 100%;
   @include flex;
@@ -20,60 +74,6 @@ section.ingameCharts {
       .chart_title {
         text-transform: uppercase;
         color: #09A351;
-      }
-    }
-    
-    section.tableContainer {
-      padding-top: 20px;
-      padding-left: 20px;
-      
-      table.match {
-        width: 280px;
-        height: 100px;
-        display: relative;
-        background: white;
-        border-radius: 7px 7px;
-        // border: 4px solid #09A351;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        line-height: 2em;
-        
-        td.title, .player {
-          font-size: 0.9em;
-        }
-
-        td.player {
-          color: #6192F2;
-        }
-
-        td.game {
-          color: #09A351;
-        }
-
-        td.g1winner, .g2winner, .g3winner {
-          color: #09A351;
-          font-size: 0.9em;
-        }
-
-        tr:first-child td {
-          padding-top: 10px
-        }
-
-        tr:last-child td {
-          padding-bottom: 10px
-        }
-
-        td {
-          padding: 0 10px;
-        }
-      }
-
-      h2.matchWinner {
-        padding-top: 20px;
-        text-transform: uppercase;
-        font-size: 0.9em;
-        letter-spacing: 0.15em;
       }
     }
 
