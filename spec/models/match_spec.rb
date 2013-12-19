@@ -28,9 +28,9 @@ describe Match do
 
 		match.point_change
 		match.score(2).game_won
-		# match.update_oppositions_game_number
 
 		match.scores.each(&:reload)
+
 		example_game(1,2).points = 4
 		example_game(2,2).points = 10
 
@@ -39,9 +39,8 @@ describe Match do
 
 		match.point_change
 		match.score(2).game_won
-		match.scores.each(&:reload)
-		# match.update_oppositions_game_number
 
+		match.scores.each(&:reload)
 	end
 
 	it "has 2 players" do
@@ -53,10 +52,15 @@ describe Match do
 	end
 
 	it "knows the match is over" do
+		expect(match.over?).to be_false
+		complete_game
+		expect(match.over?).to be_true
+	end
+
+	it "knows there is a winner" do
 		expect(match.find_winner).to eq nil
 		complete_game
 		expect(match.find_winner).not_to eq nil
-		expect(match.over?).to be_true
 	end
 
 	it "lets the score know to start a new game" do
@@ -88,8 +92,7 @@ describe Match do
 	end
 
 	it "should update game number to 2 when 2 games won" do
-		10.times {match.score(2).current_game.award_point}
-		match.score(2).current_game.award_point
+		11.times {match.score(2).current_game.award_point}
 		match.score(2).game_won
 
 		match.scores.each(&:reload)
@@ -98,7 +101,6 @@ describe Match do
 		expect(match.score(2).won_games).to eq 1
 		11.times {match.score(2).current_game.award_point}
 		match.score(2).game_won
-
 
 		match.scores.each(&:reload)
 		
@@ -115,27 +117,20 @@ describe Match do
 
 	context "updating progress" do
 
-		xit "knows who's serving" do
-			expect(match.serving).to eq player1
-			example_game(1,1).award_point
-			example_game(1,1).award_point
-			expect(match.serving).to eq player2
-			example_game(2,1).award_point
-			example_game(1,1).award_point
-			expect(match.serving).to eq player1
+		it "knows who's serving" do
+			expect(match.currently_serving).to eq player1
+			2.times {example_game(1,1).award_point}
+
+			expect(match.currently_serving).to eq player2
+			2.times {example_game(2,1).award_point}
+
+			expect(match.currently_serving).to eq player1
 		end
 
 		it "knows who the winner is" do
 			complete_game
-			# puts match.find_winning_score
 			expect(match.find_winner).to eq 'Will'
 		end
-	end
-
-	
-
-	xit "can connect guest to player profile" do
-
 	end
 
 end

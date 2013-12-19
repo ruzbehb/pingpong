@@ -104,17 +104,19 @@ class Match < ActiveRecord::Base
 		score(n).reload.won_games
 	end
 
-	# Methods to write:
+	def currently_serving
+		if points_played_in_game % 4 == 0 || points_played_in_game % 4 == 1
+			score(1).player
+		else
+			score(2).player
+		end
+	end
 
-	# def serving
+	def points_played_in_game
+		score(1).current_game.points + score(2).current_game.points
+	end
 
-	# end
-
-	# def points_played
-	# 	array = []
-	# end
-
-		def is_player_one_the_winner?
+	def is_player_one_the_winner?
 		won_after_eleven_points?(1, 2) || won_at_eleven_points?(1, 2)
   end
 
