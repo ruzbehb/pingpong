@@ -110,15 +110,27 @@ class Match < ActiveRecord::Base
 	end
 
 	def currently_serving
-		if points_played_in_game % 4 == 0 || points_played_in_game % 4 == 1
-			score(1).player
+		if games_played == 1
+			if points_played_in_game % 4 == 0 || points_played_in_game % 4 == 1
+				1
+			else
+				0
+			end
 		else
-			score(2).player
+			if points_played_in_game % 4 == 0 || points_played_in_game % 4 == 1
+				0
+			else
+				1
+			end
 		end
 	end
 
 	def points_played_in_game
 		score(1).current_game.points + score(2).current_game.points
+	end
+
+	def games_played
+		score(1).won_games + score(2).won_games
 	end
 
 	def is_player_one_the_winner?

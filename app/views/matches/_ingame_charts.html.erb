@@ -9,12 +9,12 @@
 				<aside class='player1'>
 					<p class='p1_name'><%= @match.name_of_player(1) %></p>
 					<p class='symbol1'></p>
-					<p class='score1'><%= @match.score(1).game(1).points %></p>
+					<p class='score1'><%= @match.score(1).current_game.points %></p>
 				</aside>
 				<aside class='player2'>
 					<p class='p2_name'><%= @match.name_of_player(2) %></p>
 					<p class='symbol2'></p>
-					<p class='score2'><%= @match.score(1).game(1).points %></p>
+					<p class='score2'><%= @match.score(2).current_game.points %></p>
 				</aside>
 			</article>
 		</section>
