@@ -37,6 +37,11 @@ class Match < ActiveRecord::Base
 		score(2).game_completed if score(1).current_game.completed == true
 	end
 
+	def set_opposing_game_to_not_completed
+		score(1).game_not_completed if score(2).current_game.completed == false
+		score(2).game_not_completed if score(1).current_game.completed == false
+	end
+
 	def reports_game_completed_to_score(n)
 		score(1).game_completed
 		score(2).game_completed

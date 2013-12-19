@@ -11,7 +11,7 @@ $ ->
   flipBoard = (match) ->
     $('.match').toggleClass('flipped', isOddNumberedGame(match))
 
-  $("#p1-points, #p2-points, #p1-back, #p2-back").on 'click', (e) ->
+  $("#p1-points, #p2-points").on 'click', (e) ->
     e.preventDefault()
     $.ajax "/api/matches/#{id}",
     data:
@@ -23,16 +23,28 @@ $ ->
       $("#p1-games").text(data.p1games)
       $("#p2-points").text(data.p2points)
       $("#p2-games").text(data.p2games)
-      console.log(data)
-      console.log(data.gameover)
-      if(data.gameover == true)
-        $('.game_over').show()
-      else
-        $('.game_over').hide()
-      if(data.matchover == true)
-        $('.match_over').show()
-        $('.game_over').hide()
+
       flipBoard(data)
+      if(data.gameover)
+        $('.game_over').show()
+    ,type: 'PUT'
+
+
+  $("#p1-back, #p2-back").on 'click', (e) ->
+    e.preventDefault()
+    $.ajax "/api/matches/#{id}",
+    data:
+      player_id: $(this).closest('section').find('h2').data('id'),
+      decrement: $(this).data('decrement')
+    ,
+    success: (data,status) ->
+      $("#p1-points").text(data.p1points)
+      $("#p1-games").text(data.p1games)
+      $("#p2-points").text(data.p2points)
+      $("#p2-games").text(data.p2games)
+
+      flipBoard(data)
+      $('.game_over').hide()
     ,type: 'PUT'
 
   $(".game_button").on 'click', (e) ->
@@ -42,10 +54,13 @@ $ ->
       new_game: true
     }
     success: (data,status) ->
+      $('.game_over').hide()
       $("#p1-points").text(data.p1points)
       $("#p1-games").text(data.p1games)
       $("#p2-points").text(data.p2points)
       $("#p2-games").text(data.p2games)
+      if(data.matchover)
+        $('.match_over').show()
       flipBoard(data)
     type: 'PUT'
 

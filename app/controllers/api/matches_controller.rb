@@ -17,6 +17,8 @@ class Api::MatchesController < ApplicationController
 		    @point_direction = (params[:decrement])
 		    player_index = @match.players.index(@player)
 		    if @point_direction == "true"
+		    	@match.score(1).current_game.completed = false
+		    	@match.score(2).current_game.completed = false
 		    	@match.scores[player_index].current_game.delete_point
 		    else
 		    	@match.scores[player_index].current_game.award_point

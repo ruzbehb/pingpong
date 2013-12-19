@@ -20,10 +20,10 @@ class Game < ActiveRecord::Base
 			if operation == DECREASE
 				self.completed = false
 				save
+				report_game_not_completed
 			else
 				report_point_changed
 			end
-
 		else
 			report_game_completed
 		end
@@ -37,6 +37,10 @@ class Game < ActiveRecord::Base
 
 	def report_game_completed
 		score.match.set_opposing_game_to_completed
+	end
+
+	def report_game_not_completed
+		score.match.set_opposing_game_to_not_completed
 	end
 
 	def report_point_changed
