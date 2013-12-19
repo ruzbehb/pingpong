@@ -64,7 +64,7 @@ $ ->
       flipBoard(data)
     type: 'PUT'
 
-  connection = new WebSocketRails('localhost:3000/websocket')
+  connection = new WebSocketRails(window.location.host + '/websocket')
   channel = connection.subscribe("table#{id}")
 
   channel.bind 'edit', (match) ->

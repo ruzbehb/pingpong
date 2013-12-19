@@ -4,139 +4,216 @@ section.ingameCharts {
   width: 100%;
   @include flex;
   @include justify-content-center;
-}
 
-.charts {
-  font-family: "Helvetica Neue";
-  width: 100%;
-  overflow: hidden;
-  background: #5bd3ad;
-}
+  section.charts {
+    font-family: "Helvetica Neue";
+    width: 100%;
+    overflow: hidden;
+    background: #5bd3ad;
+   
+    .chart_header {
+      text-align: center;
+      background: #09A351;
+      color: white;
+      padding: 4px 5px;
+    
+      .chart_title {
+        text-transform: uppercase;
+        color: #09A351;
+      }
+    }
+    
+    section.tableContainer {
+      padding-top: 20px;
+      padding-left: 20px;
+      
+      table.match {
+        width: 280px;
+        height: 100px;
+        display: relative;
+        background: white;
+        border-radius: 7px 7px;
+        // border: 4px solid #09A351;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        line-height: 2em;
+        
+        td.title, .player {
+          font-size: 0.9em;
+        }
 
-.chart_header {
-  text-align: center;
-  background: #09A351;
-  color: white;
-  padding: 4px 5px;
-}
+        td.player {
+          color: #6192F2;
+        }
 
-.chart_title {
-  text-transform: uppercase;
-  color: #09A351;
-}
+        td.game {
+          color: #09A351;
+        }
 
-.chart_content{
-  height: 350px;
-}
+        td.g1winner, .g2winner, .g3winner {
+          color: #09A351;
+          font-size: 0.9em;
+        }
 
-.chart_line1 {
-  fill: none;
-  stroke: black;
-  stroke-width: 6px;
-}
+        tr:first-child td {
+          padding-top: 10px
+        }
 
-.chart_line2 {
-  fill: none;
-  stroke: white;
-  stroke-width: 6px;
-}
+        tr:last-child td {
+          padding-bottom: 10px
+        }
 
-.chart_circle1 {
-  fill: black;
-  radius: 5px;  
-}
+        td {
+          padding: 0 10px;
+        }
+      }
 
-.chart_circle2 {
-  fill: white;
-  radius: 5px;  
-}
+      h2.matchWinner {
+        padding-top: 20px;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        letter-spacing: 0.15em;
+      }
+    }
 
-.chart_pie {
-  stroke: #09A351;
-  stroke-width: 4px;
-}
+    section.key {
+      height: 30px;
+      padding-top: 30px;
+      padding-left: 20px;
+      @include flex;
+      @include flex-direction-column;
+      @include justify-content-center;
 
-.pie {
-  display: inline-block;
-  text-align: center;
-  text-transform: uppercase;
-}
+      article.playersKey {
+        @include flex;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 1.1em;
 
-p.player1_name, .player2_name {
-  letter-spacing: 0.15em;
-  font-size: 1.5em;
-}
+        aside.player1 {
+          @include flex;
+          margin-right: 7%;
+          color: black;
 
-.player1_name {
-  color: black;
-}
+          .p1_name {
 
-.player2_name {
-  color: white;
-}
+          }
 
-p.p1_points_won, .p1_points_won {
-  line-height: 3em;
-  font-size: 0.9em;
-  letter-spacing: 0.05em;
-}
+          .symbol1 {
+            margin: 0 15px;
+            background: black;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+          }
 
-.p1_points_won {
-  color: black;
-}
+          .score1 {
 
-.p2_points_won {
-  color: white;
-}
+          }
+        }
 
-table.match {
-  background: white;
-  border-radius: 7px 7px;
-  // border: 4px solid #09A351;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  line-height: 2em;
-  width: 250px;
-  height: 100px;
-  
-  td.title, .player {
-    font-size: 0.9em;
+        aside.player2 {
+          @include flex;
+          @include justify-content-space-between;
+          color: white;
+
+          .p2_name {
+
+          }
+
+          .symbol2 {
+            margin: 0 15px;
+            background: white;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+          }
+
+          .score2 {
+
+          }
+        }
+      }
+    }
+
+    svg.pie-chart {
+      width: 206px;
+      @include flex;
+      @include justify-content-center;
+      @include align-content-center;
+
+      .chart_pie {
+        stroke: #09A351;
+        stroke-width: 4px;
+        @include flex;
+        @include justify-content-center;
+      }
+    }
+
+    svg.line-chart {
+      height: 340px;
+      .chart_line1 {
+        fill: none;
+        stroke: black;
+        stroke-width: 6px;
+      }
+
+      .chart_line2 {
+        fill: none;
+        stroke: white;
+        stroke-width: 6px;
+      }
+
+      .chart_circle1 {
+        fill: black;
+        radius: 5px;  
+      }
+
+      .chart_circle2 {
+        fill: white;
+        radius: 5px;  
+      } 
+    }
+
+    article.pieContainer {
+      width: 100%;
+      @include flex;
+      @include justify-content-center;
+      @include align-content-center;
+
+      aside.pie {
+        padding: 0 7%;
+        text-align: center;
+        text-transform: uppercase;
+
+        .player1_name {
+          letter-spacing: 0.15em;
+          font-size: 1.5em;
+          color: black;
+        }
+
+        .player2_name {
+          letter-spacing: 0.15em;
+          font-size: 1.5em;
+          color: white;
+        }
+
+        .p1_points_won, .p2_points_won {
+          line-height: 3em;
+          font-size: 0.9em;
+          letter-spacing: 0.05em;
+          padding-bottom: 5%;
+        }
+        
+        .p1_points_won {
+          color: black;
+        }
+        
+        .p2_points_won {
+          color: white;
+        }
+      }
+    }
   }
-
-  td.title {
-
-  }
-
-  td.player {
-    color: #6192F2;
-  }
-
-  td.game {
-    color: #09A351;
-  }
-
-  td.g1winner, .g2winner, .g3winner {
-    color: #09A351;
-    font-size: 0.9em;
-  }
 }
-
-section.key {
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-size: 1.1em;
-
-  article.player1 {
-    color: black;
-  }
-
-  article.player2 {
-    color: white;
-  }
-
-  // li {
-  //   text-decoration: none;
-  // }
-}
-

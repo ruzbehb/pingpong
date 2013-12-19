@@ -1,6 +1,6 @@
 window.App = angular.module('App', []);
 
-App.controller('ChartController', function($scope){
+App.controller('ChartController', ['$scope', function($scope){
 
   $scope.playerRecords = [{points: 0, coordinates: [{x:25,y:300}]},
                              {points: 0, coordinates: [{x:25,y:300}]}];
@@ -164,5 +164,5 @@ App.controller('ChartController', function($scope){
     rallyStartIndex = rallyWinner.length;
   }
   
-});
+}]);
 
