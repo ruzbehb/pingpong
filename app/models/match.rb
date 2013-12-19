@@ -5,6 +5,9 @@ class Match < ActiveRecord::Base
 	has_many :games, through: :scores, order: 'id ASC'
 
 	def add_players(player_one, player_two)
+		player_one ||= "Player 1"
+		player_two ||= "Player 2"
+
 		self.scores = [associate_score_to(guest_player_named(player_one)), associate_score_to(guest_player_named(player_two))]
 	end
 

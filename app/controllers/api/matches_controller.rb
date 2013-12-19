@@ -12,10 +12,10 @@ class Api::MatchesController < ApplicationController
 	    elsif @new_game == "true" && @match.is_player_two_the_winner?
 	    	@match.score(2).game_won
 	    else
-
 	    	@player = Player.find(params[:player_id])
 		    @point_direction = (params[:decrement])
 		    player_index = @match.players.index(@player)
+
 		    if @point_direction == "true"
 		    	@match.score(1).current_game.completed = false
 		    	@match.score(2).current_game.completed = false
@@ -23,6 +23,7 @@ class Api::MatchesController < ApplicationController
 		    else
 		    	@match.scores[player_index].current_game.award_point
 		    end
+		    
 		  end
 	    
 	    WebsocketRails["table#{@match.id}"].trigger 'edit', table_data(@match, player_index, @point_direction, @new_game)

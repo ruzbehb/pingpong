@@ -76,7 +76,6 @@ $ ->
   channel = connection.subscribe("table#{id}")
 
   channel.bind 'edit', (match) ->
-   
     $('.p1g1').text(match['p1g1'])
     $('.p2g1').text(match['p2g1'])
     $('.p1g2').text(match['p1g2'])
@@ -96,6 +95,7 @@ $ ->
       $scope.$apply ->
         if(Boolean(match.new_game))
           $scope.clearPlayerProgressRecords()
+          $scope.clearRallyWinner()
           if(match['g2winner'])
             $scope.setServer(0)
           else if(match['g1winner'])
