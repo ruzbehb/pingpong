@@ -24,11 +24,13 @@ section.ingameCharts {
     }
     
     section.tableContainer {
+      // width: 260px;
+      // height: 110px;
       padding-top: 20px;
       padding-left: 20px;
       
       table.match {
-        width: 250px;
+        width: 280px;
         height: 100px;
         display: relative;
         background: white;
@@ -43,10 +45,6 @@ section.ingameCharts {
           font-size: 0.9em;
         }
 
-        td.title {
-
-        }
-
         td.player {
           color: #6192F2;
         }
@@ -59,11 +57,22 @@ section.ingameCharts {
           color: #09A351;
           font-size: 0.9em;
         }
+
+        tr:first-child td {
+          padding-top: 10px
+        }
+
+        tr:last-child td {
+          padding-bottom: 10px
+        }
+
+        td {
+          padding: 0 10px;
+        }
       }
     }
 
     section.key {
-      width: 250px;
       height: 30px;
       padding-top: 30px;
       padding-left: 20px;
@@ -73,15 +82,13 @@ section.ingameCharts {
 
       article.playersKey {
         @include flex;
-        @include justify-content-space-between;
         text-transform: uppercase;
         letter-spacing: 0.15em;
         font-size: 1.1em;
 
         aside.player1 {
-          width: 100px;
           @include flex;
-          @include justify-content-space-between;
+          margin-right: 7%;
           color: black;
 
           .p1_name {
@@ -89,6 +96,7 @@ section.ingameCharts {
           }
 
           .symbol1 {
+            margin: 0 15px;
             background: black;
             border-radius: 50%;
             width: 15px;
@@ -101,7 +109,6 @@ section.ingameCharts {
         }
 
         aside.player2 {
-          width: 100px;
           @include flex;
           @include justify-content-space-between;
           color: white;
@@ -111,6 +118,7 @@ section.ingameCharts {
           }
 
           .symbol2 {
+            margin: 0 15px;
             background: white;
             border-radius: 50%;
             width: 15px;
@@ -124,8 +132,8 @@ section.ingameCharts {
       }
     }
 
-    svg.chart_content {
-      width: 400px;
+    svg.pie-chart {
+      width: 206px;
       @include flex;
       @include justify-content-center;
       @include align-content-center;
@@ -136,7 +144,10 @@ section.ingameCharts {
         @include flex;
         @include justify-content-center;
       }
+    }
 
+    svg.line-chart {
+      height: 340px;
       .chart_line1 {
         fill: none;
         stroke: black;
@@ -167,6 +178,7 @@ section.ingameCharts {
       @include align-content-center;
 
       aside.pie {
+        padding: 0 7%;
         text-align: center;
         text-transform: uppercase;
 
@@ -186,6 +198,7 @@ section.ingameCharts {
           line-height: 3em;
           font-size: 0.9em;
           letter-spacing: 0.05em;
+          padding-bottom: 5%;
         }
         
         .p1_points_won {

@@ -2,7 +2,9 @@
 
 section.scoringApp {
   padding-top: 3%;
-  background: #ccc;
+  // background: #ccc;
+  background-image: url('mottled.jpg');
+  background-repeat: repeat;
   @include flex;
   @include flex-direction-column;
   @include align-items-center;
