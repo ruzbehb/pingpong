@@ -15,7 +15,7 @@
       - if @show_reset_button
         %nav.match{data: { id: @match.id } }
           %a{href: new_match_path}
-            %i.restart= hoverable_image_tag 'restart.svg', data: { name: 'restart' }
+            %i.restart= hoverable_image_tag 'restart'
     %section.matchWrapper
     = yield
     = javascript_include_tag 'application'

@@ -39,9 +39,9 @@
             = render 'users/signin', resource_name: :player, resource: Player.new
             = render 'users/register', resource_name: :player, resource: Player.new
             = link_to(new_player_registration_path, class: 'signUp') do
-              %i.regItem= image_tag'register.svg', data: { name: 'register' }
+              %i.regItem= hoverable_image_tag 'register'
             = link_to(new_player_session_path, class: 'signIn') do
-              %i.regItem= image_tag'sign_in.svg', data: { name: 'sign_in' }
+              %i.regItem= hoverable_image_tag 'sign_in'
           - else
             = render 'layouts/signedin'
     %section.mainWrapper
