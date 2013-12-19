@@ -1,13 +1,14 @@
 = link_to player_path(player) do
-	= image_tag player.image_url, :height => 100
-	%ul
-		= player.name 
-	%ul
-		Sex: 
-		= player.sex
-	%ul
-		Current location:
-		= player.current_location
-	%ul
-		Hometown:
-		= player.hometown
+	- if player.guest == false
+		= image_tag player.image_url, :height => 100
+		%ul
+			= player.name 
+		%ul
+			Sex: 
+			= player.sex
+		%ul
+			Current location:
+			= player.current_location
+		%ul
+			Hometown:
+			= player.hometown
