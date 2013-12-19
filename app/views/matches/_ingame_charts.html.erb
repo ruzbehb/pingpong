@@ -1,39 +1,44 @@
 <section class='ingameCharts' ng-app="App">
-	<div class="charts" ng-controller="ChartController">
-			<div class="chart_header">
-	      <h2 class="chart_title" >lovely charts</h2>
-	    </div>
-	    <%= render('table')%>
-			<section class='key'>
-				<article class='player1'>
-					<li><%= @match.name_of_player(1) %></li>
-					<li></li>
-					<li></li>
-				</article>
-				<article class='player2'>
-					<li><%= @match.name_of_player(2) %></li>
-					<li></li>
-					<li></li>
-				</article>
-			</section>
+	<section class="charts" ng-controller="ChartController">
+		<div class="chart_header">
+      <h2 class="chart_title" >lovely charts</h2>
+    </div>
+    <%= render('table')%>
+		<section class='key'>
+			<article class='playersKey'>
+				<aside class='player1'>
+					<p class='p1_name'><%= @match.name_of_player(1) %></p>
+					<p class='symbol1'></p>
+					<p class='score1'><%= @match.score(1).game(1).points %></p>
+				</aside>
+				<aside class='player2'>
+					<p class='p2_name'><%= @match.name_of_player(2) %></p>
+					<p class='symbol2'></p>
+					<p class='score2'><%= @match.score(1).game(1).points %></p>
+				</aside>
+			</article>
+		</section>
 
-	    <svg xmlns="http://www.w3.org/2000/svg" class="chart_content">
-	      <path class="chart_line1" ng-attr-d="{{linePath1()}}"></path>
-	      <path class="chart_line2" ng-attr-d="{{linePath2()}}"></path>
-	      <circle class="chart_circle1" r="6" ng-repeat="p in points_1" ng-attr-cx="{{p.x}}" ng-attr-cy="{{p.y}}"></circle>
-	      <circle class="chart_circle2" r="6" ng-repeat="p in points_2" ng-attr-cx="{{p.x}}" ng-attr-cy="{{p.y}}"></circle>
-	    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" class="line-chart">
+      <path class="chart_line1" ng-attr-d="{{linePath1()}}"></path>
+      <path class="chart_line2" ng-attr-d="{{linePath2()}}"></path>
+      <circle class="chart_circle1" r="6" ng-repeat="p in points_1" ng-attr-cx="{{p.x}}" ng-attr-cy="{{p.y}}"></circle>
+      <circle class="chart_circle2" r="6" ng-repeat="p in points_2" ng-attr-cx="{{p.x}}" ng-attr-cy="{{p.y}}"></circle>
+    </svg>
 
-	    <div class="pie">
+		<article class='pieContainer'>
+	    <aside class="pie">
 	    	<p class='player1_name'><%= @match.name_of_player(1) %></p>
 	    	<p class='p1_points_won' ng-bind-template="Points won on serve: {{p1ServePercentage}}%">Points won on serve</p>
-	    	<pie data='pieData[0]' colors='colors1' ></pie>
-	    </div>
+	    	<pie data='pieData[0]' colors='colors1'></pie>
+	    </aside>
 
-	    <div class="pie">
+	    <aside class="pie">
 	    	<p class='player2_name'><%= @match.name_of_player(2) %></p>
 	    	<p class='p2_points_won' ng-bind-template="Points won on serve: {{p2ServePercentage}}%">Points won on serve</p>
 	    	<pie data='pieData[1]' colors='colors2'></pie>
-	    </div>
-	</div>
+	    </aside>
+    </article>
+
+	</section>
 </section>

@@ -3,6 +3,8 @@
 section.scoringApp {
   padding-top: 3%;
   background: #ccc;
+  // background-image: url('mottled.jpg');
+  // background-repeat: repeat;
   @include flex;
   @include flex-direction-column;
   @include align-items-center;
@@ -37,7 +39,7 @@ section.scoringApp {
         .fieldLeft {
           color: #FFF;
           position: absolute;
-          left: 23%;
+          left: 24%;
           top: 30%;
 
           label {
@@ -58,7 +60,7 @@ section.scoringApp {
         }
         .fieldRight {
           position: absolute;
-          left: 61%;
+          left: 57%;
           top: 30%;
           
           label {
@@ -78,7 +80,7 @@ section.scoringApp {
         }
 
         .fieldLeft, .fieldRight {
-          @media(max-width: 768px) {
+          @media(max-width: 980px) {
             input { display: block; }
           }
         }
@@ -117,7 +119,7 @@ section.scoringApp {
 
   .player1 {
     // background: #2c78cc;
-    background: #6192F2;
+    background: #5bd3ad;
     float: left;
 
     #p1-name {
@@ -136,12 +138,12 @@ section.scoringApp {
     }
 
     .p1-back a:hover {
-      color: #5bd3ad;
+      color: #6192F2;
     }
   }
 
   .player2 {
-    background: #5bd3ad;
+    background: #6192F2;
     float: right;
 
     #p2-name {
@@ -160,7 +162,7 @@ section.scoringApp {
     }
 
     .p2-back a:hover {
-      color: #6192F2;
+      color: #5bd3ad;
     }
   }
 
