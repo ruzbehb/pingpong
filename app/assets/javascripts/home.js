@@ -1,12 +1,12 @@
 $(function() {
   $('i img').on('mouseover', function() {
-    var imgSrc = '/assets/' + $(this).data('name') + '_hover.svg';
+    var imgSrc = $(this).data('hover-src');
 
     $(this).attr('src', imgSrc)
   });
 
   $('i img').on('mouseout', function() {
-    var imgSrc = '/assets/' + $(this).data('name') + '.svg';
+    var imgSrc = $(this).data('orig-src');
 
     $(this).attr('src', imgSrc)
   });
