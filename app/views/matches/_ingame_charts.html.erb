@@ -26,16 +26,19 @@
       <circle class="chart_circle2" r="6" ng-repeat="p in points_2" ng-attr-cx="{{p.x}}" ng-attr-cy="{{p.y}}"></circle>
     </svg>
 
-    <article class="pie">
-    	<p class='player1_name'><%= @match.name_of_player(1) %></p>
-    	<p class='p1_points_won' ng-bind-template="Points won on serve: {{p1ServePercentage}}%">Points won on serve</p>
-    	<pie data='pieData[0]' colors='colors1'></pie>
-    </article>
+		<article class='pieContainer'>
+	    <aside class="pie">
+	    	<p class='player1_name'><%= @match.name_of_player(1) %></p>
+	    	<p class='p1_points_won' ng-bind-template="Points won on serve: {{p1ServePercentage}}%">Points won on serve</p>
+	    	<pie data='pieData[0]' colors='colors1'></pie>
+	    </aside>
 
-    <article class="pie">
-    	<p class='player2_name'><%= @match.name_of_player(2) %></p>
-    	<p class='p2_points_won' ng-bind-template="Points won on serve: {{p2ServePercentage}}%">Points won on serve</p>
-    	<pie data='pieData[1]' colors='colors2'></pie>
+	    <aside class="pie">
+	    	<p class='player2_name'><%= @match.name_of_player(2) %></p>
+	    	<p class='p2_points_won' ng-bind-template="Points won on serve: {{p2ServePercentage}}%">Points won on serve</p>
+	    	<pie data='pieData[1]' colors='colors2'></pie>
+	    </aside>
     </article>
+    
 	</section>
 </section>

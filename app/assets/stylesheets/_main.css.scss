@@ -42,6 +42,8 @@ body > section.mainWrapper {
   min-height: calc(100% - 100px);
   padding-top: 50px;
   background: #CCC;
+  // background-image: url('pong.jpg');
+  // background-repeat: repeat;
   @include justify-content-center;
   @include align-content-center;
 
