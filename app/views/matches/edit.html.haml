@@ -15,8 +15,13 @@
       = @match.name_of_player(1)
     %article#p1-points= @match.score(1).current_game.points
     %aside#p1-games= @match.score(1).won_games
-    .p1serveball#p1marker
-      = image_tag'serveball.svg'
+
+    - if @match.currently_serving == 0
+      #p1marker.p1serveball
+        = image_tag 'serveball.svg'
+    - else 
+      #p1marker.p1serveball{style: "display: none"}
+        = image_tag 'serveball.svg'
     %nav.p1-back= link_to "Back", '', id: 'p1-back', data: { decrement: true }
 
 
@@ -25,6 +30,10 @@
       = @match.name_of_player(2)
     %article#p2-points= @match.score(2).current_game.points
     %aside#p2-games= @match.score(2).won_games
-    .p2serveball#p2marker
-      = image_tag'serveball.svg'
+    - if @match.currently_serving == 1
+      #p2marker.p2serveball
+        = image_tag 'serveball.svg'
+    - else 
+      #p2marker.p2serveball{style: "display: none"}
+        = image_tag 'serveball.svg'
     %nav.p2-back= link_to "Back", '', id: 'p2-back', data: { decrement: true }
