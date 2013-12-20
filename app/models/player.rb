@@ -25,7 +25,7 @@ class Player < ActiveRecord::Base
                            last_name:auth.info.last_name,
                            fb_url:auth.info.urls.Facebook,
                            current_location:auth.info.location,
-                           hometown:auth.extra.raw_info.hometown.name,
+                           hometown:auth.extra.raw_info.hometown.try(:name),
                            sex:auth.extra.raw_info.gender,
 	                         password: pwd,
                            password_confirmation: pwd
