@@ -5,6 +5,9 @@ class Match < ActiveRecord::Base
 	has_many :games, through: :scores, order: 'id ASC'
 
 	def add_players(player_one, player_two)
+		player_one ||= "Player 1"
+		player_two ||= "Player 2"
+
 		self.scores = [associate_score_to(guest_player_named(player_one)), associate_score_to(guest_player_named(player_two))]
 	end
 
@@ -25,7 +28,7 @@ class Match < ActiveRecord::Base
 	end
 
 	def name_of_player(n) #change linked methods for player1_name and player2_name
-		player(n).name
+		player(n).try(:name)
 	end
 
 	def current_points_for_player(num)
@@ -86,7 +89,7 @@ class Match < ActiveRecord::Base
 
 	def find_winner
 		if find_winning_score != []
-			find_winning_score.first.player.name
+			find_winning_score.first.player.try(:name)
 		end
 	end
 

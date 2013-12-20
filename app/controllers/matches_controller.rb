@@ -19,8 +19,9 @@ class MatchesController < ApplicationController
 
 
 	def create
-		
 		@match = Match.create
+		params.reject! { |k, v| v.empty? }
+
 		@match.add_players(params[:p1_name], params[:p2_name])
 		redirect_to edit_match_path(@match)
 	end

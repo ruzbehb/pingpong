@@ -7,8 +7,11 @@ App.controller('ChartController', ['$scope', function($scope){
 
   var addCoordinates = function(recordsElement){
     var length = recordsElement.coordinates.length;
-    recordsElement.coordinates.push({x: 25+(length*25), y: 300-recordsElement.points*25});
-  }
+    if (300-recordsElement.points*25 > 0)
+      {
+      recordsElement.coordinates.push({x: 25+(length*25), y: 300-recordsElement.points*25});
+      }
+  };
 
   var linePaths= function(playerIndex){
     return function() {
@@ -58,6 +61,10 @@ App.controller('ChartController', ['$scope', function($scope){
     $scope.points_2 = $scope.playerRecords[1].coordinates;
   }
 
+  $scope.clearRallyWinner = function(){
+    rallyWinner = [];
+  }
+
   var clearServeStats = function(){
     serveStats = [{servePointsFor: 0, servePointsAgainst: 0},
                     {servePointsFor: 0, servePointsAgainst: 0}];
@@ -66,6 +73,8 @@ App.controller('ChartController', ['$scope', function($scope){
   $scope.pieData = [[],[]];
   $scope.colors1 = ["white", "black"];
   $scope.colors2 = ["black", "white"];
+
+
 
   
   var rallyWinner = [];
