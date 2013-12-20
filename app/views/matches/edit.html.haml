@@ -18,10 +18,10 @@
 
     - if @match.currently_serving == 0
       #p1marker.p1serveball
-        = image_tag 'serveball.svg'
+        = image_tag 'serveball.png'
     - else 
       #p1marker.p1serveball{style: "display: none"}
-        = image_tag 'serveball.svg'
+        = image_tag 'serveball.png'
     %nav.p1-back= link_to "Back", '', id: 'p1-back', data: { decrement: true }
 
 
@@ -32,8 +32,8 @@
     %aside#p2-games= @match.score(2).won_games
     - if @match.currently_serving == 1
       #p2marker.p2serveball
-        = image_tag 'serveball.svg'
+        = image_tag 'serveball.png'
     - else 
       #p2marker.p2serveball{style: "display: none"}
-        = image_tag 'serveball.svg'
+        = image_tag 'serveball.png'
     %nav.p2-back= link_to "Back", '', id: 'p2-back', data: { decrement: true }
