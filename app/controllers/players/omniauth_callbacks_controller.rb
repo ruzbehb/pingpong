@@ -12,7 +12,6 @@ class Players::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def google_oauth2
-     
     @player = Player.find_for_google_oauth2(request.env["omniauth.auth"], current_player)
     
     if @player.persisted?
