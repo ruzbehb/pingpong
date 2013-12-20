@@ -1,13 +1,11 @@
 @import 'mixins';
 
-
-
 section.tableContainer {
   padding-top: 20px;
   padding-left: 20px;
 
   table.match:hover{
-    background-color: #ccc;
+    background-color: #ECEBEE;
     cursor: pointer;
   }  
   

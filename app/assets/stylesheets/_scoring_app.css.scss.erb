@@ -103,6 +103,42 @@ section.scoringApp {
   }
 }
 
+.game_over {
+  width: 100%;
+  position: absolute;
+  left: 43.5%;
+  top: 35%;
+  @include flex;
+  @include justify-content-center;
+
+  button {
+    width: 13%;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    img { width: 100%; }
+  }
+}
+
+.match_over {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 35%;
+  background: rgba(255, 255, 255, 0.7);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: black;
+  @include flex;
+  @include justify-content-center;
+  z-index: 9;
+
+  a {
+    color: #F96B2B;
+  }
+}
 
 #container.match {
   @include user-select-none;
@@ -148,8 +184,8 @@ section.scoringApp {
 
     .p1serveball {
       position: absolute;
-      left: 76.5%;
-      top: 50%;
+      left: 20%;
+      top: 82%;
     }
 
     .p1-back a:hover {
@@ -180,8 +216,8 @@ section.scoringApp {
 
     .p2serveball {
       position: absolute;
-      left: 9.5%;
-      top: 50%;
+      left: 68%;
+      top: 82%;
     }
 
     .p2-back a:hover {
@@ -206,11 +242,11 @@ section.scoringApp {
   }
 
   &.flipped .p1serveball {
-    left: 9.5%;
+    left: 68%;
   }
 
   &.flipped .p2serveball {
-    left: 76.5%;
+    left: 20%;
   }
 
   nav.p1-back, .p2-back {
