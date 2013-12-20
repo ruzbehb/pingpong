@@ -72,6 +72,10 @@ $ ->
       indicateServer(data)
     type: 'PUT'
 
+  $(".tableContainer").on 'click', (e) ->
+    window.location=$(this).find("a").attr("href") 
+    return false
+
   connection = new WebSocketRails(window.location.host + '/websocket')
   channel = connection.subscribe("table#{id}")
 
@@ -104,3 +108,5 @@ $ ->
             $scope.setServer(0)
         else
           $scope.updateRally(match['rally_winner_index'], Boolean(match.decrement))
+
+

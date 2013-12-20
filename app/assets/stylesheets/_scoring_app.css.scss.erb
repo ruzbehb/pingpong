@@ -85,17 +85,19 @@ section.scoringApp {
       }
     }
     .startMatch {
+      width: 100%;
       position: absolute;
       @include flex;
       @include justify-content-center;
-      margin-top: -90px;
-      width: 100%;
+      margin-top: -100px;
 
       button {
+        width: 10%;
         background: transparent;
         border: none;
         outline: none;
         cursor: pointer;
+        img { width: 100%; }
       }
     }
   }
@@ -113,10 +115,17 @@ section.scoringApp {
     padding-top: 10%;
     cursor: pointer;
     position: relative;
+
+    .p1serveball, .p2serveball {
+      width: 12.5%;
+      img { 
+        width: 100%;
+      }
+    }
   }
 
+
   .player1 {
-    // background: #2c78cc;
     background: #5bd3ad;
     float: left;
 
@@ -141,7 +150,7 @@ section.scoringApp {
       position: absolute;
       left: 76.5%;
       top: 50%;
-     }
+    }
 
     .p1-back a:hover {
       color: #6192F2;
@@ -179,7 +188,7 @@ section.scoringApp {
       color: #5bd3ad;
     }
   }
-
+  
   &.flipped .player1 {
     float: right;
   }

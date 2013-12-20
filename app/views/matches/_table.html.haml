@@ -1,7 +1,8 @@
 %section.tableContainer
 	%table.match{ data: { id: @match.id } }
 		%tr
-			%td.title Game
+			%td.title
+				%a{href: "#{@match.id}"} Game
 			%td.player 
 				=@match.name_of_player(1)
 			%td.player

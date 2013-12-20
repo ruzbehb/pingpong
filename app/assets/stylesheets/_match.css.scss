@@ -1,8 +1,15 @@
 @import 'mixins';
 
+
+
 section.tableContainer {
   padding-top: 20px;
   padding-left: 20px;
+
+  table.match:hover{
+    background-color: #ccc;
+    cursor: pointer;
+  }  
   
   table.match {
     width: 280px;
@@ -18,6 +25,12 @@ section.tableContainer {
     
     td.title, .player {
       font-size: 0.9em;
+
+    }
+
+    a:hover{
+      color: black;
+
     }
 
     td.player {
