@@ -27,11 +27,11 @@
           %i.logo= image_tag 'logo.svg', data: { name: 'logo' }
       %nav.social
         %i.fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/pingpongpros", "data-layout" => "button_count", "data-share" => "false", "data-show-faces" => "false"}
-        %a{href: "#"}
+        %a{href: "https://www.facebook.com/pingpongpros",target: "_blank"}
           %i.socialItem= hoverable_image_tag 'facebook'
-        %a{href: "#"}
-          %i.socialItem= hoverable_image_tag 'twitter'
-        %a{href: "#"}
+        / %a{href: "#"}
+        /   %i.socialItem= hoverable_image_tag 'twitter'
+        %a{href: "https://plus.google.com/b/109642395818703481030/109642395818703481030/about?hl=en-GB", target: "_blank"}
           %i.socialItem= hoverable_image_tag 'google+'
 
         %nav.registerSignin
