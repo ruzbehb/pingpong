@@ -8,7 +8,6 @@ describe Match do
 	let (:player2) { match.players.last }
 
 	it {should have_many :scores}
-	# it {should have_and_belong_to_many :players}
 	it {should have_many(:games).through(:scores)}
 
 	before (:each) do
@@ -36,6 +35,31 @@ describe Match do
 
 		example_game(1,2).award_point
 		example_game(2,2).award_point
+
+		match.point_change
+		match.score(2).game_won
+
+		match.scores.each(&:reload)
+	end
+
+	def complete_tiebreak_game
+
+		example_game(1,1).points = 9
+		example_game(2,1).points = 11
+
+		example_game(1,1).award_point
+		example_game(2,1).award_point
+
+		match.point_change
+		match.score(2).game_won
+
+		match.scores.each(&:reload)
+
+		example_game(1,2).points = 9
+		example_game(2,2).points = 10
+
+		2.times {example_game(1,2).award_point}
+		3.times {example_game(2,2).award_point}
 
 		match.point_change
 		match.score(2).game_won
@@ -115,16 +139,22 @@ describe Match do
 		expect(match.winner_of_game(2)).to eq "Will"
 	end
 
+	it "knows the winner for a tiebreak game" do
+		complete_tiebreak_game
+		expect(match.winner_of_game(1)).to eq "Will"
+		expect(match.winner_of_game(2)).to eq "Will"
+	end
+
 	context "updating progress" do
 
 		it "knows who's serving" do
-			expect(match.currently_serving).to eq player1
+			expect(match.currently_serving).to eq 0
 			2.times {example_game(1,1).award_point}
 
-			expect(match.currently_serving).to eq player2
+			expect(match.currently_serving).to eq 1
 			2.times {example_game(2,1).award_point}
 
-			expect(match.currently_serving).to eq player1
+			expect(match.currently_serving).to eq 0
 		end
 
 		it "knows who the winner is" do

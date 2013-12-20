@@ -151,7 +151,7 @@ class Match < ActiveRecord::Base
 	end
 
 	def won_after_eleven_points?(num1, num2)
-		current_points_for_player(num1) > 9 && current_points_for_player(num2) > 9 && current_points_for_player(num2) > (current_points_for_player(num1) + 1)
+		current_points_for_player(num1) > 9 && current_points_for_player(num2) > 9 && current_points_for_player(num1) > (current_points_for_player(num2) + 1)
 	end
 
 end
