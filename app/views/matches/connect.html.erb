@@ -1,0 +1,20 @@
+<h1>Connect Player Profiles for match no. <%=@match.id %></h1>
+
+<% if @match.over? %>
+	<%=@guest1.name%> played <%=@guest2.name%> and <%=@match.find_winner%> was the victor!
+
+	<%= form_tag player_saved_match_path, method: :post %>
+
+		Enter <%=@guest1.name%>'s profile username here: 
+
+		<%= text_field_tag :player1 %>
+
+		Enter <%=@guest2.name%>'s profile username here:
+
+		<%= text_field_tag :player2 %>
+
+		<%= submit_tag 'Save to Profiles'%>
+
+<% else %>
+	"Game still in progress"
+<% end %>

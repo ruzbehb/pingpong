@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require websocket_rails/main
+//= require underscore
+//= require gmaps/google
+//= require jquery.jcarousel
+//= require ingame_charts
+//= require directives
 //= require_tree .

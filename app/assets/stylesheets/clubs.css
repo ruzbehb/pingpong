@@ -1,0 +1,143 @@
+.mapControl {
+	height: 100%;
+	width: 100%;
+}
+
+.map_left_container {
+	display: block;
+	height: 100%;
+	width: 500px;
+	min-width: 400px;
+	float: left;
+}
+
+.map_right_container {
+	display: inline-block;
+	height: 100%;
+	margin-left: 25px;
+	width: calc(100% - 550px);
+}
+
+.mainMap {
+	display: left;
+	display: inline-block;
+	padding-top: 20px;
+}
+
+.LocationContainer {
+
+}
+
+.locationDetection {
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.userLocation, .userAddress {
+	display: inline-block;
+}
+
+#club_location_finder {
+	display: block;
+}
+
+#find_clubs_nearby {
+	margin-right: 20px;
+	line-height: 1.9;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.searchByLocation {
+	display: block;
+	float: left;
+}
+
+.byLocation {
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.searchBoxContainer {
+		display: inline-block;
+		float: left;
+		margin-bottom: 10px;
+		margin-top: 10px;
+		width: 100%;
+}
+
+.userAddress {
+	font-style: bold;
+}
+
+#searchInput, #locationInput {
+	line-height: 2;
+	border: 1px solid #ccc;
+  border-radius: 10px;
+  padding-left: 20px;
+}
+
+#searchInput {
+	margin-bottom: 10px;
+}
+
+#locationInput{
+	margin-left: 20px;
+}
+
+.club {
+	display: block;
+	margin-bottom: 2px;
+	margin-left: 2px;
+}
+
+#clubName {
+	font-style: strong;
+	color: blue;
+	padding-bottom: 25px;
+}
+
+.address {
+	padding-bottom: 2px;
+}
+
+.find {
+	line-height: 1.5;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#mainLine {
+	height: 1px;
+	background-color: white;
+	color: #C8C8C8;
+}
+
+.minorLine {
+	border: none;
+	height: 0.5px;
+	background-color: white;
+}
+
+.clubtotal {
+	text-align: right;
+	display: block;
+	margin-bottom: 50px;
+}
+
+.spinner {
+	display: none;
+	width: 15px;
+	height: 15px;
+}
+
+.mapSpinner {
+	width: 50px;
+	height: 50px;
+}

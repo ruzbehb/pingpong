@@ -1,0 +1,40 @@
+%div.match_over
+  / -if @match.over?
+  Congratulations #{@match.find_winner}! Would you like to
+  = link_to "Save Game?", connect_match_path, method: :get, class: "match_button" 
+  or clear the score and
+  = link_to "Start New Game?", new_match_path, method: :get, class: "new_match_button" 
+
+#container.match{"data-id" => @match.id}
+  %section.player1
+    %h2#p1-name{"data-id" => @match.player(1).id}
+      = @match.name_of_player(1)
+    %article#p1-points= @match.score(1).current_game.points
+    %aside#p1-games= @match.score(1).won_games
+
+    - if @match.currently_serving == 0
+      #p1marker.p1serveball
+        = image_tag 'serveball.svg'
+    - else 
+      #p1marker.p1serveball{style: "display: none"}
+        = image_tag 'serveball.svg'
+    %nav.p1-back= link_to "Back", '', id: 'p1-back', data: { decrement: true }
+
+
+  %section.player2
+    %h2#p2-name{"data-id" => @match.player(2).id}
+      = @match.name_of_player(2)
+    %article#p2-points= @match.score(2).current_game.points
+    %aside#p2-games= @match.score(2).won_games
+    - if @match.currently_serving == 1
+      #p2marker.p2serveball
+        = image_tag 'serveball.svg'
+    - else 
+      #p2marker.p2serveball{style: "display: none"}
+        = image_tag 'serveball.svg'
+    %nav.p2-back= link_to "Back", '', id: 'p2-back', data: { decrement: true }
+
+  %div.game_over  
+    / -if @match.end_of_current_game? && !@match.over?
+    %button.game_button
+      = image_tag 'next_game.svg' 

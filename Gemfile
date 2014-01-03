@@ -36,7 +36,7 @@ end
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
@@ -49,12 +49,26 @@ group :development, :test do
 	gem 'rspec-rails'
 	gem 'capybara', '~> 2.1'
 	gem 'shoulda-matchers'
-	gem 'poltergeist'
+	gem 'poltergeist', github: 'jonleighton/poltergeist'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
 end
 
 gem 'devise'
-
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
+gem 'haml'
+
+
+gem 'websocket-rails'
+gem 'thin'
+gem 'gmaps4rails'
+gem 'geocoder'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+
+group :production do
+	gem 'rails_12factor'
+	gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+end	

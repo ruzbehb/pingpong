@@ -1,0 +1,14 @@
+<div class="byLocation">
+	<%= form_tag near_clubs_path, method: :get, remote: true, class: 'club_location_finder' do %>
+
+	<%= text_field_tag :location, nil, placeholder: "Enter an address", id: 'locationInput' %>
+
+	<%= button_tag class: "strongText find" do %>
+		Find 
+		<%= image_tag("http://www.trickyplayers.com/images/standard-spinner.gif", :class => 'spinner') %> 
+	<% end %>
+	
+	<% end %>
+</div>
+
+<%= yield %>

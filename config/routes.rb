@@ -1,4 +1,28 @@
 Pingpong::Application.routes.draw do
+
+  get "home/index"
+  devise_for :players, :controllers => { :omniauth_callbacks => "players/omniauth_callbacks" }
+  root :to => "home#index"
+  resources :players
+  resources :clubs do
+    collection do
+      get :near
+    end
+  end
+
+  resources :matches do
+    member do
+      get 'connect'
+      post 'player_saved'
+    end
+  end
+
+
+  namespace :api, defaults: { format: :json } do
+    resources :matches
+  end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

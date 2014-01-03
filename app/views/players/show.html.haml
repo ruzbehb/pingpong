@@ -1,0 +1,167 @@
+.imageOverlay
+
+.playerProfileContainer
+
+	.topProfileContainer
+		
+		.playerName
+			.strongText
+				= @player.name 
+		
+		.imageMainDetailsContainer	
+			
+			.profileImageContainer
+				= image_tag @player.image_url
+			
+			.profileMainDetails
+	
+				.topLabel
+					Sex:
+				.topValue
+					= @player.sex
+				%hr.minorLine
+				
+				.topLabel
+					Age:
+				.topValue
+					= @player.age
+				%hr.minorLine				
+
+				.topLabel
+					Current location:
+				.topValue
+					= @player.current_location
+				%hr.minorLine
+
+				.topLabel
+					Hometown:
+				.topValue
+					= @player.hometown
+				%hr.minorLine
+				
+				%br
+
+				.topLabel
+					Club(s):
+				.topValue
+					Finsbury, Stepney Green
+				%hr.minorLine
+
+				.topLabel
+					League(s):
+				.topValue
+					Central London, Civil and Service
+				%hr.minorLine
+
+				%br
+
+			.profilePlayingDetails
+				- if @player.first_name == "Ruzbeh"			
+					.topLabel
+						Playing style:
+					.topValue
+						Aggressive Kill Bill Style
+					%hr.minorLine
+
+					.topLabel
+						Plays:
+					.topValue
+						Right-handed
+					%hr.minorLine
+
+					.topLabel
+						Forehand:
+					.topValue
+						Yasaka Mark V
+					%hr.minorLine
+
+					.topLabel
+						Backhand:
+					.topValue
+						Yasaka Phantom (long pimple)
+					%hr.minorLine
+
+					.topLabel
+						Ply:
+					.topValue
+						Stiga
+					%hr.minorLine
+
+					.topLabel
+						Award(s):
+					.topValue
+						Best Male Player of the Central  London tournament 2012
+					%hr.minorLine
+
+				%br
+
+	.middleLeftProfileContainer
+	
+		.currentSeasonAnalytics
+
+			%h2
+				2013 - 2014 Performance
+			
+			<hr class="minorLine">
+			
+			\% wins by week (cumulative)
+			
+			%br
+		
+				Central London league
+					
+			= render 'players/pc_wins_chart'
+		
+		.lifetimeAnalytics
+			%h2
+				Lifetime Performance chart	
+			<hr class="minorLine">
+			.lifetimeChart
+
+	.middleRightProfileContainer
+
+		.upcomingMatches
+			%h2
+				Upcoming Matches
+			<hr class="minorLine">
+
+			.matchLabel 
+				9 Jan 2014
+			
+			.matchValue	
+				Finsbury 2 v. Highbury
+
+			%p 
+				.matchLabel
+					17 Jan 2014
+				.matchValue
+					Away Irving 2 v. Finsbury 2
+
+		%h2
+			Recent Matches 
+		<hr class="minorLine">
+
+		.recentMatches
+			- @matches.each do |match|
+				.matchLabel
+					= localize(match.updated_at, :format => '%d %m %Y')
+				.matchValue
+					= match.name_of_player(1)
+					v.
+					= match.name_of_player(2)
+				
+				.matchLabel
+					= "#{match.score(1).game(1).points}-#{match.score(2).game(1).points}, #{match.score(1).game(2).points}-#{match.score(2).game(2).points}"
+					- if (match.score(1).game(3))
+						=", #{match.score(1).game(3).points}-#{match.score(2).game(3).points}"
+					%p
+
+	.bottomProfileContainer
+		- if @player.first_name == "Ruzbeh"
+			.imageGallery
+				.image1
+					= link_to image_tag("ruz1.jpg"), image_path("ruz1.jpg")
+				.image2
+					= link_to image_tag("ruz2.jpg"), image_path("ruz2.jpg")
+				.image3
+					= link_to image_tag("ruz3.jpg"), image_path("ruz3.jpg")

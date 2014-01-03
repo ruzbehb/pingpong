@@ -1,0 +1,16 @@
+section.tabs {
+  position: relative;
+  width: 750px;
+  margin: 40px auto;
+}
+
+.tabs input {
+  position: absolute;
+  z-index: 1000;
+  width: 120px;
+  height: 40px;
+}
+
+.tabs input#tab-2 {
+  
+}

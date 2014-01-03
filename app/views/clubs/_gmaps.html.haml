@@ -1,0 +1,46 @@
+#map{style: "width: 450px; height: 450px"}
+
+- content_for :scripts do 
+	:javascript
+		
+		handler = Gmaps.build('Google', { builders: { Marker: RichMarkerBuilder } });
+
+		var initialLocation;
+
+		//check if the browser can detect location
+
+		if(navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+
+				//build the map and center to user's location
+
+				handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+					markers = handler.addMarkers(#{raw @club_locations.to_json});
+					handler.bounds.extendWith(markers);
+					handler.fitMapToBounds();
+					handler.getMap().setCenter(initialLocation);
+					});
+
+				//reverse geocode user's location
+
+				var latlng = new google.maps.LatLng(initialLocation.mb, initialLocation.nb);
+				var geocoder = new google.maps.Geocoder();
+				geocoder.geocode({'latLng': latlng}, function(results, status) {
+			    if (status == google.maps.GeocoderStatus.OK) {
+			      $('.userAddress').append(results[1].address_components[3].long_name + ', ' + results[1].address_components[4].long_name + ', ' + results[1].address_components[2].long_name);
+			      $('#location_hidden').val($('.userAddress').text());
+			      $('#find_clubs_nearby').attr('disabled', false);
+			    }
+			  });
+			  $('.mapSpinner').hide();
+
+			}, function() {
+				console.log('Error')
+			});
+		}
+
+
+		
+		
+ 

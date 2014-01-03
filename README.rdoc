@@ -4,7 +4,7 @@ This is our final project at Makers Academy, and we are looking to revolutionali
 
 The Team:
 Alexandria Lawrence - https://github.com/peawit
-Natalie - https://github.com/natalieesk
+Natalie Eskinazi - https://github.com/natalieesk
 Will Bell - https://github.com/billbell73
 Ruzbeh Bacha - https://github.com/ruzbehb
 

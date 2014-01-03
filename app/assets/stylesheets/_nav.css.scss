@@ -1,0 +1,46 @@
+@import 'mixins';
+
+nav.social {
+  @include flex;
+  @include align-items-center;
+}
+
+.socialItem {
+  padding: 12px;
+}
+
+.fb-like {
+  padding-right: 10px;
+}
+
+nav.registerSignin {
+  padding-left: 100px;
+  @include flex;
+}
+
+nav.signOut {
+  padding-left: 40px;
+  padding-right: 15px;
+  @include flex;
+  @include align-items-center;
+}
+
+.regItem {
+  padding-right: 15px;
+}
+
+.matchHeader {
+  // @include flex;
+}
+
+.restart {
+  padding-right: 20px;
+}
+
+nav.footNav {
+  @include flex;
+}
+
+.footLinks {
+  padding-left: 20px;
+}

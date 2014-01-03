@@ -1,0 +1,82 @@
+@import 'variables';
+@import 'mixins';
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @include font-main;
+}
+
+a {
+  color: #000;
+  // text-shadow: -1px -1px 1px #CCC;
+  text-decoration: none;
+  outline: none;
+}
+
+a:hover {
+  color: #F96B2B;
+}
+
+header, footer {
+  width: 100%;
+  height: 50px;
+}
+
+header, section.mainWrapper, footer {
+  @include flex;
+  @include justify-content-space-between;
+  @include align-items-center;
+  @include flex-flow-row-wrap;
+}
+
+body > header {
+  position: fixed;
+  background: #FFF;
+  z-index: 999;
+}
+
+body > section.mainWrapper {
+  min-height: calc(100% - 100px);
+  padding-top: 50px;
+  background: #CCC;
+  @include justify-content-center;
+  @include align-content-center;
+
+  main {
+    height: 100%;
+    width: 84%;
+    @include flex; 
+  }
+}
+
+section.matchWrapper {
+  padding-top: 50px;
+  background: #FFF;
+  @include justify-content-center;
+  @include align-content-center;
+}
+
+body > footer {
+  background: #000;
+  color: #FFF;
+}
+
+.copyright {
+  padding-right: 20px;
+}
+
+.orangeText a {
+  color: #FDA63C;
+  text-shadow: none;
+}
+
+.strongText {
+  @include font-bold;
+
+  a:hover {
+    color: #F96B2B;
+  }
+}

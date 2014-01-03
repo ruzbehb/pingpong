@@ -1,0 +1,26 @@
+%section.homeContent
+
+  %article.carousel
+    .jcarousel
+      %ul
+        %li
+          %img= image_tag 'pingpong3.jpg'
+        %li
+          %img= image_tag 'pingpong1.jpg'
+        %li
+          %img= image_tag 'pingpong2.jpg'
+        %li
+          %img= image_tag 'pingpong4.jpg'
+    .jcarousel-pagination
+
+  %article.container
+    .circles
+      %aside.playWhere
+        %a{href: "/clubs"}
+          %h2= image_tag 'map.jpg'
+      %aside.scoringApp
+        %a{href: "/matches/new"}
+          %h2= image_tag 'scoring_app.jpg'
+      %aside.statsCentre
+        %a{href: "/matches"}
+          %h2= image_tag 'stats_centre.jpg'
