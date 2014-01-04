@@ -4,10 +4,10 @@ This is our final project at Makers Academy, built in just ten days. With this p
 
 === The Team
 
-# {Ruzbeh Bacha}[https://github.com/ruzbehb]
-# {Will Bell}[https://github.com/billbell73]
-# {Natalie Eskinazi}[https://github.com/natalieesk]
-# {Alexandria Lawrence}[https://github.com/peawit]
+{Ruzbeh Bacha}[https://github.com/ruzbehb] <br />
+{Will Bell}[https://github.com/billbell73] <br>
+{Natalie Eskinazi}[https://github.com/natalieesk] <br>
+{Alexandria Lawrence}[https://github.com/peawit] <br>
 
 === Features
 
