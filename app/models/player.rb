@@ -25,7 +25,7 @@ class Player < ActiveRecord::Base
                            last_name:auth.info.last_name,
                            fb_url:auth.info.urls.Facebook,
                            current_location:auth.info.location,
-                           hometown:auth.extra.raw_info.hometown.name,
+                           hometown:auth.extra.raw_info.hometown.try(:name),
                            sex:auth.extra.raw_info.gender,
 	                         password: pwd,
                            password_confirmation: pwd
@@ -52,7 +52,8 @@ class Player < ActiveRecord::Base
       if registered_player
         return registered_player
       else
-        player = Player.create(name: data["name"],
+        pwd = Devise.friendly_token[0,20]
+        player = Player.create!(name: data["name"],
           provider:access_token.provider,
           email: data["email"],
           uid: access_token.uid,
@@ -60,7 +61,8 @@ class Player < ActiveRecord::Base
           last_name: access_token.info.last_name,
           image_url: access_token.info.image,
           google_url: access_token.info.urls.Google,
-          password: Devise.friendly_token[0,20],
+          password: pwd,
+          password_confirmation: pwd
         )
       end
    end

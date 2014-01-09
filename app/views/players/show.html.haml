@@ -151,20 +151,10 @@
 					= match.name_of_player(2)
 				
 				.matchLabel
-					= match.score(1).game(1).points
-					\-
-					= match.score(2).game(1).points
-					,
-					= match.score(1).game(2).points
-					\-
-					= match.score(2).game(2).points
+					= "#{match.score(1).game(1).points}-#{match.score(2).game(1).points}, #{match.score(1).game(2).points}-#{match.score(2).game(2).points}"
 					- if (match.score(1).game(3))
-						,
-						= match.score(1).game(3).points
-						\-
-						= match.score(2).game(3).points
+						=", #{match.score(1).game(3).points}-#{match.score(2).game(3).points}"
 					%p
-
 
 	.bottomProfileContainer
 		- if @player.first_name == "Ruzbeh"

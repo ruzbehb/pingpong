@@ -1,18 +1,38 @@
-== README
+= Ping Pong Pros
 
-This is our final project at Makers Academy, and we are looking to revolutionalise the world of Ping Pong / Table Tennis.
+This is our final project at Makers Academy, built in just ten days. With this project we hope to revolutionalise the world of Ping Pong / Table Tennis. You can view it here[http://www.pingpongpros.com/].
 
-The Team:
-Alexandria Lawrence - https://github.com/peawit
-Natalie Eskinazi - https://github.com/natalieesk
-Will Bell - https://github.com/billbell73
-Ruzbeh Bacha - https://github.com/ruzbehb
+=== The Team
 
-More info to come...
+{Ruzbeh Bacha}[https://github.com/ruzbehb]
 
+{Will Bell}[https://github.com/billbell73]
 
+{Natalie Eskinazi}[https://github.com/natalieesk]
 
+{Alexandria Lawrence}[https://github.com/peawit]
 
+=== Features
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+1. Player Profiles
+
+1. Scoring App
+
+1. Live Scoreboard
+
+1. Club Finder
+
+=== Technologies
+
+- Rails 4
+- Ruby 2.0
+- PostgreSQL with ActiveRecord
+- HTML5, HAML, CSS3, SASS
+- CoffeeScript, JQuery and AJAX
+- API Integration, JSON and JBuilder
+- Ominauth for Facebook and Googlemaps
+- Angular.js
+- Devise
+- Capybara-RSpec and Poltergeist
+- Heroku
+
